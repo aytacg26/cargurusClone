@@ -1,0 +1,45 @@
+.DropDown {
+  position: relative;
+}
+.Option {
+  color: rgb(112, 112, 112);
+  padding: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.Option:hover {
+  color: rgb(59, 167, 255);
+}
+
+.Option.selected {
+  color: #fff;
+  background-color: rgba(59, 167, 255, 0.5);
+}
+
+.DropBtn {
+  padding: 7px 10px;
+  min-width: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: #fff;
+  border: 0 none;
+  color: rgb(148, 148, 148);
+  cursor: pointer;
+  margin: 2px 3px;
+}
+
+.DropBtn:first-child {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.icon {
+  transform: rotate(0deg);
+  transition: transform linear 0.3s;
+}
+
+.icon.dropped {
+  transform: rotate(180deg);
+}

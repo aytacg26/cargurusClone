@@ -1,0 +1,7 @@
+.FormTabs {
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 6px;
+  display: flex;
+  color: rgb(105, 105, 105);
+}

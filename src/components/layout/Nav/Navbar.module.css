@@ -1,0 +1,137 @@
+.Navbar {
+  display: flex;
+  width: 100vw;
+  max-width: 100%;
+  height: 65px;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  position: fixed;
+  top: 0;
+  padding: 0 10px;
+  z-index: 999;
+  background-color: #fff;
+}
+
+.NavLogo {
+  max-width: 80px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  margin: 0 10px;
+  opacity: 0.75;
+  cursor: pointer;
+  transition: opacity 0.35s ease-in-out;
+}
+
+.NavLogo:hover {
+  opacity: 1;
+}
+
+.NavLogo img {
+  max-width: 60%;
+}
+
+.Menu ul {
+  width: max-content;
+  display: none;
+  position: relative;
+}
+
+.Account {
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  height: 100%;
+  margin-left: 15px;
+  display: none;
+}
+
+.countryPick {
+  position: relative;
+  width: max-content;
+}
+
+.pickedCountry {
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-self: center; */
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.pickedFlag {
+  width: 18px;
+}
+
+.pickedFlag img {
+  max-width: 100%;
+  margin-right: 10px;
+}
+
+.pickedCode {
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.icon {
+  transform: rotate(0deg);
+  transition: transform 0.35s ease-in-out;
+}
+
+.icon.rotate {
+  transform: rotate(180deg);
+}
+
+.md-icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 13.5px;
+  position: relative;
+}
+
+.md-icon span {
+  margin: 0 4px;
+}
+
+@media (min-width: 1200px) {
+  .Navbar {
+    padding: 0 30px 0 30px;
+    justify-content: center;
+  }
+
+  .NavLogo {
+    justify-content: center;
+  }
+
+  .NavLogo img {
+    max-width: 60%;
+  }
+
+  .Menu ul {
+    display: flex;
+    flex-flow: row nowrap;
+    max-width: max-content;
+  }
+
+  .Notify {
+    display: none;
+  }
+
+  .Account {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .AccountIcons {
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+    gap: 14px;
+    color: rgb(114, 114, 114);
+  }
+}

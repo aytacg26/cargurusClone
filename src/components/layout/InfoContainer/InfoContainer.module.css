@@ -1,0 +1,27 @@
+.InfoContainer {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  padding: 20px 0;
+}
+
+.InfoContainer h2 {
+  margin: 0 0 5px 0;
+  color: #727272;
+}
+
+.InfoContainer > p {
+  font-size: 10px;
+  width: 80%;
+  margin: 5px auto;
+}
+
+@media (min-width: 678px) {
+  .InfoContainer {
+    width: 65%;
+    margin: 10px auto;
+  }
+}

@@ -1,0 +1,37 @@
+.ShowMore {
+  position: absolute;
+  min-height: max-content;
+  min-width: 235px;
+  width: max-content;
+  max-height: 300px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 3px 3px 6px black;
+  padding: 10px 14px;
+  border-radius: 0 0 5px 5px;
+  border-top: none;
+  overflow-y: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  scrollbar-width: 3px;
+  z-index: 10;
+}
+
+.ShowMore::-webkit-scrollbar {
+  width: 3px;
+}
+.ShowMore::-webkit-scrollbar-track {
+  background-color: #ccc;
+}
+
+.ShowMore::-webkit-scrollbar-thumb {
+  background-color: rgb(15, 70, 252);
+}
+
+.ShowMore button,
+.ShowMore a {
+  border-bottom: 1px solid rgb(168, 168, 168);
+}
+
+.ShowMore *:last-child {
+  border-bottom: 0 none;
+}

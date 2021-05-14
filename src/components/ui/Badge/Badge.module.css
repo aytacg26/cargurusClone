@@ -1,0 +1,15 @@
+.Badge {
+  width: 17px;
+  height: 17px;
+  background-color: rgba(255, 15, 15, 0.89);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 11px;
+  position: absolute;
+  top: -8px;
+  left: 6px;
+  box-shadow: 1px 1px 3px black;
+}

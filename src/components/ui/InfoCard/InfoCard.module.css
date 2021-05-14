@@ -1,0 +1,29 @@
+.infoCard {
+  width: 100%;
+  max-width: 395px;
+  height: 325px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 245px 80px;
+  justify-items: center;
+  color: #727272;
+}
+
+.InfoCardImage {
+  grid-row: 1/2;
+  padding: 5px;
+}
+
+.InfoCardImage img {
+  max-width: 100%;
+}
+
+.InfoCardText {
+  padding: 0 18px;
+  text-align: center;
+}
+
+.InfoCardText p {
+  font-size: 14.3px;
+  margin-top: 15px;
+}

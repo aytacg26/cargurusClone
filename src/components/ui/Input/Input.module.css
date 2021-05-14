@@ -1,0 +1,8 @@
+.Input {
+  max-width: 100%;
+  padding: 12px 15px;
+  margin: 3px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  outline: transparent;
+}
