@@ -16,8 +16,6 @@ const MenuItem = ({
   let content = null;
   const [formattedDate, setFormattedDate] = useState('');
 
-  console.log(isChecked);
-
   useEffect(() => {
     if (date) {
       const forDate = date ? formatDate(date) : '';

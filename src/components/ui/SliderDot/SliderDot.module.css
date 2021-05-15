@@ -1,0 +1,13 @@
+.SliderDot {
+  width: 12px;
+  height: 12px;
+  border: 1px solid #ccc;
+  background-color: transparent;
+  border-radius: 50%;
+  margin: 5px 6px;
+}
+
+.SliderDot.Active {
+  border-color: rgb(8, 93, 250);
+  background-color: rgb(8, 93, 250);
+}
