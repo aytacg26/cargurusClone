@@ -39,3 +39,29 @@ export const loadImage = async (url, elem, setter) => {
     setter && setter(true);
   });
 };
+
+export const chunkArray = (arr, len) => {
+  const chunks = [];
+  let chunk = [];
+  const chunkNum = Math.floor(arr.length / len);
+  const remaining = arr.length % len;
+
+  arr.forEach((el) => {
+    chunk.push(el);
+
+    if (chunk.length === len) {
+      chunks.push(chunk);
+      chunk = [];
+    }
+
+    if (
+      chunks.length === chunkNum &&
+      chunk.length === remaining &&
+      remaining !== 0
+    ) {
+      chunks.push(chunk);
+    }
+  });
+
+  return chunks;
+};
