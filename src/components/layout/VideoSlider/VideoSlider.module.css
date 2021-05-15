@@ -1,0 +1,14 @@
+.SliderContainer {
+  padding: 25px 0;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+  height: 580px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .SliderContainer {
+    height: 480px;
+  }
+}

@@ -5,3 +5,18 @@
   flex-flow: column nowrap;
   overflow-x: hidden;
 }
+
+.HomeBottomContainer {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .HomeBottomContainer {
+    width: 65%;
+    margin: 10px auto;
+  }
+}

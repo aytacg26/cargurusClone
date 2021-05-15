@@ -1,0 +1,53 @@
+.Testimonies {
+  max-width: 100%;
+}
+
+.Testimonies h2,
+h3,
+h4 {
+  font-size: 12.5px;
+  margin: 10px 0;
+  text-align: center;
+  color: #727272;
+}
+
+.Testimonies h2 {
+  text-align: left;
+  color: #000;
+  margin-left: 10px;
+}
+
+.Testimonies h3 {
+  text-align: justify;
+  padding: 20px 15px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  letter-spacing: 1.1px;
+  line-height: 22px;
+}
+
+@media (min-width: 1024px) {
+  .Testimonies {
+    max-width: 40%;
+    padding: 25px 30px;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  .Testimonies h2,
+  h3,
+  h4 {
+    font-size: 15.5px;
+    margin: 15px 0;
+    text-align: left;
+  }
+
+  .Testimonies h2 {
+    font-size: 18.5px;
+  }
+
+  .Testimonies h3 {
+    text-align: justify;
+    font-size: 17px;
+  }
+}

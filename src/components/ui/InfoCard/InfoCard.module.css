@@ -1,12 +1,17 @@
 .infoCard {
   width: 100%;
   max-width: 395px;
-  height: 325px;
+  max-height: 325px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 245px 80px;
+  grid-template-rows: max-content max-content;
   justify-items: center;
   color: #727272;
+  margin: 15px 0;
+}
+
+.infoCard h3 {
+  font-size: 18px;
 }
 
 .InfoCardImage {

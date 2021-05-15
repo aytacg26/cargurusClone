@@ -1,11 +1,8 @@
 .InfoContainer {
-  width: 95%;
-  margin: 0 auto;
-  display: flex;
-  flex-flow: column nowrap;
-  text-align: center;
+  width: 100%;
+  height: max-content;
+  padding: 25px 0;
   border-bottom: 1px solid #ccc;
-  padding: 20px 0;
 }
 
 .InfoContainer h2 {
@@ -17,11 +14,4 @@
   font-size: 10px;
   width: 80%;
   margin: 5px auto;
-}
-
-@media (min-width: 678px) {
-  .InfoContainer {
-    width: 65%;
-    margin: 10px auto;
-  }
 }

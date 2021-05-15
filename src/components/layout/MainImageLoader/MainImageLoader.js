@@ -1,39 +1,73 @@
-import React, { useState, useEffect } from 'react';
-import image1 from '../../../assets/images/scott@2x.jpg';
-import image2 from '../../../assets/images/mike_2x.png';
-import image3 from '../../../assets/images/meagan@2x.jpg';
+import React, { useState, useEffect, useRef } from 'react';
 import classes from './MainImageLoader.module.css';
+import { randomNum, loadImage } from '../../../utils/utilsFuncs';
+import StoryCard from './StoryCard/StoryCard';
+import BackupLoader from './BackupLoader/BackupLoader';
 
-import { randomNum } from '../../../utils/utilsFuncs';
+const loaderImages = [
+  {
+    id: 'main-image-001-0234',
+    // image: 'https://i.ibb.co/rkcLxTR/meagan-2x.jpg',
+    image: 'https://i.postimg.cc/XqHpqd7R/meagan-2x.jpg',
+    title: 'Great Deal',
+    story:
+      'Meagan found the exact car she wanted on CarWorld and only had to go to one dealership',
+    LQImage: 'https://i.ibb.co/pwwK75J/meagan-2x-min-1.jpg',
+  },
+  {
+    id: 'main-image-002-0245',
+    // image: 'https://i.ibb.co/Gnvw1Rj/mike-2x.png',
+    image: 'https://i.postimg.cc/nVRzvKp5/mike-2x.png',
+    title: 'Great Deal',
+    story:
+      'Mike, a first-time used car shopper, found a great deal on a SUV for his family',
+    LQImage: 'https://i.ibb.co/JzsNKc6/mike-lowqu.jpg',
+  },
+  {
+    id: 'main-image-003-0346',
+    // image: 'https://i.ibb.co/zFTnJFq/scott-2x-min.jpg',
+    image: 'https://i.postimg.cc/fTPVhcPX/scott-2x.jpg',
+    title: 'Great Deal',
+    story: 'Scott found his GMC track on CarWorld from a 4-star dealer',
+    LQImage: 'https://i.ibb.co/v1t3KLt/scott-2x-low.jpg',
+  },
+];
 
 const MainImageLoader = () => {
-  const [image, setImage] = useState('');
+  const [story, setStory] = useState('');
+  const [removeBlur, setRemoveBlur] = useState(false);
+  const imageRef = useRef();
 
   useEffect(() => {
-    //Remove setTimeout after completing loading css
-    let timer = setTimeout(() => {
-      const num = randomNum(1, 3);
-      num === 1
-        ? setImage(image1)
-        : num === 2
-        ? setImage(image2)
-        : setImage(image3);
-    }, 400);
+    const selectedIndex = randomNum(0, 3);
+    const selectedStory = loaderImages[selectedIndex];
+    const url = selectedStory['image'];
+    setStory(selectedStory);
+    loadImage(url, imageRef.current);
+  }, []);
+
+  useEffect(() => {
+    //Remove timer, this is just for testing cases of low internet speed to see load process from loader to blur low quality image then original image
+    const timer = setTimeout(() => {
+      const url = story['image'];
+      loadImage(url, imageRef.current, setRemoveBlur);
+    }, 4000);
 
     return () => {
       clearTimeout(timer);
     };
-  }, []);
+  }, [story]);
 
   return (
     <div className={classes['image-section']}>
-      {image && <img src={image} alt='Car Cyprus For Sale Cars' />}
-      {!image && (
-        <div className={classes.MainLoader}>
-          <span className={classes.inner}></span>
-          <span className={classes.textLoading}>Loading...</span>
-        </div>
-      )}
+      <img
+        src={story.LQImage}
+        alt='Car Cyprus For Sale Cars'
+        ref={imageRef}
+        className={removeBlur ? '' : classes.ImageBlur}
+      />
+      {!story && <BackupLoader text='Loading...' />}
+      {removeBlur && <StoryCard {...story} />}
     </div>
   );
 };

@@ -1,0 +1,57 @@
+.dealStory {
+  position: absolute;
+  width: max-content;
+  padding: 20px 12px;
+  background-color: rgba(255, 255, 255, 0.95);
+  right: -100%;
+  bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #727272;
+  box-shadow: -4px 3px 5px rgb(0, 0, 0);
+  border: 0.5px solid #727272;
+  border-radius: 3px 0 0 3px;
+  animation: story-card 0.5s ease-in 0.2s 1 forwards;
+}
+
+.dealStory p {
+  max-width: 260px;
+  margin: 0 20px;
+  font-size: 14px;
+  color: #000;
+}
+
+.storyIcon {
+  width: 35px;
+  height: 35px;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(8, 156, 8);
+  border-radius: 50%;
+  font-size: 25px;
+}
+
+.storyIcon::before {
+  content: '\1F845';
+  margin-top: -3px;
+  color: #fff;
+}
+
+@keyframes story-card {
+  0% {
+    right: -100%;
+  }
+
+  100% {
+    right: 0;
+  }
+}
+
+@media (max-width: 1220px) {
+  .dealStory {
+    display: none;
+  }
+}

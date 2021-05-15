@@ -1,7 +1,7 @@
 .SearchWindow {
   color: #fff;
   position: absolute;
-  top: 11.5vh;
+  top: 1vh;
   left: 50%;
   transform: translate(-50%, 0);
 }
@@ -11,15 +11,20 @@
   text-shadow: 1px 1px 3px black;
   min-width: 100vw;
   font-size: 18px;
-  margin: 20px auto;
+  margin: 50px auto;
   text-align: center;
 }
 
-@media (min-width: 678px) {
+@media (min-width: 1220px) {
   .SearchWindow h1 {
     margin-bottom: 5px;
     text-shadow: 1px 1px 3px black;
     width: max-content;
+    margin: 20px auto;
     font-size: 26px;
+  }
+
+  .SearchWindow {
+    top: 11.5vh;
   }
 }

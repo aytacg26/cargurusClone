@@ -1,0 +1,22 @@
+.VideoSection {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.VideoSection iframe {
+  width: 90vw;
+  height: 43vh;
+}
+
+@media (min-width: 1024px) {
+  .VideoSection {
+    width: 60%;
+    height: 100%;
+    margin-bottom: 0;
+  }
+
+  .VideoSection iframe {
+    width: 100%;
+    height: 420px;
+  }
+}

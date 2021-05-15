@@ -34,7 +34,8 @@ export const loadImage = async (url, elem, setter) => {
     elem.onerror = () => {
       elem.src = noImage;
     };
+
     elem.src = url;
-    setter(true);
+    setter && setter(true);
   });
 };
