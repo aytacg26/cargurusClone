@@ -1,0 +1,12 @@
+.VideoSliderContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: column;
+}
+
+@media (min-width: 1024px) {
+  .VideoSliderContent {
+    flex-flow: row nowrap;
+  }
+}

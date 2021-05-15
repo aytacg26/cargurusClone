@@ -1,5 +1,5 @@
 import React from 'react';
-import DirectionButton from '../../../ui/DirectionButtons/DirectionButton';
+import DirectionButton from '../DirectionButtons/DirectionButton';
 import classes from './SliderArrows.module.css';
 
 const SliderArrows = ({ onSlide, disableLeft, disableRight }) => {

@@ -1,0 +1,7 @@
+.ProductCard {
+  max-height: 100%;
+  max-width: 100%;
+  height: 400px;
+  width: 340px;
+  background-color: burlywood;
+}

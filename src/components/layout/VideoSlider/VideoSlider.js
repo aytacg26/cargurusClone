@@ -1,10 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
-import SliderDot from '../../ui/SliderDot/SliderDot';
-
-import SliderArrows from './SliderArrows/SliderArrows';
-import SliderContent from './SliderContent/SliderContent';
-
-import classes from './VideoSlider.module.css';
+import React from 'react';
+import Slider from '../../ui/Slider/Slider';
+import VideoSliderContent from './VideoSliderContent/VideoSliderContent';
 
 const sliderContent = [
   {
@@ -52,107 +48,10 @@ const sliderContent = [
 ];
 
 const VideoSlider = () => {
-  const [leftValue, setLeftValue] = useState(200);
-  const [dotVal, setDotVal] = useState(0);
-  const [touchMove, setTouchMove] = useState(0);
-  const [initTouch, setInitTouch] = useState(0);
-  const sliderRef = useRef();
-
-  //Not an effective and efficient touch slide method, must be improved.
-  useEffect(() => {
-    const slider = sliderRef.current;
-
-    const handleTouchStart = (e) => {
-      setInitTouch(e.targetTouches[0].clientX);
-    };
-
-    const handleTouchMove = (e) => {
-      let moveDiff = initTouch - e.targetTouches[0].clientX;
-
-      if (moveDiff >= 50) {
-        setTouchMove(200);
-      } else if (moveDiff < -50) {
-        setTouchMove(-200);
-      } else {
-        setTouchMove(0);
-      }
-    };
-
-    const handleTouchEnd = (e) => {
-      if (touchMove === 200 && leftValue <= 1000) {
-        setLeftValue((prevState) => {
-          if (prevState <= 1000) {
-            return prevState + 200;
-          }
-        });
-        setInitTouch(0);
-        setTouchMove(0);
-        setDotVal((prevState) => prevState + 1);
-      } else if (touchMove === -200 && leftValue > 200) {
-        setLeftValue((prevState) => {
-          if (prevState > 200) {
-            return prevState - 200;
-          }
-        });
-        setInitTouch(0);
-        setTouchMove(0);
-        setDotVal((prevState) => prevState - 1);
-      } else {
-        setLeftValue((prevState) => prevState);
-      }
-    };
-
-    slider.addEventListener('touchstart', handleTouchStart);
-    slider.addEventListener('touchmove', handleTouchMove);
-
-    slider.addEventListener('touchend', handleTouchEnd);
-
-    return () => {
-      slider.removeEventListener('touchstart', handleTouchStart);
-      slider.removeEventListener('touchmove', handleTouchMove);
-
-      slider.removeEventListener('touchend', handleTouchEnd);
-    };
-  }, [leftValue, touchMove, initTouch]);
-
-  const handleSlider = (e) => {
-    if (e.target.id === 'left') {
-      setLeftValue((prevState) => {
-        if (prevState <= 1000) {
-          return prevState + 200;
-        }
-      });
-    } else {
-      setLeftValue((prevState) => {
-        if (prevState > 200) {
-          return prevState - 200;
-        }
-      });
-    }
-  };
-
   return (
-    <div className={classes.SliderContainer} ref={sliderRef}>
-      {sliderContent.map((content, index) => (
-        <SliderContent
-          name={content.name}
-          testimonial={content.testimonial}
-          video={content.video}
-          key={content.id}
-          left={(index + 1) * 200 - leftValue}
-        />
-      ))}
-      <SliderArrows
-        onSlide={handleSlider}
-        disableLeft={leftValue === 1200}
-        disableRight={leftValue === 200}
-      />
-      <div className={classes.SliderDots}>
-        {sliderContent.map((content, index) => (
-          <SliderDot key={`dot-${content.id}`} isActive={index === dotVal} />
-        ))}
-      </div>
-    </div>
+    <Slider sliderContent={sliderContent}>
+      <VideoSliderContent />
+    </Slider>
   );
 };
 
