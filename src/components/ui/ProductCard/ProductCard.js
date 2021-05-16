@@ -5,15 +5,31 @@ import imageLoader from '../../../assets/images/BodyStyles/ajax-loader.gif';
 import { loadImage } from '../../../utils/utilsFuncs';
 import CardText from './CardText';
 
-const ProductCard = ({ id, image, header, author, text }) => {
+const ProductCard = ({
+  url,
+  image,
+  header,
+  subheading,
+  author,
+  text,
+  noBoxShadow,
+}) => {
   const imageRef = useRef();
+
+  const cardClass = `${classes.ProductCard} ${
+    noBoxShadow ? classes.NoBoxShadow : ''
+  }`;
 
   useEffect(() => {
     loadImage(image, imageRef.current);
   }, [image]);
 
   return (
-    <Link to={`/articles/${id}`} className={classes.ProductCard}>
+    <Link
+      to={url}
+      className={cardClass}
+      style={{ gridTemplateRows: text ? '' : '300px' }}
+    >
       <div className={classes.ImageSection}>
         <img
           src={imageLoader}
@@ -22,7 +38,13 @@ const ProductCard = ({ id, image, header, author, text }) => {
           ref={imageRef}
         />
       </div>
-      <CardText header={header} author={author} text={text} />
+      {!text && header && (
+        <div className={classes.HeadingSubHeading}>
+          <h4>{header}</h4>
+          <h5>{subheading}</h5>
+        </div>
+      )}
+      {text && <CardText header={header} author={author} text={text} />}
     </Link>
   );
 };

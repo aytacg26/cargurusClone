@@ -1,0 +1,14 @@
+.RecentActivities {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  margin: 20px auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.Activities {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  grid-template-rows: max-content;
+}

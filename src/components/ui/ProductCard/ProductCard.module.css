@@ -1,7 +1,6 @@
 .ProductCard {
   max-height: 100%;
   max-width: 100%;
-  height: 460px;
   width: 380px;
   background-color: rgb(255, 255, 255);
   margin: 2px 2px 2px 0;
@@ -18,12 +17,25 @@
   color: black;
 }
 
+.ProductCard.NoBoxShadow {
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.ProductCard.NoBoxShadow .ImageSection img {
+  border-radius: 0;
+  border: 1px solid #fff;
+  height: 200px;
+}
+
 .ProductCard:hover img {
   transform: scale(1.12);
 }
 
 .ProductCard:hover h2,
-.ProductCard:hover span {
+.ProductCard:hover span,
+.ProductCard:hover .HeadingSubHeading h4,
+.ProductCard:hover .HeadingSubHeading h5 {
   color: #006598;
 }
 
@@ -41,9 +53,27 @@
   transition: all 1.2s linear;
 }
 
+.HeadingSubHeading {
+  width: 100%;
+  padding: 5px 15px;
+  text-align: left;
+  margin-top: -90px;
+}
+
+.HeadingSubHeading h4,
+.HeadingSubHeading h5 {
+  color: rgb(34, 34, 34);
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.HeadingSubHeading h5 {
+  font-size: 14px;
+  font-weight: 500;
+}
+
 @media (min-width: 1025px) {
   .ProductCard {
-    height: 410px;
     width: 360px;
     margin: 2px 28px 2px 0;
     grid-template-rows: 245px 165px;

@@ -1,0 +1,12 @@
+.RecentActivity {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 25px max-content;
+}
+
+.RecentActivity > span {
+  color: #727272;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: left;
+}

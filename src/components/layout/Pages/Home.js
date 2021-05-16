@@ -6,6 +6,8 @@ import ProductSlider from '../ProductSlider/ProductSlider';
 import SearchWindow from '../SearchWindow/SearchWindow';
 import VideoSlider from '../VideoSlider/VideoSlider';
 import classes from './Home.module.css';
+import ProductCard from '../../ui/ProductCard/ProductCard';
+import RecentActivities from '../RecentActivities/RecentActivities';
 
 const recentTestDrives = [
   {
@@ -22,6 +24,7 @@ const recentTestDrives = [
    half bad, either.`,
     image:
       'https://i.postimg.cc/cJdRxm5D/2021-honda-cr-v-hybrid-pic-14066537438311236071-1600x1200.jpg',
+    url: '/testdrive/testdrive-00911-001',
   },
 
   {
@@ -36,6 +39,7 @@ const recentTestDrives = [
     and Infiniti Q50 (which wear more recently-introduced nameplates) still form the 3 Series’ competitive set, but the car itself has changed.`,
     image:
       'https://i.postimg.cc/Kc7J21zv/2021-bmw-3-series-pic-7769521649048609962-1600x1200.jpg',
+    url: '/testdrive/testdrive-00913-103',
   },
   {
     id: 'testdrive-10993-105',
@@ -49,6 +53,7 @@ const recentTestDrives = [
     The Escalade ESV’s length is added at its back end, where it increases cargo space.`,
     image:
       'https://i.postimg.cc/k5Ht66NS/2021-cadillac-escalade-esv-pic-4476360771367913447-1600x1200.jpg',
+    url: '/testdrive/testdrive-10993-105',
   },
   {
     id: 'testdrive-00929-311',
@@ -60,6 +65,7 @@ const recentTestDrives = [
     the Tremor name reappeared on the updated 2020 F-Series Super Duty. `,
     image:
       'https://i.postimg.cc/prJTZpjq/2021-ford-ranger-pic-4479408197134464527-1600x1200.jpg',
+    url: '/testdrive/testdrive-00929-311',
   },
   {
     id: 'testdrive-60734-613',
@@ -71,6 +77,7 @@ const recentTestDrives = [
     the Tremor name reappeared on the updated 2020 F-Series Super Duty. `,
     image:
       'https://i.postimg.cc/TYHGXVTn/2021-lincoln-aviator-pic-9232317725823458644-1600x1200.jpg',
+    url: '/testdrive/testdrive-60734-613',
   },
 ];
 
@@ -87,6 +94,7 @@ const recentPreviews = [
     but it can be confusing for buyers shopping for the latest model year.`,
     image:
       'https://i.postimg.cc/fTZmj5MM/2022-mitsubishi-outlander-pic-7408726107006372968-1600x1200.jpg',
+    url: '/recent-previews/article-00912-102',
   },
   {
     id: 'article-00830-245',
@@ -99,6 +107,7 @@ const recentPreviews = [
     Whether the top is opened or closed, the Z4 provides 9.9 cubic feet of cargo space.`,
     image:
       'https://i.postimg.cc/HkKvZFSq/2021-bmw-z4-pic-8510432974092791267-1600x1200.jpg',
+    url: '/recent-previews/article-00830-245',
   },
   {
     id: 'article-00159-310',
@@ -115,6 +124,7 @@ const recentPreviews = [
     This includes an 8-inch touchscreen that supports Apple CarPlay and Android Auto.`,
     image:
       'https://i.postimg.cc/t45FScXX/2021-cadillac-xt4-pic-1611761133878609615-1600x1200.jpg',
+    url: '/recent-previews/article-00159-310',
   },
   {
     id: 'article-04011-539',
@@ -130,6 +140,7 @@ const recentPreviews = [
     The vehicle’s options packages have also been revised.`,
     image:
       'https://i.postimg.cc/L4xFztYG/2021-nissan-rogue-sport-pic-4356032057337494973-1600x1200.jpg',
+    url: '/recent-previews/article-04011-539',
   },
 ];
 
@@ -144,6 +155,7 @@ const Home = () => {
       <MainImageLoader />
       <SearchWindow header='Know more, shop wisely' />
       <div className={classes.HomeBottomContainer}>
+        <RecentActivities />
         <InfoContainer heading='We take the guesswork out' />
         <VideoSlider />
         <ProductSlider header='Recent Test Drives' items={recentTestDrives} />
