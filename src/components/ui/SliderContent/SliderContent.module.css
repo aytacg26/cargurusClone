@@ -1,13 +1,13 @@
 .SliderContent {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-
+  /* justify-content: space-between; */
   position: absolute;
   left: 0;
   filter: blur(10px);
   transform: scale(0.95);
   transition: all 0.8s ease-in-out;
+  width: 100%;
 }
 
 .SliderContent.Move {

@@ -65,3 +65,18 @@ export const chunkArray = (arr, len) => {
 
   return chunks;
 };
+
+export const textEllipsis = (text, maxLength = 100) => {
+  if (text && text.trim().split(' ').length > maxLength) {
+    let ellipsisText = '';
+    const textArr = text.split(' ');
+
+    for (let i = 0; i < maxLength; i++) {
+      ellipsisText += textArr[i] + ' ';
+    }
+
+    return `${ellipsisText.trim()}...`;
+  }
+
+  return text;
+};

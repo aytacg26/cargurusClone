@@ -1,6 +1,18 @@
+.Slider {
+  width: 100%;
+  height: max-content;
+
+  overflow: hidden;
+}
+
+.Slider > h2 {
+  text-align: left !important;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #ccc;
+}
+
 .SliderContainer {
   padding: 25px 0;
-  border-bottom: 1px solid #ccc;
   position: relative;
   height: 580px;
   margin-bottom: 10px;
@@ -9,7 +21,7 @@
 
 @media (min-width: 1024px) {
   .SliderContainer {
-    height: 480px;
+    height: 490px;
   }
   .SliderDots {
     display: none;

@@ -1,11 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Fragment } from 'react';
 import SliderArrows from '../SliderArrows/SliderArrows';
 import SliderContent from '../SliderContent/SliderContent';
 import SliderDot from '../SliderDot/SliderDot';
 import classes from './Slider.module.css';
 import { chunkArray } from '../../../utils/utilsFuncs';
 
-const Slider = ({ sliderContent, children, childProps, contentSize }) => {
+const Slider = ({
+  slideHeading,
+  sliderContent,
+  children,
+  childProps,
+  contentSize,
+}) => {
   const [leftValue, setLeftValue] = useState(200);
   const [dotVal, setDotVal] = useState(0);
   const [touchMove, setTouchMove] = useState(0);
@@ -18,11 +24,11 @@ const Slider = ({ sliderContent, children, childProps, contentSize }) => {
   useEffect(() => {
     let arrayChunk = sliderContent;
     let maxContent = 1;
-    console.log('UseEffect No 1');
+
     if (isReady) {
       maxContent = Math.floor(
         sliderRef.current.clientWidth /
-          sliderRef.current.childNodes[0].clientWidth
+          sliderRef.current.childNodes[0].childNodes[0].clientWidth
       );
 
       if (contentSize > 1 && maxContent >= contentSize) {
@@ -35,7 +41,6 @@ const Slider = ({ sliderContent, children, childProps, contentSize }) => {
   }, [sliderContent, contentSize, isReady]);
 
   useEffect(() => {
-    console.log('UseEffect No 2');
     setIsReady(true);
   }, []);
 
@@ -44,7 +49,6 @@ const Slider = ({ sliderContent, children, childProps, contentSize }) => {
    * @TODO : Improve touch slide
    */
   useEffect(() => {
-    console.log('UseEffect No 3');
     const slider = sliderRef.current;
 
     const handleTouchStart = (e) => {
@@ -116,7 +120,11 @@ const Slider = ({ sliderContent, children, childProps, contentSize }) => {
     }
   };
 
-  console.log('I AM GOING TO RENDER...');
+  if (!sliderContent) {
+    console.error('Please enter content for slider');
+    return null;
+  }
+
   /**
    * @TODO : Improve Slider Structure according to the below explanation :
    */
@@ -129,41 +137,44 @@ const Slider = ({ sliderContent, children, childProps, contentSize }) => {
   //it will convert sliderContent array to array of arrays and will create the slider content accordingly. This means
   //we will use forEach or second map inside the map function. sliderContent = [[{..},{..},{..}...], [{..},{..},{..}...], [{},{},{}...]] || [{},{},{},...]
   return (
-    <div className={classes.SliderContainer} ref={sliderRef}>
-      {contentToUse?.map((content, index) => (
-        <SliderContent
-          left={(index + 1) * 200 - leftValue}
-          key={content.id ? content.id : `slider-${index}`}
-        >
-          {allowedMaxContent === 1 || !Array.isArray(content)
-            ? React.cloneElement(
-                children,
-                !childProps ? { ...content } : { ...childProps }
-              )
-            : content?.map((el, idx) => (
-                <span key={el.id ? el.id : `element-${idx}`}>
-                  {React.cloneElement(
-                    children,
-                    !childProps ? { ...content } : { ...childProps }
-                  )}
-                </span>
-              ))}
-        </SliderContent>
-      ))}
-      {contentToUse?.length > 1 && (
-        <SliderArrows
-          onSlide={handleSlider}
-          disableLeft={leftValue === sliderContent.length * 200}
-          disableRight={leftValue === 200}
-        />
-      )}
-      {contentToUse?.length > 1 && (
-        <div className={classes.SliderDots}>
-          {contentToUse?.map((content, index) => (
-            <SliderDot key={`dot-${content.id}`} isActive={index === dotVal} />
-          ))}
-        </div>
-      )}
+    <div className={classes.Slider}>
+      <h2>{slideHeading}</h2>
+      <div className={classes.SliderContainer} ref={sliderRef}>
+        {contentToUse?.map((content, index) => (
+          <SliderContent
+            left={(index + 1) * 200 - leftValue}
+            key={content.id ? content.id : `slider-${index}`}
+          >
+            {allowedMaxContent === 1 || !Array.isArray(content)
+              ? React.cloneElement(
+                  children,
+                  !childProps ? { ...content } : { ...childProps }
+                )
+              : content?.map((el, idx) => (
+                  <span key={el.id ? el.id : `element-${idx}`}>
+                    {React.cloneElement(
+                      children,
+                      !childProps ? { ...el } : { ...childProps }
+                    )}
+                  </span>
+                ))}
+          </SliderContent>
+        ))}
+        {contentToUse?.length > 1 && (
+          <SliderArrows
+            onSlide={handleSlider}
+            disableLeft={leftValue === contentToUse?.length * 200}
+            disableRight={leftValue === 200}
+          />
+        )}
+        {contentToUse?.length > 1 && (
+          <div className={classes.SliderDots}>
+            {contentToUse?.map((content, index) => (
+              <SliderDot key={`dot-${index}`} isActive={index === dotVal} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

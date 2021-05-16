@@ -7,7 +7,13 @@ const SliderContent = ({ left, children }) => {
   }`;
 
   return (
-    <div className={contentClass} style={{ left: `${left}%` }}>
+    <div
+      className={contentClass}
+      style={{
+        left: `${left}%`,
+        justifyContent: children.length > 2 ? 'space-between' : 'space-evenly',
+      }}
+    >
       {children}
     </div>
   );
