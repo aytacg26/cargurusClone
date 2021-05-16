@@ -1,0 +1,44 @@
+.SubscribeContainer {
+  width: 100%;
+  height: 100%;
+  max-width: 33.333%;
+  display: flex;
+  flex-flow: column nowrap;
+  border-right: 1px solid #fff;
+  align-items: center;
+  justify-content: center;
+  padding-top: 14px;
+  color: #fff;
+}
+
+.SubscribeHeading {
+  margin-left: -10px;
+  margin-bottom: -5px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.Subscribe {
+  max-width: 100%;
+  width: 100%;
+  padding: 0 50px 0 50px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-flow: row nowrap;
+  color: #fff !important;
+
+  margin-right: 10px;
+}
+
+.Subscribe input {
+  height: 45px;
+  border-radius: 5px 0 0 5px;
+  margin: 0;
+}
+
+.Subscribe button {
+  height: 45px;
+  margin: 0;
+  border-radius: 0 5px 5px 0;
+}
