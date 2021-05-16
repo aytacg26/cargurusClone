@@ -1,10 +1,10 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { emailValidation } from '../../../../utils/utilsFuncs';
 import Button from '../../../ui/Button/Button';
 import Input from '../../../ui/Input/Input';
 import classes from './SubscribeSection.module.css';
 
-const SubscribeSection = () => {
+const SubscribeSection = ({ header }) => {
   const [subscribe, setSubscribe] = useState('');
   const [notValid, setNotValid] = useState(false);
 
@@ -26,9 +26,7 @@ const SubscribeSection = () => {
 
   return (
     <div className={classes.SubscribeContainer}>
-      <span className={classes.SubscribeHeading}>
-        Sign up for Price Drops, New Listings, & More
-      </span>
+      <span className={classes.SubscribeHeading}>{header}</span>
       <form className={classes.Subscribe} onSubmit={handleSubscribeSubmit}>
         <Input
           type='text'
