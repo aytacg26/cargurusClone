@@ -1,7 +1,58 @@
 .ProductCard {
   max-height: 100%;
   max-width: 100%;
-  height: 400px;
-  width: 340px;
-  background-color: burlywood;
+  height: 460px;
+  width: 380px;
+  background-color: rgb(255, 255, 255);
+  margin: 2px 2px 2px 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 300px 160px;
+  box-shadow: 1px 1px 3px black;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.ProductCard {
+  text-decoration: none;
+  color: black;
+}
+
+.ProductCard:hover img {
+  transform: scale(1.12);
+}
+
+.ProductCard:hover h2,
+.ProductCard:hover span {
+  color: #006598;
+}
+
+.ImageSection {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.ImageSection img {
+  max-width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px 10px 0 0;
+  transition: all 1.2s linear;
+}
+
+@media (min-width: 1025px) {
+  .ProductCard {
+    height: 410px;
+    width: 360px;
+    margin: 2px 28px 2px 0;
+    grid-template-rows: 245px 165px;
+  }
+
+  .ImageSection img {
+    width: 100%;
+    height: 245px;
+    object-fit: cover;
+    object-position: center;
+  }
 }

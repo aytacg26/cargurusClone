@@ -1,0 +1,28 @@
+.TextSection {
+  max-width: 100%;
+  text-align: left;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 5px 15px 10px 15px;
+  overflow: hidden;
+  max-height: 160px;
+}
+
+.TextSection h2 {
+  font-size: 1.2rem;
+  margin: 8px 0;
+  transition: all 0.7s ease-in-out;
+}
+.TextSection span {
+  font-size: 0.85rem;
+  color: #444444;
+  transition: all 0.7s ease-in-out;
+}
+.TextSection p {
+  font-size: 0.82rem;
+  margin-top: 12px;
+  text-align: left;
+  color: #727272;
+  margin-bottom: 5px;
+  line-height: 17px;
+}
