@@ -80,3 +80,24 @@ export const textEllipsis = (text, maxLength = 100) => {
 
   return text;
 };
+
+export const emailValidation = (email) => {
+  const isNotEmpty = email.trim() !== '';
+  const regex =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const isEmail = regex.test(email);
+
+  return isNotEmpty && isEmail;
+};
+
+//this func is valid for name, surname or middlename but for these validations, developer may also use his/her own func. as a first argument
+//to Hook
+export const textValidation = (name) => {
+  const isNotEmpty = name.trim() !== '';
+  // eslint-disable-next-line no-useless-escape
+  const notAllowedRegex = /[%&()-*\/?$#€\[\]!$£€=@;{}_]+/;
+  const hasNotAllowedChars = notAllowedRegex.test(name);
+  const hasValidLength = name.length > 1 && name.length <= 40;
+
+  return isNotEmpty && !hasNotAllowedChars && hasValidLength;
+};
