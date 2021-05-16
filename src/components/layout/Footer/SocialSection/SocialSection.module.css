@@ -1,0 +1,28 @@
+.Social {
+  max-width: 33.333%;
+  width: 100%;
+  padding: 0 15px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  color: #fff !important;
+  border-right: 1px solid #fff;
+}
+
+.Social span {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.SocialIcons {
+  display: flex;
+  margin-top: 10px;
+}
+
+.SocialIcons a {
+  margin: 5px 10px;
+  font-size: 30px;
+  color: #fff;
+}
