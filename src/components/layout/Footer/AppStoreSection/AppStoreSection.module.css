@@ -1,0 +1,20 @@
+.Mobile {
+  max-width: 33.333%;
+  width: 100%;
+  padding: 0 15px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  color: #fff !important;
+}
+
+.Mobile span {
+  margin: -3px 0 15px 0;
+  font-weight: 600;
+}
+
+.AppStoreLinks a {
+  margin: 0 10px;
+}
