@@ -3,10 +3,10 @@ import Testimonial from '../Testimonial/Testimonial';
 import VideoSection from '../VideoSection/VideoSection';
 import classes from './VideoSliderContent.module.css';
 
-const VideoSliderContent = ({ video, name, testimonial }) => {
+const VideoSliderContent = ({ video, name, testimonial, story }) => {
   return (
     <div className={classes.VideoSliderContent}>
-      <VideoSection url={video} />
+      <VideoSection url={video} story={story} />
       <Testimonial
         header='WHAT OUR USERS SAY'
         name={name}

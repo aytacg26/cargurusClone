@@ -9,6 +9,11 @@ const sliderContent = [
     testimonial:
       'CarWorld exceeded my expectations because I met the person that wanted to buy my vehicle at the highest price in a very short period of time.',
     video: 'https://www.youtube.com/embed/mu6ytw6-GgQ?controls=0',
+    story: {
+      title: 'Great Deal',
+      story:
+        'Matt used CarWorld Sell My Car service to get a fair price for his car',
+    },
   },
   {
     id: 'testimonial-content-8022',
@@ -16,13 +21,23 @@ const sliderContent = [
     testimonial:
       'CarWorld put everything in front of me so I could figure out what the right price was for the car that I was looking for.',
     video: 'https://www.youtube.com/embed/euiit9zTTUo?controls=0',
+    story: {
+      title: 'Great Deal',
+      story: 'Alex found a good deal on his dream car',
+    },
   },
+
   {
     id: 'testimonial-content-7023',
     name: 'Meagan G.',
     testimonial:
       "It's definitely the filters on CarGurus that make it easy—you can choose exactly the configuration you're looking for.",
     video: 'https://www.youtube.com/embed/z589_B0td2c?controls=0',
+    story: {
+      title: 'Great Deal',
+      story:
+        'Meagan found the exact car she wanted on CarWorld and only had to go to one dealership',
+    },
   },
   {
     id: 'testimonial-content-6024',
@@ -30,6 +45,11 @@ const sliderContent = [
     testimonial:
       'CarWorld gave me the information that I needed to make sure that I was getting a good deal.',
     video: 'https://www.youtube.com/embed/whn_FI9aaGw?controls=0',
+    story: {
+      title: 'Great Deal',
+      story:
+        'Mike, a first time used car shopper, found a great deal on an SUV for his family',
+    },
   },
   {
     id: 'testimonial-content-5025',
@@ -37,13 +57,22 @@ const sliderContent = [
     testimonial:
       'Using CarWorld I was able to get all of the features that I wanted, well within my budget.',
     video: 'https://www.youtube.com/embed/UjKZDN9oW-A?controls=0',
+    story: {
+      title: 'Great Deal',
+      story: 'Nadia found a great deal that fit her family and her budget',
+    },
   },
+
   {
     id: 'testimonial-content-4026',
     name: 'Dave M.',
     testimonial:
       'Using CarWorld made me feel empowered because I was able to understand whether I had a good deal before I walked into the dealership.',
     video: 'https://www.youtube.com/embed/siUhX9Kf0I4?controls=0',
+    story: {
+      title: 'Great Deal',
+      story: 'Dave found a good deal on an SUV for him and his dogs',
+    },
   },
 ];
 

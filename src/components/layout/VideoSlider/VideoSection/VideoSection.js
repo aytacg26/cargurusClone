@@ -1,7 +1,8 @@
 import React from 'react';
 import classes from './VideoSection.module.css';
+import StoryCard from '../../../ui/StoryCard/StoryCard';
 
-const VideoSection = ({ url }) => {
+const VideoSection = ({ url, story }) => {
   return (
     <div className={classes.VideoSection}>
       <iframe
@@ -11,6 +12,10 @@ const VideoSection = ({ url }) => {
         allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
         allowFullScreen
       ></iframe>
+      <StoryCard
+        {...story}
+        style={{ bottom: '9px', backgroundColor: '#fff' }}
+      />
     </div>
   );
 };

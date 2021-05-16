@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import classes from './MainImageLoader.module.css';
 import { randomNum, loadImage } from '../../../utils/utilsFuncs';
-import StoryCard from './StoryCard/StoryCard';
+import StoryCard from '../../ui/StoryCard/StoryCard';
 import BackupLoader from './BackupLoader/BackupLoader';
 
 const loaderImages = [
