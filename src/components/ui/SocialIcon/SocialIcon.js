@@ -7,6 +7,7 @@ import {
   FaInstagram,
   FaLinkedinIn,
 } from 'react-icons/fa';
+import classes from './SocialIcon.module.css';
 
 const SocialIcon = ({ socialName, username, color, fullUrl }) => {
   let icon = null;
@@ -59,7 +60,13 @@ const SocialIcon = ({ socialName, username, color, fullUrl }) => {
   }
 
   return (
-    <a href={url} title={title} target='_blank' rel='noreferrer'>
+    <a
+      href={url}
+      title={title}
+      target='_blank'
+      rel='noreferrer'
+      className={classes.Animate}
+    >
       {icon}
     </a>
   );

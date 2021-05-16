@@ -34,7 +34,7 @@ const ProductCard = ({
         <img
           src={imageLoader}
           alt={header}
-          title={`${header} - ${author}`}
+          title={`${header} - ${author || subheading}`}
           ref={imageRef}
         />
       </div>

@@ -1,0 +1,8 @@
+.Animate {
+  transform: scale(1);
+  transition: all 0.65s ease-in-out;
+}
+
+.Animate:hover {
+  transform: scale(1.3);
+}
