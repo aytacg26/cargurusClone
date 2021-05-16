@@ -1,0 +1,50 @@
+.PopularBrands {
+  max-width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.Header {
+  text-align: left;
+  font-size: 1.65rem;
+  margin-top: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Header > div > span {
+  font-size: 14px;
+  color: #ccc;
+  font-weight: 500;
+}
+
+.ForSmallScreen {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .Header {
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .ForSmallScreen {
+    font-size: 14px;
+    color: #ccc;
+    font-weight: 500;
+    display: block;
+    text-align: center;
+  }
+
+  .Header > div > span {
+    display: none;
+  }
+}

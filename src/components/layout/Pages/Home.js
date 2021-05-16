@@ -1,6 +1,7 @@
 import React from 'react';
 import InfoContainer from '../InfoContainer/InfoContainer';
 import MainImageLoader from '../MainImageLoader/MainImageLoader';
+import Brands from '../Brands/Brands';
 import ProductSlider from '../ProductSlider/ProductSlider';
 import SearchWindow from '../SearchWindow/SearchWindow';
 import VideoSlider from '../VideoSlider/VideoSlider';
@@ -37,7 +38,7 @@ const recentTestDrives = [
       'https://i.postimg.cc/Kc7J21zv/2021-bmw-3-series-pic-7769521649048609962-1600x1200.jpg',
   },
   {
-    id: 'testdrive-00913-103',
+    id: 'testdrive-10993-105',
     author: 'Eileen Falkenberg-Hull',
     header: '2021 Cadillac Escalade ESV',
     text: `The Escalade ESV is the extended version of the typical Cadillac Escalade. 
@@ -61,7 +62,7 @@ const recentTestDrives = [
       'https://i.postimg.cc/prJTZpjq/2021-ford-ranger-pic-4479408197134464527-1600x1200.jpg',
   },
   {
-    id: 'testdrive-00734-603',
+    id: 'testdrive-60734-613',
     author: 'George Kennedy',
     header: '2021 Lincoln Aviator',
     text: `Ford is no stranger to off-roading and has offered FX4 option packages for its pickup trucks for years. 
@@ -147,6 +148,7 @@ const Home = () => {
         <VideoSlider />
         <ProductSlider header='Recent Test Drives' items={recentTestDrives} />
         <ProductSlider header='Recent Previews' items={recentPreviews} />
+        <Brands header='Popular Brands' />
       </div>
     </div>
   );

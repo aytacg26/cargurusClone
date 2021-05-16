@@ -1,6 +1,6 @@
 .SliderArrows {
   position: absolute;
-  right: 15px;
+  right: 25px;
   bottom: 5px;
   display: flex;
   max-width: 120px;
@@ -8,7 +8,7 @@
 
 @media (min-width: 1024px) {
   .SliderArrows {
-    bottom: 15px;
+    bottom: -5px;
   }
 }
 
