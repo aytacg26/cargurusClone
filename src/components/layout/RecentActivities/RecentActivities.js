@@ -61,6 +61,7 @@ const RecentActivities = () => {
             activityHeading={activity.activityHeading}
             image={activity.image}
             subHeader={activity.cardSubHeader}
+            key={activity.id}
           />
         ))}
       </div>
