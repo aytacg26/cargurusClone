@@ -28,7 +28,7 @@ const ProductCard = ({
     <Link
       to={url}
       className={cardClass}
-      style={{ gridTemplateRows: text ? '' : '300px' }}
+      style={{ gridTemplateRows: text ? '' : '200px' }}
     >
       <div className={classes.ImageSection}>
         <img
