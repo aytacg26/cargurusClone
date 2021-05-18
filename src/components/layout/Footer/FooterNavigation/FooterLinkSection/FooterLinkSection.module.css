@@ -1,0 +1,25 @@
+.LinkSection {
+  margin: 0 15px;
+  max-width: 100%;
+  min-width: max-content;
+}
+
+.LinkSection h3 {
+  margin-bottom: 20px;
+  margin-left: 15px;
+  font-size: 18px;
+}
+
+.LinkSection a {
+  text-decoration: none;
+  color: #727272;
+  padding: 10px 15px;
+  margin: 5px 0;
+  display: block;
+  font-size: 15px;
+}
+
+.LinkSection a:hover {
+  color: #000;
+  text-decoration: underline;
+}

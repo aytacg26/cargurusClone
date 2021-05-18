@@ -2,6 +2,7 @@ import React from 'react';
 import AppStoreSection from './AppStoreSection/AppStoreSection';
 
 import classes from './Footer.module.css';
+import FooterNavigation from './FooterNavigation/FooterNavigation';
 import SocialSection from './SocialSection/SocialSection';
 import SubscribeSection from './SubscribeSection/SubscribeSection';
 
@@ -13,7 +14,7 @@ const Footer = (props) => {
         <SubscribeSection header='Sign up for Price Drops, New Listings, & More' />
         <AppStoreSection header='Go Mobile' />
       </div>
-      <div className={classes.FooterNav}>Footer Navigation Section</div>
+      <FooterNavigation />
     </div>
   );
 };
