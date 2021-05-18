@@ -71,7 +71,7 @@
   font-weight: 500;
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1026px) {
   .ProductCard {
     width: 360px;
     margin: 2px 28px 2px 0;
@@ -88,11 +88,32 @@
   .ProductCard.NoBoxShadow .ImageSection img {
     border-radius: 0;
     border: 1px solid #fff;
-    height: 180px;
+    height: 200px;
   }
 }
 
 /*Media Queries for all devices*/
+
+@media (min-width: 799px) and (max-width: 1025px) {
+  .ProductCard {
+    width: 360px;
+    margin: 2px 28px 2px 0;
+    grid-template-rows: 245px 165px;
+  }
+
+  .ImageSection img {
+    width: 100%;
+    height: 245px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .ProductCard.NoBoxShadow .ImageSection img {
+    border-radius: 0;
+    border: 1px solid #fff;
+    height: 200px;
+  }
+}
 
 /* ----------- iPhone 4 and 4S ----------- */
 

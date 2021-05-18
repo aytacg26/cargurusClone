@@ -29,9 +29,16 @@
   grid-template-rows: max-content;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1360px) {
   .HomeBottomContainer {
-    width: 65%;
+    width: 80%;
+    margin: 10px auto;
+  }
+}
+
+@media (min-width: 1361px) {
+  .HomeBottomContainer {
+    width: 70%;
     margin: 10px auto;
   }
 }
