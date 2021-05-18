@@ -537,7 +537,7 @@ const Home = () => {
         <PopularListSection
           header='Popular New Cars'
           items={[]}
-          Component={<ProductCard noBoxShadow />}
+          Component={<ProductCard noBoxShadow isNew />}
         />
         <PopularListSection
           header='Popular Pickup Trucks'

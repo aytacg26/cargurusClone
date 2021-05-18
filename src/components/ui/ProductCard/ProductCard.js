@@ -14,6 +14,7 @@ const ProductCard = ({
   author,
   text,
   year,
+  isNew,
   noBoxShadow,
   subHeadingStyle,
 }) => {
@@ -40,6 +41,7 @@ const ProductCard = ({
           title={`${header} - ${author || subheading || price}`}
           ref={imageRef}
         />
+        {isNew && <span className={classes.New}>New</span>}
       </div>
       {!text && header && (
         <div className={classes.HeadingSubHeading} style={subHeadingStyle}>

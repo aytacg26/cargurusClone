@@ -45,19 +45,19 @@
   position: relative;
 }
 
-/* .Year {
+.New {
   position: absolute;
   z-index: 999;
   font-size: 13px;
-  padding: 6px;
+  padding: 10px 5px;
   background-color: rgba(255, 54, 54, 0.788);
-  top: 4px;
-  left: 4px;
+  top: 1px;
+  right: 10px;
   color: rgb(233, 233, 233);
-  border-radius: 3px;
+  border-radius: 0 0 3px 3px;
   font-weight: 600;
   box-shadow: 2px 2px 3px black;
-} */
+}
 
 .ImageSection img {
   max-width: 100%;
