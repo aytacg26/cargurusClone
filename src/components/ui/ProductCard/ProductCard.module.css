@@ -42,7 +42,22 @@
 .ImageSection {
   max-width: 100%;
   overflow: hidden;
+  position: relative;
 }
+
+/* .Year {
+  position: absolute;
+  z-index: 999;
+  font-size: 13px;
+  padding: 6px;
+  background-color: rgba(255, 54, 54, 0.788);
+  top: 4px;
+  left: 4px;
+  color: rgb(233, 233, 233);
+  border-radius: 3px;
+  font-weight: 600;
+  box-shadow: 2px 2px 3px black;
+} */
 
 .ImageSection img {
   max-width: 100%;
@@ -57,6 +72,9 @@
   width: 100%;
   padding: 5px 15px;
   text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .HeadingSubHeading h4,
@@ -66,9 +84,23 @@
   margin-bottom: 5px;
 }
 
+.HeadingSubHeading h4 {
+  font-size: 15px;
+}
+
 .HeadingSubHeading h5 {
   font-size: 14px;
   font-weight: 500;
+}
+
+.Subheading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Subheading span {
+  font-size: 12px;
 }
 
 @media (min-width: 1026px) {

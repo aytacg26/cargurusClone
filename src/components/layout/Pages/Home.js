@@ -1,13 +1,15 @@
 import React from 'react';
 import InfoContainer from '../InfoContainer/InfoContainer';
 import MainImageLoader from '../MainImageLoader/MainImageLoader';
-import Brands from '../Brands/Brands';
+
 import ProductSlider from '../ProductSlider/ProductSlider';
 import SearchWindow from '../SearchWindow/SearchWindow';
 import VideoSlider from '../VideoSlider/VideoSlider';
 import classes from './Home.module.css';
 import ProductCard from '../../ui/ProductCard/ProductCard';
 import RecentActivities from '../RecentActivities/RecentActivities';
+import PopularListSection from '../PopularListSection/PopularListSection';
+import BrandCard from '../../ui/BrandCard/BrandCard';
 
 const recentTestDrives = [
   {
@@ -149,6 +151,360 @@ const recentPreviews = [
  * @returns <a href='https://postimg.cc/Dm4Nhbcc' target='_blank'><img src='' border='0' alt='2021-nissan-rogue-sport-pic-4356032057337494973-1600x1200'/></a>
  */
 
+const brands = [
+  {
+    id: 'ac-032001009-uk',
+    company: 'Auto Carriers Ltd',
+    brand: 'AC',
+    logo: 'https://i.ibb.co/nBvJy6P/AC.png',
+  },
+  {
+    id: 'alfa-0332002008-it',
+    company: 'Alfa Romeo Automobiles S.p.A.',
+    brand: 'Alfa Romeo',
+    logo: 'https://i.ibb.co/4F9Zdjt/Alfa-Romeo.png',
+  },
+  {
+    id: 'aston-0332003007-uk',
+    company: 'Aston Martin Lagonda Global Holdings plc',
+    brand: 'Aston Martin',
+    logo: 'https://i.ibb.co/TqWfRb4/Aston-Martin.png',
+  },
+  {
+    id: 'audi-0332004006-ge',
+    company: 'Volkswagen Group',
+    brand: 'Audi',
+    logo: 'https://i.ibb.co/6XgZBJv/Audi.png',
+  },
+  {
+    id: 'bentley-0332005005-uk',
+    company: 'Bentley Motors Limited',
+    brand: 'Bentley',
+    logo: 'https://i.ibb.co/mqWmtg9/Bentley.png',
+  },
+  {
+    id: 'bmw-0332006004-ge',
+    company: 'Bayerische Motoren Werke AG',
+    brand: 'BMW',
+    logo: 'https://i.ibb.co/61mdV5r/BMW.png',
+  },
+  {
+    id: 'chev-0332007003-usa',
+    company: 'General Motors',
+    brand: 'Chevrolet',
+    logo: 'https://i.ibb.co/V93sdm7/Chervolet.png',
+  },
+  {
+    id: 'cito-00332008002-fr',
+    company: 'Citroen',
+    brand: 'Citroen',
+    logo: 'https://i.ibb.co/SrYdVdS/Citroen.png',
+  },
+  {
+    id: 'daih-00332009001-jp',
+    company: 'Daihatsu Motor Co., Ltd',
+    brand: 'Daihatsu',
+    logo: 'https://i.ibb.co/8s0DfpP/Daihatsu.png',
+  },
+  {
+    id: 'dat-00332010010-jp',
+    company: 'The Nissan Motor Company, Ltd.',
+    brand: 'Datsun',
+    logo: 'https://i.ibb.co/QrHYNpZ/Datsun.png',
+  },
+  {
+    id: 'fer-00332011011-it',
+    company: 'Ferrari S.p.A.',
+    brand: 'Ferrari',
+    logo: 'https://i.ibb.co/9HZ4WKj/Ferrari.png',
+  },
+  {
+    id: 'fia-00332012012-it',
+    company: 'Fiat Automobiles S.p.A.',
+    brand: 'Fiat',
+    logo: 'https://i.ibb.co/DrBNVvY/Fiat.png',
+  },
+  {
+    id: 'frd-00332013012-usa',
+    company: 'Ford Motor Company',
+    brand: 'Ford',
+    logo: 'https://i.ibb.co/dW9WWtQ/Ford.png',
+  },
+  {
+    id: 'hon-00332014014-jp',
+    company: 'Honda Motor Company, Ltd.',
+    brand: 'Honda',
+    logo: 'https://i.ibb.co/tKGq9f0/Honda.png',
+  },
+  {
+    id: 'hyu-00332015015-sk',
+    company: 'Hyundai Motor Company',
+    brand: 'Hyundai',
+    logo: 'https://i.ibb.co/26Yqpxc/Hyundai.png',
+  },
+  {
+    id: 'jgr-00332016016-uk',
+    company: 'Tata Motors',
+    brand: 'Jaguar',
+    logo: 'https://i.ibb.co/BLvqvjG/Jaguar.png',
+  },
+  {
+    id: 'lam-00332017017-it',
+    company: 'Volkswagen Group',
+    brand: 'Lamborghini',
+    logo: 'https://i.ibb.co/GM83pp6/Lamborghini.png',
+  },
+  {
+    id: 'lro-01332018020-uk',
+    company: 'Tata Motors',
+    brand: 'Land Rover',
+    logo: 'https://i.ibb.co/LY6NqQ2/Land-Rover.png',
+  },
+  {
+    id: 'lxs-02332019021-jp',
+    company: 'Toyota Motor Corporation',
+    brand: 'Lexus',
+    logo: 'https://i.ibb.co/GPbJHwy/Lexus.png',
+  },
+  {
+    id: 'lts-0233202022-uk',
+    company: 'Lotus Cars Limited',
+    brand: 'Lotus',
+    logo: 'https://i.ibb.co/PYcTKHs/Lotus.png',
+  },
+  {
+    id: 'mst-0233202123-it',
+    company: 'Maserati S.p.A.',
+    brand: 'Maserati',
+    logo: 'https://i.ibb.co/YBtrdRf/Maserati.png',
+  },
+  {
+    id: 'mzd-0233202224-jp',
+    company: 'Mazda Motor Corporation',
+    brand: 'Mazda',
+    logo: 'https://i.ibb.co/Db090Dg/Mazda.png',
+  },
+  {
+    id: 'mcl-0233202325-uk',
+    company: 'McLaren Racing Limited',
+    brand: 'McLaren',
+    logo: 'https://i.ibb.co/9VCT48V/Mclaren.png',
+  },
+  {
+    id: 'mrc-0233202426-ge',
+    company: 'Daimler AG',
+    brand: 'Mercedes-Benz',
+    logo: 'https://i.ibb.co/txDpr3C/Mercedes.png',
+  },
+  {
+    id: 'mg-031233123-uk',
+    company: 'SAIC Motor Corporation Limited',
+    brand: 'MG',
+    logo: 'https://i.ibb.co/sw2KxMd/MGLogo.png',
+  },
+  {
+    id: 'mn-0987123441-uk',
+    company: 'Bayerische Motoren Werke AG (BMW)',
+    brand: 'Mini',
+    logo: 'https://i.ibb.co/yN5zB3v/Mini.png',
+  },
+  {
+    id: 'mts-56712129902-jp',
+    company: 'Mitsubishi Motors Corporation',
+    brand: 'Mitsubishi',
+    logo: 'https://i.ibb.co/YjZ9PK8/Mitsubishi.png',
+  },
+  {
+    id: 'nis-350370400z-jp',
+    company: 'Nissan Motor Company, Ltd.',
+    brand: 'Nissan',
+    logo: 'https://i.ibb.co/CbR6Qkp/Nissan.png',
+  },
+  {
+    id: 'opl-789123009-ge',
+    company: 'Opel Automobile GmbH',
+    brand: 'Opel',
+    logo: 'https://i.ibb.co/HTBcLN8/Opel.png',
+  },
+  {
+    id: 'pea-206207306-fr',
+    company: 'Stellantis N.V.',
+    brand: 'Peugeot',
+    logo: 'https://i.ibb.co/Yb7TD5g/Peaguet.png',
+  },
+  {
+    id: 'por-911928bxtr-ge',
+    company: 'Volkswagen Group',
+    brand: 'Porsche',
+    logo: 'https://i.ibb.co/7vtwXCr/Porsche.png',
+  },
+  {
+    id: 'ren-11091921tx-fr',
+    company: 'Groupe Renault',
+    brand: 'Renault',
+    logo: 'https://i.ibb.co/gJFVFMT/Renault.png',
+  },
+  {
+    id: 'rolls-890987113-uk',
+    company: 'Rolls-Royce Motor Cars Limited',
+    brand: 'Rolls-Royce',
+    logo: 'https://i.ibb.co/HpFsKSZ/Rolls-Royce.png',
+  },
+  {
+    id: 'seat-1453107109-ge',
+    company: 'Volkswagen Group',
+    brand: 'Seat',
+    logo: 'https://i.ibb.co/YyQTzJg/Seat.png',
+  },
+  {
+    id: 'sub-69100345991-jp',
+    company: 'Subaru Corporation',
+    brand: 'Subaru',
+    logo: 'https://i.ibb.co/8bMCKtm/Subaru.png',
+  },
+  {
+    id: 'szk-000288812981-jp',
+    company: 'Suzuki Motor Corporation',
+    brand: 'Suzuki',
+    logo: 'https://i.ibb.co/dQzKMfw/Suzuki.png',
+  },
+  {
+    id: 'tyta-900012579330-jp',
+    company: 'Toyota Motor Corporation',
+    brand: 'Toyota',
+    logo: 'https://i.ibb.co/KDNvfPm/Toyota.png',
+  },
+  {
+    id: 'vaux-333999745-uk',
+    company: 'Vauxhall Motors Limited - Opel',
+    brand: 'Vauxhall',
+    logo: 'https://i.ibb.co/mcJSsFL/Vauxhall.png',
+  },
+  {
+    id: 'vw-002980907015-ge',
+    company: 'Volkswagen Group',
+    brand: 'Volkswagen',
+    logo: 'https://i.ibb.co/MCYckZm/Volkswagen.png',
+  },
+  {
+    id: 'vol-97813320891-sw',
+    company: 'Geely Auto Group',
+    brand: 'Volvo',
+    logo: 'https://i.ibb.co/P9z9gcL/Volvo.png',
+  },
+];
+
+const popularUsedCars = [
+  {
+    id: 'popular-used-0001',
+    header: 'Chevrolet Corvette Coupe RWD',
+    price: '11,000',
+    url: '/usedcars/popular-used-0001',
+    image:
+      'https://i.ibb.co/58BzbQx/1991-chevrolet-corvette-pic-1355465292139602171-1024x768.jpg',
+    year: 1991,
+  },
+  {
+    id: 'popular-used-0002',
+    header: 'Chevrolet Corvette Convertible RWD',
+    price: '28,995',
+    url: '/usedcars/popular-used-0002',
+    image:
+      'https://i.ibb.co/tXDVhqV/2008-chevrolet-corvette-pic-8405479132711759244-1024x768.jpg',
+    year: 2008,
+  },
+  {
+    id: 'popular-used-0003',
+    header: 'Chevrolet Corvette ZR1 1ZR Coupe RWD',
+    price: '149,995',
+    url: '/usedcars/popular-used-0003',
+    image:
+      'https://i.ibb.co/VNmJpNM/2019-chevrolet-corvette-pic-9018223043895571996-1024x768.jpg',
+    year: 2019,
+  },
+  {
+    id: 'popular-used-0004',
+    header: 'Chevrolet Corvette Z06 3LZ Coupe RWD',
+    price: '80,999',
+    url: '/usedcars/popular-used-0004',
+    image:
+      'https://i.ibb.co/0DNZjyq/2016-chevrolet-corvette-pic-1083841462673765789-1024x768.jpg',
+    year: 2016,
+  },
+  {
+    id: 'popular-used-0005',
+    header: 'Chevrolet Corvette Stingray 1LT Convertible RWD',
+    price: '99,999',
+    url: '/usedcars/popular-used-0005',
+    image:
+      'https://i.ibb.co/J2crn73/2021-chevrolet-corvette-pic-5465566223307647062-1024x768.jpg',
+    year: 2021,
+  },
+  {
+    id: 'popular-used-0006',
+    header: 'Chevrolet Corvette Grand Sport 1LT Convertible RWD',
+    price: '61,986',
+    url: '/usedcars/popular-used-0006',
+    image:
+      'https://i.ibb.co/f8MFwHy/2017-chevrolet-corvette-pic-8048989108811306137-1024x768.jpg',
+    year: 2017,
+  },
+  {
+    id: 'popular-used-0007',
+    header: 'Chevrolet Corvette Stingray 1LT Coupe RWD',
+    price: '55,000',
+    url: '/usedcars/popular-used-0007',
+    image:
+      'https://i.ibb.co/dfCZbQg/2019-chevrolet-corvette-pic-9018223043895571996-1024x768.jpg',
+    year: 2019,
+  },
+  {
+    id: 'popular-used-0008',
+    header: 'Ford Fiesta SE FWD',
+    price: '10,995',
+    url: '/usedcars/popular-used-0008',
+    image:
+      'https://i.ibb.co/SrNxCr2/2019-ford-fiesta-pic-3125676983034149309-1024x768.jpg',
+    year: 2019,
+  },
+  {
+    id: 'popular-used-0009',
+    header: 'Ford Fiesta SE FWD',
+    price: '12,995',
+    url: '/usedcars/popular-used-0009',
+    image:
+      'https://i.ibb.co/cwvGcn0/2019-ford-fiesta-pic-5075961294003593843-1024x768.jpg',
+    year: 2019,
+  },
+  {
+    id: 'popular-used-0010',
+    header: 'Audi A4 2.0T ultra Premium FWD',
+    price: '21,495',
+    url: '/usedcars/popular-used-0010',
+    image:
+      'https://i.ibb.co/jL4kN3G/2017-audi-a4-pic-3920156294630218243-1024x768.jpg',
+    year: 2017,
+  },
+  {
+    id: 'popular-used-0011',
+    header: 'BMW 3 Series 328i Sedan RWD',
+    price: '14,600',
+    url: '/usedcars/popular-used-0011',
+    image:
+      'https://i.ibb.co/bgkNt7D/2015-bmw-3-series-pic-8930563024803249318-1024x768.jpg',
+    year: 2015,
+  },
+  {
+    id: 'popular-used-0012',
+    header: 'BMW 3 Series 335i Sedan RWD',
+    price: '15,290',
+    url: '/usedcars/popular-used-0012',
+    image:
+      'https://i.ibb.co/j38bT9L/2013-bmw-3-series-pic-6802116493646257977-1024x768.jpg',
+    year: 2013,
+  },
+];
+
 const Home = () => {
   return (
     <div className={classes.Home}>
@@ -160,7 +516,34 @@ const Home = () => {
         <VideoSlider />
         <ProductSlider header='Recent Test Drives' items={recentTestDrives} />
         <ProductSlider header='Recent Previews' items={recentPreviews} />
-        <Brands header='Popular Brands' />
+        <PopularListSection
+          header='Popular Brands'
+          items={brands}
+          Component={<BrandCard />}
+        />
+        <PopularListSection
+          header='Popular Used Cars'
+          items={popularUsedCars}
+          Component={
+            <ProductCard
+              noBoxShadow
+              subHeadingStyle={{
+                border: '1px solid #ccc',
+                marginBottom: '20px',
+              }}
+            />
+          }
+        />
+        <PopularListSection
+          header='Popular New Cars'
+          items={[]}
+          Component={<ProductCard noBoxShadow />}
+        />
+        <PopularListSection
+          header='Popular Pickup Trucks'
+          items={[]}
+          Component={<ProductCard noBoxShadow />}
+        />
       </div>
     </div>
   );

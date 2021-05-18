@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import classes from './ProductCard.module.css';
 import imageLoader from '../../../assets/images/BodyStyles/ajax-loader.gif';
-import { loadImage } from '../../../utils/utilsFuncs';
+import { loadImage, textEllipsis } from '../../../utils/utilsFuncs';
 import CardText from './CardText';
 
 const ProductCard = ({
@@ -10,12 +10,15 @@ const ProductCard = ({
   image,
   header,
   subheading,
+  price,
   author,
   text,
+  year,
   noBoxShadow,
+  subHeadingStyle,
 }) => {
   const imageRef = useRef();
-
+  const headerToUse = textEllipsis(header, 5);
   const cardClass = `${classes.ProductCard} ${
     noBoxShadow ? classes.NoBoxShadow : ''
   }`;
@@ -34,14 +37,21 @@ const ProductCard = ({
         <img
           src={imageLoader}
           alt={header}
-          title={`${header} - ${author || subheading}`}
+          title={`${header} - ${author || subheading || price}`}
           ref={imageRef}
         />
       </div>
       {!text && header && (
-        <div className={classes.HeadingSubHeading}>
-          <h4>{header}</h4>
-          <h5>{subheading}</h5>
+        <div className={classes.HeadingSubHeading} style={subHeadingStyle}>
+          <h4>{headerToUse}</h4>
+          <div className={classes.Subheading}>
+            <h5>{subheading || `£${price}`}</h5>
+            {year && (
+              <span>
+                <strong>Year :</strong> {year}
+              </span>
+            )}
+          </div>
         </div>
       )}
       {text && <CardText header={header} author={author} text={text} />}
