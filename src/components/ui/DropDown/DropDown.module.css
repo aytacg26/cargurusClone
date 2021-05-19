@@ -1,11 +1,16 @@
 .DropDown {
   position: relative;
+  width: 100%;
 }
+
 .Option {
   color: rgb(112, 112, 112);
   padding: 8px;
   cursor: pointer;
   font-weight: 600;
+  background-color: transparent;
+  min-width: 100%;
+  text-align: left;
 }
 
 .Option:hover {
@@ -19,25 +24,34 @@
 
 .DropBtn {
   padding: 7px 10px;
-  min-width: 140px;
+  min-width: 140px !important;
+  min-height: 35px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  background: #fff;
+
+  background: transparent;
   border: 0 none;
   color: rgb(148, 148, 148);
   cursor: pointer;
   margin: 2px 3px;
+  width: 100%;
+  position: relative;
 }
 
 .DropBtn:first-child {
   font-weight: 500;
-  font-size: 14px;
+  font-size: 13.5px;
+  min-width: 100%;
+  display: inline-block;
+  text-align: left;
 }
 
 .icon {
   transform: rotate(0deg);
   transition: transform linear 0.3s;
+  position: absolute;
+  top: 8px;
+  right: 10px;
 }
 
 .icon.dropped {
