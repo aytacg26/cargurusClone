@@ -100,11 +100,17 @@ const cities = [
   },
 ];
 
+/**
+ *
+ * Redesign this, this is fucking ugly and useless....
+ */
+
 const ByMake = () => {
   const {
     firstDrop: brandDrop,
     secondDrop: modelDrop,
     thirdDrop: cityDrop,
+
     handleDropClick,
   } = useDropForm(['Brand', 'Model', 'City']);
 
@@ -140,6 +146,7 @@ const ByMake = () => {
           name='Model'
         />
       </span>
+
       <span className={classes.FormElShell}>
         <DropDown
           defaultOptionId={cities[0].id}
