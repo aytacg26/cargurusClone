@@ -191,7 +191,7 @@ const SearchForm = ({ onSubmit }) => {
   if (byBody && !isFinancing && !isByOwner) {
     formType = (
       <Suspense fallback={<Loader />}>
-        <ByBody />
+        <ByBody priceFilter />
       </Suspense>
     );
   }
