@@ -3,6 +3,7 @@ import ProductCard from '../../../ui/ProductCard/ProductCard';
 import classes from './RecentActivity.module.css';
 
 const RecentActivity = ({
+  id,
   activityHeading,
   cardHeader,
   subHeader,
@@ -13,6 +14,7 @@ const RecentActivity = ({
     <div className={classes.RecentActivity}>
       <span>{activityHeading}</span>
       <ProductCard
+        id
         noBoxShadow
         url={url}
         image={image}
