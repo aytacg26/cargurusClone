@@ -66,6 +66,28 @@ export const chunkArray = (arr, len) => {
   return chunks;
 };
 
+export const numberList = (min, max, step, isObject = true) => {
+  const numArr = [];
+  const incStep = step || 1;
+  if (!isObject) {
+    for (let i = min; i < max + 1; i += incStep) {
+      numArr.push(i);
+    }
+  } else {
+    for (let i = min; i < max + 1; i += incStep) {
+      let numObj = {
+        id: `numObj-00${i}-${i}00${i}`,
+        name: `${i}`,
+        value: i,
+      };
+
+      numArr.push(numObj);
+    }
+  }
+
+  return numArr;
+};
+
 export const textEllipsis = (text, maxLength = 100) => {
   if (text && text.trim().split(' ').length > maxLength) {
     let ellipsisText = '';
