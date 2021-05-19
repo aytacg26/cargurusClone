@@ -34,6 +34,8 @@
   transition: all 0.25s ease-in;
   border: 0.5px solid #ccc;
   cursor: pointer;
+  display: flex;
+  align-items: flex-start;
 }
 
 .Hover.selected {
