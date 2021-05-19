@@ -6,6 +6,7 @@ import { loadImage, textEllipsis } from '../../../utils/utilsFuncs';
 import CardText from './CardText';
 
 const ProductCard = ({
+  id,
   url,
   image,
   header,
