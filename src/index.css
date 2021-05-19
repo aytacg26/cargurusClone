@@ -17,3 +17,43 @@
 ::-webkit-scrollbar-thumb {
   background-color: rgb(16, 89, 248);
 }
+
+.PageContainer {
+  min-height: max-content;
+  display: flex;
+  position: relative;
+  flex-flow: column nowrap;
+  overflow-x: hidden;
+  background-color: #fff;
+  min-height: 110px;
+}
+
+.PageBottomContainer {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+  height: max-content;
+}
+
+@media (min-width: 1024px) and (max-width: 1360px) {
+  .PageBottomContainer {
+    width: 80%;
+    margin: 10px auto;
+  }
+}
+
+@media (min-width: 1361px) {
+  .PageBottomContainer {
+    width: 70%;
+    margin: 10px auto;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  .PageBottomContainer {
+    width: 90%;
+    margin: 10px auto;
+  }
+}
