@@ -3,11 +3,11 @@ import ByPrice from '../ByPrice/ByPrice';
 import Bodies from './Bodies';
 import classes from './ByBody.module.css';
 
-const ByBody = () => {
+const ByBody = ({ priceFilter }) => {
   return (
     <div className={classes.ByBody}>
       <Bodies />
-      <ByPrice />
+      {priceFilter && <ByPrice />}
     </div>
   );
 };
