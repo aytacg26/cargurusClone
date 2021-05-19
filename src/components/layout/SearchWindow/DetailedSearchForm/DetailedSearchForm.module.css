@@ -1,0 +1,45 @@
+.FormContainer {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.headerSection {
+  margin-bottom: 45px;
+}
+
+.DetailedSearchForm {
+  max-width: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 50px;
+}
+
+.DropDowns {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.formGroup {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0 10px 0;
+}
+
+.formGroup span {
+  width: 80px;
+  color: #727272;
+}
+
+.Bodies {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.Bodies a {
+  text-decoration: none;
+  color: #727272;
+}
