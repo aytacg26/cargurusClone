@@ -1,15 +1,12 @@
 import React from 'react';
-import InfoContainer from '../InfoContainer/InfoContainer';
-import MainImageLoader from '../MainImageLoader/MainImageLoader';
-
-import ProductSlider from '../ProductSlider/ProductSlider';
-import SearchWindow from '../SearchWindow/SearchWindow';
-import VideoSlider from '../VideoSlider/VideoSlider';
-import classes from './Home.module.css';
-import ProductCard from '../../ui/ProductCard/ProductCard';
-import RecentActivities from '../RecentActivities/RecentActivities';
-import PopularListSection from '../PopularListSection/PopularListSection';
-import BrandCard from '../../ui/BrandCard/BrandCard';
+import InfoContainer from '../../InfoContainer/InfoContainer';
+import ProductSlider from '../../ProductSlider/ProductSlider';
+import VideoSlider from '../../VideoSlider/VideoSlider';
+import ProductCard from '../../../ui/ProductCard/ProductCard';
+import RecentActivities from '../../RecentActivities/RecentActivities';
+import ListSection from '../../ListSection/ListSection';
+import BrandCard from '../../../ui/BrandCard/BrandCard';
+import PageContainer from '../PageContainer/PageContainer';
 
 const recentTestDrives = [
   {
@@ -507,45 +504,41 @@ const popularUsedCars = [
 
 const Home = () => {
   return (
-    <div className={classes.Home}>
-      <MainImageLoader />
-      <SearchWindow header='Know more, shop wisely' />
-      <div className={classes.HomeBottomContainer}>
-        <RecentActivities />
-        <InfoContainer heading='We take the guesswork out' />
-        <VideoSlider />
-        <ProductSlider header='Recent Test Drives' items={recentTestDrives} />
-        <ProductSlider header='Recent Previews' items={recentPreviews} />
-        <PopularListSection
-          header='Popular Brands'
-          items={brands}
-          Component={<BrandCard />}
-        />
-        <PopularListSection
-          header='Popular Used Cars'
-          items={popularUsedCars}
-          Component={
-            <ProductCard
-              noBoxShadow
-              subHeadingStyle={{
-                border: '1px solid #ccc',
-                marginBottom: '20px',
-              }}
-            />
-          }
-        />
-        <PopularListSection
-          header='Popular New Cars'
-          items={[]}
-          Component={<ProductCard noBoxShadow isNew />}
-        />
-        <PopularListSection
-          header='Popular Pickup Trucks'
-          items={[]}
-          Component={<ProductCard noBoxShadow />}
-        />
-      </div>
-    </div>
+    <PageContainer upSection hasSearchWindow>
+      <RecentActivities />
+      <InfoContainer heading='We take the guesswork out' />
+      <VideoSlider />
+      <ProductSlider header='Recent Test Drives' items={recentTestDrives} />
+      <ProductSlider header='Recent Previews' items={recentPreviews} />
+      <ListSection
+        header='Popular Brands'
+        items={brands}
+        Component={<BrandCard />}
+      />
+      <ListSection
+        header='Popular Used Cars'
+        items={popularUsedCars}
+        Component={
+          <ProductCard
+            noBoxShadow
+            subHeadingStyle={{
+              border: '1px solid #ccc',
+              marginBottom: '20px',
+            }}
+          />
+        }
+      />
+      <ListSection
+        header='Popular New Cars'
+        items={[]}
+        Component={<ProductCard noBoxShadow isNew />}
+      />
+      <ListSection
+        header='Popular Pickup Trucks'
+        items={[]}
+        Component={<ProductCard noBoxShadow />}
+      />
+    </PageContainer>
   );
 };
 
