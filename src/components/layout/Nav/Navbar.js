@@ -242,7 +242,7 @@ const Navbar = (props) => {
           </div>
           {showCountryList && (
             <Suspense fallback={<Loader />}>
-              <DropMenu top='40px' left='-155px' name='countries'>
+              <DropMenu top='40px' left='-100px' name='countries'>
                 {countries.map((country) => (
                   <MenuItem
                     title={country.name}
@@ -292,7 +292,7 @@ const Navbar = (props) => {
             <MdAccountCircle size={size} /> <span>My Account</span>
             {accountMenu && (
               <Suspense fallback={<Loader />}>
-                <DropMenu top='40px' left='-123px' name='accountMenu'>
+                <DropMenu top='40px' left='-65px' name='accountMenu'>
                   {accountMenuList.map((accM) => (
                     <MenuItem
                       title={accM.title}
