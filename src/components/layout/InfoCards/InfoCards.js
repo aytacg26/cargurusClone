@@ -1,4 +1,3 @@
-import React, { Fragment } from 'react';
 import InfoCard from '../../ui/InfoCard/InfoCard';
 import classes from './InfoCards.module.css';
 

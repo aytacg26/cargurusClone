@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense, useEffect, useCallback } from 'react';
+import React, { useState, lazy, Suspense, useEffect } from 'react';
 import classes from './Navbar.module.css';
 import logo from '../../../assets/images/forIcons.png';
 import MenuItem from './MenuItem/MenuItem';
@@ -9,7 +9,6 @@ import {
   MdNotificationsNone,
   MdFavoriteBorder,
   MdAccountCircle,
-  MdControlPoint,
 } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import Loader from '../../ui/Loader/Loader';
@@ -132,7 +131,7 @@ const Navbar = (props) => {
   const [pickedCountry, setPickedCountry] = useState(initCountry);
   const [accountMenu, setAccountMenu] = useState(false);
   const [notificationMenu, setNotificationMenu] = useState(false);
-  const [selectedCode, setSelectedCode] = useState(countryCode);
+  // const [selectedCode, setSelectedCode] = useState(countryCode);
   const [isNotificationsChecked, setIsNotificationsChecked] = useState(false);
 
   useEffect(() => {

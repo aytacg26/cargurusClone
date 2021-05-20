@@ -2,8 +2,6 @@ import React from 'react';
 import ProductCard from '../../../ui/ProductCard/ProductCard';
 import ListSection from '../../ListSection/ListSection';
 import RecentActivities from '../../RecentActivities/RecentActivities';
-import ByBody from '../../SearchWindow/ByBody/ByBody';
-import ByMake from '../../SearchWindow/ByMake/ByMake';
 import DetailedSearchForm from '../../SearchWindow/DetailedSearchForm/DetailedSearchForm';
 import PageContainer from '../PageContainer/PageContainer';
 import classes from './UsedCars.module.css';
@@ -131,12 +129,42 @@ const UsedCars = () => {
         Component={<ProductCard noBoxShadow />}
       />
       <ListSection
-        header='Popular Used Cars'
+        header='Popular Convertibles'
         items={popularUsedCars}
         Component={<ProductCard noBoxShadow />}
       />
       <ListSection
-        header='Popular Used Cars'
+        header='Coupes'
+        items={popularUsedCars}
+        Component={<ProductCard noBoxShadow />}
+      />
+      <ListSection
+        header='Popular Hatchbacks'
+        items={popularUsedCars}
+        Component={<ProductCard noBoxShadow />}
+      />
+      <ListSection
+        header='Popular Sedans'
+        items={popularUsedCars}
+        Component={<ProductCard noBoxShadow />}
+      />
+      <ListSection
+        header='Popular SUVs/Crossovers'
+        items={popularUsedCars}
+        Component={<ProductCard noBoxShadow />}
+      />
+      <ListSection
+        header='Popular Vans'
+        items={popularUsedCars}
+        Component={<ProductCard noBoxShadow />}
+      />
+      <ListSection
+        header='Popular Wagons'
+        items={popularUsedCars}
+        Component={<ProductCard noBoxShadow />}
+      />
+      <ListSection
+        header='Popular Minivans'
         items={popularUsedCars}
         Component={<ProductCard noBoxShadow />}
       />
