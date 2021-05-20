@@ -152,7 +152,7 @@ const bodyList = [
 ];
 
 /**
- * Remove useMemo and useCallbacks, and React.memo from DropDown, in any case, whenever this comp. func runs, each of the runs also.
+ * Remove useMemo and useCallbacks, and React.memo from DropDown, in any case, whenever this comp. func runs, each of them runs also.
  *  nothing changed and therefore, useMemo, useCallback and React.memo does not have any performance advantage, instead, they
  *  create more performance issue.
  */
