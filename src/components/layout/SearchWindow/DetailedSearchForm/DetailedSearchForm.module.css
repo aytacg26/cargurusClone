@@ -7,6 +7,10 @@
   margin-bottom: 45px;
 }
 
+.headerSection h2 {
+  margin-top: 12px;
+}
+
 .DetailedSearchForm {
   max-width: 100%;
   width: 100%;
