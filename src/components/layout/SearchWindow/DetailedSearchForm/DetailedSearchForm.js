@@ -1,7 +1,6 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import Button from '../../../ui/Button/Button';
 import DropDown from '../../../ui/DropDown/DropDown';
-import ByBody from '../ByBody/ByBody';
 import CarBodyCard from '../ByBody/CarBodyCard';
 import classes from './DetailedSearchForm.module.css';
 
@@ -68,7 +67,7 @@ const brands = [
   },
 ];
 
-const cities = [
+const cityList = [
   {
     id: 'city-000-cyprus',
     name: 'All Cities',
@@ -101,7 +100,7 @@ const cities = [
   },
 ];
 
-const bodies = [
+const bodyList = [
   {
     id: 'body-suv-0001',
     title: 'SUV/Crossover',
@@ -152,6 +151,12 @@ const bodies = [
   },
 ];
 
+/**
+ * Remove useMemo and useCallbacks, and React.memo from DropDown, in any case, whenever this comp. func runs, each of the runs also.
+ *  nothing changed and therefore, useMemo, useCallback and React.memo does not have any performance advantage, instead, they
+ *  create more performance issue.
+ */
+
 const DetailedSearchForm = () => {
   const [selectBrand, setSelectBrand] = useState(false);
   const [selectStartYear, setSelectStartYear] = useState(false);
@@ -159,102 +164,144 @@ const DetailedSearchForm = () => {
   const [selectCity, setSelectCity] = useState(false);
   const [selectMinPrice, setSelectMinPrice] = useState(false);
   const [selectMaxPrice, setSelectMaxPrice] = useState(false);
+  const [brand, setBrand] = useState('all');
+  const [startYear, setStartYear] = useState('all');
+  const [endYear, setEndYear] = useState('all');
+  const [city, setCity] = useState('');
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(0);
 
-  const handleDropClick = (name) => {
-    switch (name) {
-      case 'brands':
-        setSelectBrand((prevState) => !prevState);
-        setSelectStartYear(false);
-        setSelectEndYear(false);
-        setSelectCity(false);
-        setSelectMinPrice(false);
-        setSelectMaxPrice(false);
-        break;
+  const brandOptions = useMemo(() => brands, []);
+  const cities = useMemo(() => cityList, []);
+  const bodies = useMemo(() => bodyList, []);
+  const dropStyle = useMemo(() => ({ border: '1px solid #ccc' }), []);
 
-      case 'yearStart':
-        setSelectBrand(false);
-        setSelectStartYear((prevState) => !prevState);
-        setSelectEndYear(false);
-        setSelectCity(false);
-        setSelectMinPrice(false);
-        setSelectMaxPrice(false);
-        break;
+  const handleDropClick = useCallback(
+    (name) => {
+      console.log('name is dropdown click..: ', name);
+      switch (name) {
+        case 'brands':
+          setSelectBrand((prevState) => !prevState);
+          selectStartYear && setSelectStartYear(false);
+          selectEndYear && setSelectEndYear(false);
+          selectCity && setSelectCity(false);
+          selectMinPrice && setSelectMinPrice(false);
+          selectMaxPrice && setSelectMaxPrice(false);
+          break;
 
-      case 'yearEnd':
-        setSelectBrand(false);
-        setSelectStartYear(false);
-        setSelectEndYear((prevState) => !prevState);
-        setSelectCity(false);
-        setSelectMinPrice(false);
-        setSelectMaxPrice(false);
-        break;
+        case 'yearStart':
+          selectBrand && setSelectBrand(false);
+          setSelectStartYear((prevState) => !prevState);
+          selectEndYear && setSelectEndYear(false);
+          selectCity && setSelectCity(false);
+          selectMinPrice && setSelectMinPrice(false);
+          selectMaxPrice && setSelectMaxPrice(false);
+          break;
 
-      case 'cities':
-        setSelectBrand(false);
-        setSelectStartYear(false);
-        setSelectEndYear(false);
-        setSelectCity((prevState) => !prevState);
-        setSelectMinPrice(false);
-        setSelectMaxPrice(false);
-        break;
+        case 'yearEnd':
+          selectBrand && setSelectBrand(false);
+          selectStartYear && setSelectStartYear(false);
+          setSelectEndYear((prevState) => !prevState);
+          selectCity && setSelectCity(false);
+          selectMinPrice && setSelectMinPrice(false);
+          selectMaxPrice && setSelectMaxPrice(false);
+          break;
 
-      case 'minPrice':
-        setSelectBrand(false);
-        setSelectStartYear(false);
-        setSelectEndYear(false);
-        setSelectCity(false);
-        setSelectMinPrice((prevState) => !prevState);
-        setSelectMaxPrice(false);
-        break;
+        case 'cities':
+          selectBrand && setSelectBrand(false);
+          selectStartYear && setSelectStartYear(false);
+          selectEndYear && setSelectEndYear(false);
+          setSelectCity((prevState) => !prevState);
+          selectMinPrice && setSelectMinPrice(false);
+          selectMaxPrice && setSelectMaxPrice(false);
+          break;
 
-      case 'maxPrice':
-        setSelectBrand(false);
-        setSelectStartYear(false);
-        setSelectEndYear(false);
-        setSelectCity(false);
-        setSelectMinPrice(false);
-        setSelectMaxPrice((prevState) => !prevState);
-        break;
+        case 'minPrice':
+          selectBrand && setSelectBrand(false);
+          selectStartYear && setSelectStartYear(false);
+          selectEndYear && setSelectEndYear(false);
+          selectCity && setSelectCity(false);
+          setSelectMinPrice((prevState) => !prevState);
+          selectMaxPrice && setSelectMaxPrice(false);
+          break;
 
-      default:
-        setSelectBrand(false);
-        setSelectStartYear(false);
-        setSelectEndYear(false);
-        setSelectCity(false);
-        setSelectMinPrice(false);
-        setSelectMaxPrice(false);
-        break;
-    }
-  };
+        case 'maxPrice':
+          selectBrand && setSelectBrand(false);
+          selectStartYear && setSelectStartYear(false);
+          selectEndYear && setSelectEndYear(false);
+          selectCity && setSelectCity(false);
+          selectMinPrice && setSelectMinPrice(false);
+          setSelectMaxPrice((prevState) => !prevState);
+          break;
 
-  const handleBrandSelect = () => {
+        default:
+          setSelectBrand(false);
+          setSelectStartYear(false);
+          setSelectEndYear(false);
+          setSelectCity(false);
+          setSelectMinPrice(false);
+          setSelectMaxPrice(false);
+          break;
+      }
+    },
+    [
+      selectBrand,
+      selectCity,
+      selectEndYear,
+      selectStartYear,
+      selectMaxPrice,
+      selectMinPrice,
+    ]
+  );
+
+  const handleBrandSelect = useCallback((value) => {
     setSelectBrand(false);
-  };
+    setBrand(value);
+  }, []);
 
-  const handleStartYear = () => {
+  const handleStartYear = useCallback((value) => {
     setSelectStartYear(false);
-  };
+    setStartYear(value);
+  }, []);
 
-  const handleEndYear = () => {
+  const handleEndYear = useCallback((value) => {
     setSelectEndYear(false);
-  };
+    setEndYear(value);
+  }, []);
 
-  const handleCitySelect = () => {
+  const handleCitySelect = useCallback((value) => {
     setSelectCity(false);
-  };
+    setCity(value);
+  }, []);
 
-  const handleMinPrice = () => {
+  const handleMinPrice = useCallback((value) => {
     setSelectMinPrice(false);
-  };
+    setMinPrice(value);
+  }, []);
 
-  const handleMaxPrice = () => {
+  const handleMaxPrice = useCallback((value) => {
     setSelectMaxPrice(false);
-  };
+    setMaxPrice(value);
+  }, []);
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    console.log('Search Form Submitted...');
-  };
+  const handleFormSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      console.log('Brand : ', brand);
+      console.log('Start Year : ', startYear);
+      console.log('End Year : ', endYear);
+      console.log('City : ', city);
+      console.log('Max Price : ', maxPrice);
+      console.log('Min Price : ', minPrice);
+      setBrand('all');
+      setStartYear('all');
+      setEndYear('all');
+      setMinPrice(0);
+      setMaxPrice(0);
+      setCity('');
+    },
+    [brand, startYear, endYear, city, maxPrice, minPrice]
+  );
 
   /**Min değer ve Max değer dinamik olsun, kullanıcı, min price'ı seçtiğinde, artın max price bölümü min price'ın üzerinde bir değer ile başlasın */
   /**Yıl için de aynı şey geçerli, kullanıcı min yılı seçtiğinde, max yıl bölümü artık min yıla kadar göstermelidir!! Yani
@@ -271,78 +318,106 @@ const DetailedSearchForm = () => {
           <h3>By Make & Model</h3>
           <div className={classes.formGroup}>
             <DropDown
-              selectOptions={brands}
-              defaultOptionId={brands[0].id}
+              selectOptions={brandOptions}
+              defaultOptionId={brandOptions[0].id}
               titleKey='make'
               valueKey='value'
               name='brands'
-              style={{ border: '1px solid #ccc' }}
+              dropValue={brand}
+              style={dropStyle}
               onSelect={handleBrandSelect}
               onClick={handleDropClick}
               drop={selectBrand}
+              onClear={useCallback(() => {
+                setBrand('all');
+                handleDropClick();
+              }, [handleDropClick])}
             />
           </div>
-          <div className={classes.formGroup}>
+          {/* <div className={classes.formGroup}>
             <DropDown
               selectOptions={brands}
               defaultOptionId={brands[0].id}
               titleKey='make'
               valueKey='value'
-              name='brands'
+              name='models'
+              dropValue={brand}
               style={{ border: '1px solid #ccc' }}
               onSelect={() => {}}
               onClick={() => {}}
               drop={false}
             />
-          </div>
+          </div> */}
           <div className={classes.formGroup}>
             <DropDown
               type='year'
-              min={1990}
-              style={{ border: '1px solid #ccc' }}
+              min={startYear !== 'all' ? startYear : 1990}
+              max={endYear}
+              style={dropStyle}
               name='yearStart'
+              dropValue={startYear}
               onSelect={handleStartYear}
               onClick={handleDropClick}
               drop={selectStartYear}
               reverse={false}
+              onClear={useCallback(() => {
+                setStartYear('all');
+                handleDropClick();
+              }, [handleDropClick])}
             />
             <span>to</span>
             <DropDown
               type='year'
-              min={1990}
-              style={{ border: '1px solid #ccc' }}
+              min={startYear !== 'all' ? startYear + 1 : 1990}
+              max={endYear}
+              style={dropStyle}
               name='yearEnd'
+              dropValue={endYear}
               onSelect={handleEndYear}
               onClick={handleDropClick}
               drop={selectEndYear}
               reverse={true}
+              onClear={useCallback(() => {
+                setEndYear('all');
+                handleDropClick();
+              }, [handleDropClick])}
             />
           </div>
           <div className={classes.formGroup}>
             <DropDown
               type='number'
-              min={0}
+              min={minPrice}
               max={250000}
               step={2500}
-              style={{ border: '1px solid #ccc' }}
+              style={dropStyle}
               onSelect={handleMinPrice}
               onClick={handleDropClick}
               drop={selectMinPrice}
               placeHolder='Min Price (£)'
               name='minPrice'
+              dropValue={minPrice}
+              onClear={useCallback(() => {
+                setMinPrice(0);
+                handleDropClick();
+              }, [handleDropClick])}
             />
             <span>to</span>
             <DropDown
               type='number'
-              min={0}
+              min={minPrice}
               max={250000}
               step={10000}
-              style={{ border: '1px solid #ccc' }}
+              style={dropStyle}
               onSelect={handleMaxPrice}
               onClick={handleDropClick}
               drop={selectMaxPrice}
               placeHolder='Max Price (£)'
               name='maxPrice'
+              dropValue={maxPrice}
+              onClear={useCallback(() => {
+                setMaxPrice(0);
+                handleDropClick();
+              }, [handleDropClick])}
             />
           </div>
           <div className={classes.formGroup}>
@@ -352,10 +427,15 @@ const DetailedSearchForm = () => {
               titleKey='name'
               valueKey='value'
               name='cities'
-              style={{ border: '1px solid #ccc' }}
+              dropValue={city}
+              style={dropStyle}
               onSelect={handleCitySelect}
               onClick={handleDropClick}
               drop={selectCity}
+              onClear={useCallback(() => {
+                setCity('');
+                handleDropClick();
+              }, [handleDropClick])}
             />
           </div>
         </div>

@@ -70,11 +70,11 @@ export const numberList = (min, max, step, isObject = true) => {
   const numArr = [];
   const incStep = step || 1;
   if (!isObject) {
-    for (let i = min; i < max + 1; i += incStep) {
+    for (let i = min; i < max + incStep; i += incStep) {
       numArr.push(i);
     }
   } else {
-    for (let i = min; i < max + 1; i += incStep) {
+    for (let i = min; i < max + incStep; i += incStep) {
       let numObj = {
         id: `numObj-00${i}-${i}00${i}`,
         name: `${i}`,

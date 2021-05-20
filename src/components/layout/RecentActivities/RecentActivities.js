@@ -1,5 +1,4 @@
 import React from 'react';
-import ProductCard from '../../ui/ProductCard/ProductCard';
 import classes from './RecentActivities.module.css';
 import RecentActivity from './RecentActivity/RecentActivity';
 

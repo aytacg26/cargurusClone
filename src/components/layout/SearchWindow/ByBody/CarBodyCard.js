@@ -19,6 +19,7 @@ const CarBodyCard = ({
   const imageRef = useRef();
 
   useEffect(() => {
+    console.log('CarBodyCard running');
     loadImage(image, imageRef.current, setShowTitle);
   }, [image]);
 
@@ -53,4 +54,4 @@ const CarBodyCard = ({
   );
 };
 
-export default CarBodyCard;
+export default React.memo(CarBodyCard);

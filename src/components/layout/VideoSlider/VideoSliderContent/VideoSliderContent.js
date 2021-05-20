@@ -1,4 +1,3 @@
-import React, { Fragment } from 'react';
 import Testimonial from '../Testimonial/Testimonial';
 import VideoSection from '../VideoSection/VideoSection';
 import classes from './VideoSliderContent.module.css';
