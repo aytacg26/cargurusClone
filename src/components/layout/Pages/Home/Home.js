@@ -418,6 +418,13 @@ const brands = [
     value: 'rolls-royce',
   },
   {
+    id: 'scion-1853127109-ge',
+    company: 'Toyota Motor Corporation',
+    brand: 'Scion',
+    logo: 'https://i.ibb.co/xScw0W8/scion.png',
+    value: 'scion',
+  },
+  {
     id: 'seat-1453107109-ge',
     company: 'Volkswagen Group',
     brand: 'Seat',
