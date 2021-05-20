@@ -11,8 +11,9 @@
   max-width: 100%;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 50px;
+  /* grid-template-columns: repeat(2, 1fr); */
+  grid-template-columns: 35% 65%;
+  column-gap: 60px;
 }
 
 .DropDowns {
