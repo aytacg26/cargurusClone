@@ -2536,6 +2536,7 @@ const brands = [
     brand: 'Maserati',
     logo: 'https://i.ibb.co/YBtrdRf/Maserati.png',
     value: 'maserati',
+    models: [],
   },
   {
     id: 'mzd-0233202224-jp',
