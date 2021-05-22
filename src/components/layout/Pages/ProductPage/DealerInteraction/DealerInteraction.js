@@ -5,6 +5,7 @@ import DealBadge from '../../../../ui/DealBadge/DealBadge';
 import classes from './DealerInteraction.module.css';
 import { BiChat } from 'react-icons/bi';
 import RatingStarPresentation from '../../../../ui/RatingStars/RatingStarPresentation/RatingStarPresentation';
+import MessageForm from '../MessageForm/MessageForm';
 
 const DealerInteraction = ({
   rate,
@@ -22,7 +23,7 @@ const DealerInteraction = ({
   const showDealBadge =
     good || great || fair || high || overprice || noanalysis || uncertain;
 
-  const showDealCard = showDealBadge && rate && numberOfReviews;
+  const showDealCard = showDealBadge || rate || numberOfReviews;
 
   return (
     <div className={classes.DealerInteractionSection}>
@@ -42,14 +43,20 @@ const DealerInteraction = ({
               />
             )}
             <div className={classes.DealerRating}>
-              {rate && (
+              {rate ? (
                 <Fragment>
                   <span className={classes.RatingTitle}>DEALER RATING</span>
                   <RatingStarPresentation rate={rate} />
                 </Fragment>
-              )}
-              {numberOfReviews && (
+              ) : null}
+              {numberOfReviews ? (
                 <a href='#reviews'>Read {numberOfReviews} Reviews</a>
+              ) : (
+                <span className={classes.NoReviews}>{`${
+                  !rate && !numberOfReviews
+                    ? 'No rating and reviews yet'
+                    : 'No Reviews'
+                }`}</span>
               )}
             </div>
           </div>
@@ -66,7 +73,7 @@ const DealerInteraction = ({
         </div>
       </Card>
       <Card>
-        <form>Message Form</form>
+        <MessageForm />
       </Card>
       <Card>
         <div>Business Card</div>

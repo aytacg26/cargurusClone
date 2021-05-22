@@ -25,6 +25,11 @@
   flex-flow: column nowrap;
 }
 
+.NoReviews {
+  color: #8a8a8a;
+  font-size: 12px;
+}
+
 .OnlineChat {
   display: flex;
   justify-content: space-around;
