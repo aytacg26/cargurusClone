@@ -9,12 +9,13 @@ Json file added for all brands, models of brands and logos of brands inside Bran
 this will be used for MongoDB brands collection
 
 Facebook Style Expanding TextArea created :
-TextArea automatically expands vertically, no scroll required
+TextArea automatically expands and shrinks vertically, no scroll required,
 also with maxLength, optional remaining char size counter added, which shows how many more characters
 remain to write message (something similar to Twitter)
 
 ```
-let rowAdded = [{ count: 0, charSize: 0 }];
+let rowAdded = [{ count: 0, charSize: 0 }]; //This one used outside of function, instead of as state, state version tried but creates problems because of state update
+                                            //latecy.
 const TextArea = ({
   onChange,
   placeholder,
