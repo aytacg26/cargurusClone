@@ -1,6 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import classes from './TextArea.module.css';
 
+/**
+ * @TODO : Add emoji selection option to message (textarea part) like in facebook
+ *
+ *
+ */
+
 const TextArea = ({
   onChange,
   placeholder,
@@ -46,7 +52,7 @@ const TextArea = ({
 
   return (
     <label className={classes.textareaLabel}>
-      <span>Label</span>
+      {/* <span>Label</span>  This part should work like in Input Component*/}
       <textarea
         rows={rowSize}
         cols='50'
