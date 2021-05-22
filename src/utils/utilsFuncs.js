@@ -1,4 +1,5 @@
 import noImage from '../assets/images/noImageAvailable.png';
+import { v4 as uuid } from 'uuid';
 
 export const formatDate = (
   date,
@@ -522,4 +523,37 @@ export const getMedia = () => {
       return { ...media, matches: true };
     }
   }
+};
+
+export const starObjArray = (rate) => {
+  const numberOfFull = rate <= 5 && rate >= 0 ? Math.trunc(rate) : 5;
+  const remaining = parseFloat((rate - numberOfFull).toFixed(2));
+
+  const content = [];
+
+  for (let i = 0; i < numberOfFull; i++) {
+    content.push({
+      id: uuid(),
+      starType: 'full',
+    });
+  }
+
+  if (numberOfFull < 5 && remaining > 0 && remaining < 1) {
+    content.push({
+      id: uuid(),
+      starType: 'half',
+    });
+  }
+
+  if (content.length < 5) {
+    const remaining = 5 - content.length;
+    for (let j = 0; j < remaining; j++) {
+      content.push({
+        id: uuid(),
+        starType: 'empty',
+      });
+    }
+  }
+
+  return content;
 };
