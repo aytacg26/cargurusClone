@@ -1,0 +1,6 @@
+.GetDataSection {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1;
+  max-width: 90px;
+}
