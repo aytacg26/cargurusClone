@@ -45,7 +45,10 @@ const DealBadge = ({
     '';
 
   return (
-    <div className={classes.BadgeContainer}>
+    <div
+      className={classes.BadgeContainer}
+      title={`£${priceDifference} UK Pound ${priceStatus} Market Price`}
+    >
       <div className={IconSectionClass} style={{ backgroundColor: dealColor }}>
         {showArrow && <span className={classes.Icon}></span>}
         {NoAnalysis && <span className={classes.IconNoArrow}>/</span>}
