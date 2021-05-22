@@ -2,7 +2,7 @@
   max-width: 100%;
   width: 100%;
   padding: 12px 15px;
-  margin: 3px;
+  margin: 8px 0;
   background-color: #fff;
   border: 1px solid transparent;
   outline: transparent;
@@ -14,9 +14,36 @@
   border: 1px solid yellowgreen;
 }
 
+.Input::placeholder {
+  color: transparent;
+}
+
 label {
   width: 100%;
   position: relative;
+}
+
+.Label {
+  position: absolute;
+  top: 0;
+  left: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgb(175, 175, 175);
+  transition: all 0.4s ease-in-out;
+  padding: 3px 10px;
+  box-shadow: 0 none;
+}
+
+.Input:focus ~ .Label,
+.Label.filled {
+  top: -21px;
+  left: 10px;
+  font-size: 11px;
+  color: rgb(80, 80, 80);
+  background-color: greenyellow;
+  border-radius: 3px;
+  box-shadow: 0 0 5px greenyellow;
 }
 
 .Input.NotValid {

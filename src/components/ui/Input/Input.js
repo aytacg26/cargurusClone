@@ -17,8 +17,10 @@ const Input = (props) => {
 
   return (
     <label>
-      {label}
       <input {...inputProps} className={inputClass} autoComplete='off' />
+      <span className={`${classes.Label} ${props.value ? classes.filled : ''}`}>
+        {label}
+      </span>
       {warningMessage && (
         <div className={warningClass}>
           <span className={classes.Triangle}></span>
