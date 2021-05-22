@@ -1,0 +1,11 @@
+.ProductSection {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 5;
+}
+
+.ImageBox {
+  width: 100%;
+  height: 550px;
+  background-color: black;
+}

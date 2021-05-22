@@ -7,6 +7,7 @@ import Home from './components/layout/Pages/Home/Home';
 import Footer from './components/layout/Footer/Footer';
 import UsedCars from './components/layout/Pages/UsedCars/UsedCars';
 import NewCars from './components/layout/Pages/NewCars/NewCars';
+import ProductPage from './components/layout/Pages/ProductPage/ProductPage';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
             <Route path='/' exact component={Home} />
             <Route path='/used-cars' exact component={UsedCars} />
             <Route path='/new-cars' exact component={NewCars} />
+            <Route path='/product/:productId' exact component={ProductPage} />
           </Switch>
           <Footer />
         </div>
