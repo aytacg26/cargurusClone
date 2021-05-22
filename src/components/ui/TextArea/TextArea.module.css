@@ -1,0 +1,39 @@
+.TextArea {
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid transparent;
+  background: #fff;
+  resize: none;
+  padding: 10px;
+  outline: 0 none;
+  margin: 10px 0 0 0;
+}
+
+.TextArea:focus {
+  border: 1px solid greenyellow;
+  box-shadow: 0 0 4px greenyellow;
+}
+
+.textareaLabel {
+  position: relative;
+}
+
+.remainingAmount {
+  width: 100%;
+  height: 25px;
+  max-width: 100%;
+  background: #fff;
+  display: flex;
+  margin: -4px 0 15px 0;
+  font-size: 11.5px;
+  padding: 0 5px;
+  align-items: center;
+}
+
+.CounterText {
+  margin-right: 5px;
+}
+
+.MaxLength {
+  font-size: 11px;
+}
