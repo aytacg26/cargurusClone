@@ -6,7 +6,7 @@ import classes from './TextArea.module.css';
  *
  *
  */
-
+let rowAdded = [{ count: 0, charSize: 0 }];
 const TextArea = ({
   onChange,
   placeholder,
@@ -21,10 +21,12 @@ const TextArea = ({
   const [currentScrollHeight, setCurrentScrollHeight] = useState(null);
   const [counter, setCounter] = useState(0);
   const [counterInit, setCounterInit] = useState(0);
+  const [initScrollHeight, setInitScrollHeight] = useState(null);
   const textAreaRef = useRef();
 
   useEffect(() => {
     setCurrentScrollHeight(textAreaRef.current.scrollHeight);
+    setInitScrollHeight(textAreaRef.current.scrollHeight);
   }, []);
 
   useEffect(() => {
@@ -47,6 +49,25 @@ const TextArea = ({
     if (e.target.scrollHeight > currentScrollHeight) {
       setRowSize((prevState) => prevState + 1);
       setCurrentScrollHeight(e.target.scrollHeight);
+      rowAdded = [
+        ...rowAdded,
+        {
+          count: rowAdded[rowAdded.length - 1].count + 1,
+          charSize: e.target.value.length,
+        },
+      ];
+    }
+
+    if (
+      rowAdded.length > 0 &&
+      e.target.value.length < rowAdded[rowAdded.length - 1].charSize
+    ) {
+      setRowSize((prevState) => prevState - 1);
+      rowAdded.pop();
+
+      if (rowAdded.length === 1) {
+        setCurrentScrollHeight(initScrollHeight);
+      }
     }
   };
 

@@ -75,7 +75,7 @@ const MessageForm = () => {
             name='message'
             value={formData.message}
             showCounter
-            maxLength={100}
+            maxLength={650}
           />
         </div>
         <Button btnType='success'>Send</Button>
