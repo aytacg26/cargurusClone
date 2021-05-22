@@ -26,6 +26,7 @@ const TextArea = ({
   const textAreaRef = useRef();
 
   useEffect(() => {
+    //Both are same but, one changes in every expand of textarea, the other one remains same for the end of shrink process
     setCurrentScrollHeight(textAreaRef.current.scrollHeight);
     setInitScrollHeight(textAreaRef.current.scrollHeight);
   }, []);
