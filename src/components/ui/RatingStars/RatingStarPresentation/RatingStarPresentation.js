@@ -9,7 +9,7 @@ const RatingStarPresentation = ({ rate }) => {
   return (
     <div
       className={classes.Stars}
-      title={`This dealer has an average rating of ${rate}`}
+      title={`This dealer has an average rating of ${rate} out of 5`}
     >
       {content.map((star) => (
         <Star starType={star.starType} key={star.id} />
