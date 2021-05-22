@@ -3,7 +3,8 @@ import classes from './TextArea.module.css';
 
 /**
  * @TODO : Add emoji selection option to message (textarea part) like in facebook
- *
+ *         convert rowAdded to number array, instead of object array, count is not required
+ *         and instead of copying, we can move push and pop methods..
  *
  */
 let rowAdded = [{ count: 0, charSize: 0 }];
@@ -49,15 +50,17 @@ const TextArea = ({
     if (e.target.scrollHeight > currentScrollHeight) {
       setRowSize((prevState) => prevState + 1);
       setCurrentScrollHeight(e.target.scrollHeight);
+      //convert to number array and use push method to add new charSize
       rowAdded = [
         ...rowAdded,
         {
-          count: rowAdded[rowAdded.length - 1].count + 1,
+          count: rowAdded[rowAdded.length - 1].count + 1, //not required, unnecessary calculation and copy process.
           charSize: e.target.value.length,
         },
       ];
     }
 
+    //instead of rowAdded[rowAdded.length-1].charSize, use  rowAdded[rowAdded.length-1]
     if (
       rowAdded.length > 0 &&
       e.target.value.length < rowAdded[rowAdded.length - 1].charSize
