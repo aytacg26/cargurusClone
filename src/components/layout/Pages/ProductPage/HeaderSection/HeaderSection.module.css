@@ -1,0 +1,8 @@
+.DetailsHeaderSection {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  max-width: 100%;
+  align-items: center;
+  margin: 15px 0 20px 0;
+}
