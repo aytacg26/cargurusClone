@@ -1,0 +1,13 @@
+.ProductDetailsContainer {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.DetailsSections {
+  display: flex;
+  width: 100%;
+}
