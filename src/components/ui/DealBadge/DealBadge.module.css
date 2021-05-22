@@ -1,0 +1,67 @@
+.BadgeContainer {
+  padding: 6px;
+  width: max-content;
+  height: max-content;
+  max-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.BadgeContainer h3 {
+  margin: 0;
+}
+
+.DealTextSection {
+  max-height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+}
+
+.DealTextSection span {
+  font-size: 12px;
+}
+
+.IconSection {
+  padding: 3px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-right: 5px;
+  transform: rotate(0deg);
+}
+
+.IconSection.Great {
+  transform: rotate(-90deg);
+}
+.IconSection.Good {
+  transform: rotate(-45deg);
+}
+
+.IconSection.High {
+  transform: rotate(45deg);
+}
+.IconSection.Over {
+  transform: rotate(90deg);
+}
+
+.Icon::after {
+  content: '\00279C';
+  font-size: 25px;
+  font-weight: 700;
+  color: #fff;
+  position: absolute;
+  top: -1px;
+  left: 5px;
+}
+
+.IconNoArrow {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
