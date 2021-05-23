@@ -1,0 +1,89 @@
+.Container {
+  padding: 5px;
+  margin: 10px 0;
+  max-width: max-content;
+  max-height: max-content;
+}
+
+.Circle {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(153, 205, 50, 1);
+  border-radius: 50%;
+  box-shadow: 1px 1px 3px black;
+  transform: scale(0);
+  animation: ContainerCircle 0.45s ease-in-out 0s 1 forwards;
+}
+
+.Circle.Error {
+  background-color: red;
+}
+
+@keyframes ContainerCircle {
+  0% {
+    transform: scale(0);
+    filter: blur(3px);
+  }
+
+  50% {
+    transform: scale(1.2);
+    filter: blur(0);
+  }
+
+  100% {
+    transform: scale(0.85);
+    filter: blur(0);
+  }
+}
+
+.path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+}
+.path.circle {
+  -webkit-animation: dash 1s ease-in-out;
+  animation: dash 1s ease-in-out;
+}
+.path.line {
+  stroke-dashoffset: 1000;
+  -webkit-animation: dash 1s 0.45s ease-in-out forwards;
+  animation: dash 0.9s 0.45s ease-in-out forwards;
+}
+.path.check {
+  stroke-dashoffset: -100;
+  -webkit-animation: dash-check 1s 0.45s ease-in-out forwards;
+  animation: dash-check 1s 0.45s ease-in-out forwards;
+}
+
+@-webkit-keyframes dash {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes dash-check {
+  0% {
+    stroke-dashoffset: -100;
+  }
+  100% {
+    stroke-dashoffset: 900;
+  }
+}
+@keyframes dash-check {
+  0% {
+    stroke-dashoffset: -100;
+  }
+  100% {
+    stroke-dashoffset: 900;
+  }
+}
