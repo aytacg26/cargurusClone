@@ -1,0 +1,73 @@
+.Container {
+  padding: 70px 10px 0 10px;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-flow: column nowrap;
+  position: relative;
+  transform: scale(0.9);
+}
+
+.Container h2 {
+  color: #727272;
+  position: absolute;
+  top: 25px;
+  left: -100%;
+  transform: translate(-50%);
+  animation: message 0.4s ease-in-out 0.25s 1 forwards;
+}
+
+.Container.Error h2 {
+  color: red;
+  font-size: 28px;
+}
+
+.Container h1 {
+  color: yellowgreen;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: -100%;
+  animation: success 0.4s ease-in-out 0.45s 1 forwards;
+}
+
+.ErrorMessage {
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  flex-flow: column nowrap;
+  color: red;
+  margin-top: 20px;
+}
+
+@keyframes message {
+  0% {
+    left: -100%;
+  }
+
+  50% {
+    left: 60%;
+  }
+
+  100% {
+    left: 50%;
+  }
+}
+
+@keyframes success {
+  0% {
+    bottom: -100%;
+    filter: blur(30px);
+  }
+
+  50% {
+    bottom: 43%;
+    filter: blur(1px);
+  }
+
+  100% {
+    bottom: 35%;
+    filter: blur(0);
+  }
+}
