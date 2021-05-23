@@ -7,11 +7,13 @@
   border: 1px solid transparent;
   outline: transparent;
   border-radius: 5px;
+  z-index: 1;
 }
 
 .Input:focus {
-  box-shadow: 0 0 5px yellowgreen;
+  box-shadow: 0 0 3px yellowgreen;
   border: 1px solid yellowgreen;
+  outline: 0 none;
 }
 
 .Input::placeholder {
@@ -39,11 +41,11 @@ label {
 .Label.filled {
   top: -21px;
   left: 10px;
-  font-size: 11px;
-  color: rgb(80, 80, 80);
-  background-color: greenyellow;
+  font-size: 10.5px;
+  color: rgb(116, 116, 116);
+  background-color: rgb(255, 255, 255);
   border-radius: 3px;
-  box-shadow: 0 0 5px greenyellow;
+  border: 1px solid greenyellow;
 }
 
 .Input.NotValid {
@@ -69,6 +71,7 @@ label {
   font-weight: 500;
   left: 4%;
   font-size: 0.85rem;
+  z-index: 100;
 }
 
 .Triangle {
@@ -91,6 +94,37 @@ label {
 .WarningContainer.Show {
   display: block;
   animation: warning 0.8s ease-in-out 0s 1 forwards;
+}
+
+.TextError {
+  font-size: 11.5px;
+  margin-top: -5px;
+  display: flex;
+  margin-left: 8px;
+  color: red;
+  margin-bottom: 5px;
+}
+
+.Label.NotValid {
+  color: red;
+}
+
+.Label.NotValid::after {
+  color: red;
+  content: '(Required!)';
+  font-size: 10.5px;
+  margin-left: 5px;
+  animation: textAnimation 2s ease-in-out 0s infinite;
+}
+
+@keyframes textAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes warning {
