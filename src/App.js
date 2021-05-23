@@ -1,3 +1,4 @@
+import React, { lazy, Suspense } from 'react';
 import classes from './App.module.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -5,25 +6,37 @@ import appStore from './store/store';
 import Navbar from './components/layout/Nav/Navbar';
 import Home from './components/layout/Pages/Home/Home';
 import Footer from './components/layout/Footer/Footer';
-import UsedCars from './components/layout/Pages/UsedCars/UsedCars';
-import NewCars from './components/layout/Pages/NewCars/NewCars';
-import ProductPage from './components/layout/Pages/ProductPage/ProductPage';
+import Loader from './components/ui/Loader/Loader';
+
+const UsedCars = lazy(() =>
+  import('./components/layout/Pages/UsedCars/UsedCars')
+);
+const NewCars = lazy(() => import('./components/layout/Pages/NewCars/NewCars'));
+const ProductPage = lazy(() =>
+  import('./components/layout/Pages/ProductPage/ProductPage')
+);
 
 const App = () => {
   return (
     <Provider store={appStore}>
-      <Router>
-        <Navbar />
-        <div className={classes.container}>
-          <Switch>
-            <Route path='/' exact component={Home} />
-            <Route path='/used-cars' exact component={UsedCars} />
-            <Route path='/new-cars' exact component={NewCars} />
-            <Route path='/products/:productId' exact component={ProductPage} />
-          </Switch>
-          <Footer />
-        </div>
-      </Router>
+      <Suspense fallback={<Loader />}>
+        <Router>
+          <Navbar />
+          <div className={classes.container}>
+            <Switch>
+              <Route path='/' exact component={Home} />
+              <Route path='/used-cars' exact render={() => <UsedCars />} />
+              <Route path='/new-cars' exact render={() => <NewCars />} />
+              <Route
+                path='/products/:productId'
+                exact
+                render={() => <ProductPage />}
+              />
+            </Switch>
+            <Footer />
+          </div>
+        </Router>
+      </Suspense>
     </Provider>
   );
 };
