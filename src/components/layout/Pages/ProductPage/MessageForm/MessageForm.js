@@ -1,14 +1,18 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, lazy, Suspense } from 'react';
 import {
   emailValidation,
   textValidation,
 } from '../../../../../utils/utilsFuncs';
 import Button from '../../../../ui/Button/Button';
-import Envelope from '../../../../ui/Envelope/Envelope';
+// import Envelope from '../../../../ui/Envelope/Envelope';
 import Input from '../../../../ui/Input/Input';
+import Loader from '../../../../ui/Loader/Loader';
 import TextArea from '../../../../ui/TextArea/TextArea';
-import FormSuccess from './FormSuccess/FormSuccess';
+// import FormSuccess from './FormSuccess/FormSuccess';
 import classes from './MessageForm.module.css';
+
+const FormSuccess = lazy(() => import('./FormSuccess/FormSuccess'));
+const Envelope = lazy(() => import('../../../../ui/Envelope/Envelope'));
 
 const MessageForm = ({ formHeader, dealerPhone }) => {
   const [formData, setFormData] = useState({
@@ -21,6 +25,9 @@ const MessageForm = ({ formHeader, dealerPhone }) => {
 
   const { name, surname, email, phone, message } = formData;
 
+  /**
+   * @TODO - Create a Custom Hook for such forms. With these all useStates it is too crowded
+   */
   const [nameIsValid, setNameIsValid] = useState(false);
   const [surnameIsValid, setSurnameIsValid] = useState(false);
   const [emailIsValid, setEmailIsValid] = useState(false);
@@ -211,11 +218,17 @@ const MessageForm = ({ formHeader, dealerPhone }) => {
   return (
     <div className={classes.FormContainer}>
       {!success && !error && formContent}
-      {(success || error) && <FormSuccess isError={error} />}
+      {(success || error) && (
+        <Suspense fallback={<Loader />}>
+          <FormSuccess isError={error} />
+        </Suspense>
+      )}
 
       {sending && (
         <div className={classes.formModal}>
-          <Envelope sending={sending} />
+          <Suspense fallback={<Loader />}>
+            <Envelope sending={sending} />
+          </Suspense>
         </div>
       )}
     </div>
