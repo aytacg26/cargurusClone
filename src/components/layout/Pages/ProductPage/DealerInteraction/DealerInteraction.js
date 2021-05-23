@@ -6,6 +6,7 @@ import classes from './DealerInteraction.module.css';
 import { BiChat } from 'react-icons/bi';
 import RatingStarPresentation from '../../../../ui/RatingStars/RatingStarPresentation/RatingStarPresentation';
 import MessageForm from '../MessageForm/MessageForm';
+import BusinessCard from '../BusinessCard/BusinessCard';
 
 const DealerInteraction = ({
   rate,
@@ -79,7 +80,7 @@ const DealerInteraction = ({
         />
       </Card>
       <Card>
-        <div>Business Card</div>
+        <BusinessCard />
       </Card>
     </div>
   );
