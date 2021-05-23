@@ -11,10 +11,11 @@ const Button = ({
   btnType,
   to,
   style,
+  disabled,
 }) => {
   const btnClass = `${classes.btn} ${
-    btnType && classes[btnType.toLowerCase()]
-  }`;
+    btnType && !disabled && classes[btnType.toLowerCase()]
+  } ${disabled ? classes.disabled : ''}`;
 
   if (to) {
     return (
