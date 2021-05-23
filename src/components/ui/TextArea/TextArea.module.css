@@ -18,6 +18,52 @@
   position: relative;
 }
 
+.Label {
+  position: absolute;
+  top: -55px;
+  left: 7px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: rgb(175, 175, 175);
+  transition: all 0.4s ease-in-out;
+  padding: 3px 10px;
+  box-shadow: 0 none;
+}
+
+.Label.NotValid {
+  color: red;
+}
+
+.Label.NotValid::after {
+  color: red;
+  content: ' (Required!)';
+  font-size: 10.5px;
+  margin-left: 5px;
+  animation: textAnimation 2s ease-in-out 0s 40 forwards;
+}
+
+@keyframes textAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.TextArea:focus ~ .Label,
+.Label.filled {
+  top: -79px;
+  left: 10px;
+  font-size: 10.5px;
+  color: rgb(116, 116, 116);
+  background-color: rgb(255, 255, 255);
+  border-radius: 3px;
+  border: 1px solid greenyellow;
+  /* box-shadow: 0 0 5px greenyellow; */
+}
+
 .remainingAmount {
   width: 100%;
   height: 25px;
@@ -37,4 +83,86 @@
 
 .MaxLength {
   font-size: 11px;
+}
+
+.TextArea.NotValid {
+  border: 1px solid rgb(240, 106, 91);
+  background-color: salmon;
+}
+
+.Warning {
+  position: absolute;
+  height: max-content;
+  min-height: 60px;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-top: 10px;
+  width: max-content;
+  max-width: 100%;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px black;
+  color: red;
+  display: flex;
+  align-items: center;
+  border: 1px solid red;
+  font-weight: 500;
+  left: 4%;
+  font-size: 0.85rem;
+}
+
+.Triangle {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid rgb(255, 0, 0);
+  position: absolute;
+  left: 15%;
+  top: -10px;
+  opacity: 0.7;
+}
+
+.WarningContainer {
+  display: none;
+  opacity: 0;
+}
+
+.WarningContainer.Show {
+  display: block;
+  animation: warning 0.8s ease-in-out 0s 1 forwards;
+}
+
+.TextError {
+  font-size: 11.5px;
+  margin-top: -13px;
+  margin-bottom: 15px;
+  display: flex;
+  margin-left: 8px;
+  color: red;
+}
+
+@keyframes warning {
+  0% {
+    display: none;
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  25% {
+    display: block;
+    opacity: 0.4;
+    transform: scale(0.5);
+  }
+
+  50% {
+    display: block;
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+
+  100% {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+  }
 }

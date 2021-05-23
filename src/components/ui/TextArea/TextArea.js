@@ -13,10 +13,15 @@ const TextArea = ({
   placeholder,
   name,
   title,
+  label,
   value,
   maxLength,
   counterText,
   showCounter,
+  warningMessage,
+  notValid,
+  useTextError,
+  onBlur,
 }) => {
   const [rowSize, setRowSize] = useState(4);
   const [currentScrollHeight, setCurrentScrollHeight] = useState(null);
@@ -75,6 +80,11 @@ const TextArea = ({
     }
   };
 
+  const textClass = `${classes.TextArea} ${notValid ? classes.NotValid : ''}`;
+  const warningClass = `${classes.WarningContainer} ${
+    notValid ? classes.Show : ''
+  }`;
+
   return (
     <label className={classes.textareaLabel}>
       {/* <span>Label</span>  This part should work like in Input Component*/}
@@ -86,11 +96,25 @@ const TextArea = ({
         title={title}
         maxLength={counterInit}
         value={value}
-        className={classes.TextArea}
+        className={textClass}
         onChange={handleChange}
+        onBlur={onBlur}
         ref={textAreaRef}
         style={{ marginBottom: !showCounter ? '15px' : '' }}
       ></textarea>
+      <span
+        className={`${classes.Label} ${value ? classes.filled : ''} ${
+          notValid ? classes.NotValid : ''
+        }`}
+      >
+        {label}
+      </span>
+      {warningMessage && !useTextError && (
+        <div className={warningClass}>
+          <span className={classes.Triangle}></span>
+          <div className={classes.Warning}>{warningMessage}</div>
+        </div>
+      )}
       {showCounter && (
         <div className={classes.remainingAmount}>
           <span className={classes.CounterText}>
@@ -98,6 +122,9 @@ const TextArea = ({
           </span>
           <span className={classes.MaxLength}>{counter}</span>
         </div>
+      )}
+      {useTextError && notValid && (
+        <span className={classes.TextError}>{warningMessage}</span>
       )}
     </label>
   );
