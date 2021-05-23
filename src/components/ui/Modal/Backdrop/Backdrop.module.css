@@ -1,0 +1,30 @@
+.Backdrop {
+  width: 100vw;
+  min-height: 100%;
+  position: fixed;
+  z-index: 997;
+  background-color: rgba(0, 0, 0, 0.5);
+  left: 0;
+  opacity: 0;
+  top: -100%;
+}
+
+.Backdrop.Show {
+  animation: show 1s ease-in-out 0s 1 forwards;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    display: none;
+    top: -100%;
+    filter: blur(100px);
+  }
+
+  100% {
+    opacity: 1;
+    display: block;
+    top: 0;
+    filter: blur(0);
+  }
+}

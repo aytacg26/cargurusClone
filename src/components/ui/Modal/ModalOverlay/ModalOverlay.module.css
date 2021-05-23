@@ -1,0 +1,41 @@
+.ModalOverlay {
+  width: 75%;
+  max-width: 90vw;
+  height: max-content;
+  padding: 25px;
+  position: absolute;
+  z-index: 999;
+  background-color: #fff;
+  top: -100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  box-shadow: 5px 5px 6px black;
+}
+
+.ModalOverlay.Show {
+  animation: show 1s ease-in-out 0s 1 forwards;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    display: none;
+    top: -100%;
+    filter: blur(100px);
+  }
+
+  50% {
+    opacity: 1;
+    display: block;
+    top: 50%;
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 1;
+    display: block;
+    top: 50%;
+    filter: blur(0);
+  }
+}
