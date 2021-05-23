@@ -73,7 +73,10 @@ const DealerInteraction = ({
         </div>
       </Card>
       <Card>
-        <MessageForm />
+        <MessageForm
+          formHeader='Contact Dealer'
+          dealerPhone='(0533) 811 01 91'
+        />
       </Card>
       <Card>
         <div>Business Card</div>
