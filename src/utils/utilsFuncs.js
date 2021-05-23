@@ -115,12 +115,12 @@ export const emailValidation = (email) => {
 
 //this func is valid for name, surname or middlename but for these validations, developer may also use his/her own func. as a first argument
 //to Hook
-export const textValidation = (name) => {
+export const textValidation = (name, maxLength) => {
   const isNotEmpty = name.trim() !== '';
   // eslint-disable-next-line no-useless-escape
   const notAllowedRegex = /[%&()-*\/?$#€\[\]!$£€=@;{}_]+/;
   const hasNotAllowedChars = notAllowedRegex.test(name);
-  const hasValidLength = name.length > 1 && name.length <= 40;
+  const hasValidLength = name.length > 1 && name.length <= maxLength;
 
   return isNotEmpty && !hasNotAllowedChars && hasValidLength;
 };
