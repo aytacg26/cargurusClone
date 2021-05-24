@@ -80,7 +80,7 @@ const DealerInteraction = ({
         />
       </Card>
       <Card>
-        <BusinessCard />
+        <BusinessCard dealerName='Star Auto Sales' />
       </Card>
     </div>
   );
