@@ -1,8 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Button from '../../../../ui/Button/Button';
 import Modal from '../../../../ui/Modal/Modal';
 import classes from './MapModal.module.css';
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl';
+import MapDataWindow from './MapDataWindow/MapDataWindow';
+import PropTypes from 'prop-types';
+
+mapboxgl.accessToken = 'USE YOUR MAP BOX ACCESS TOKEN';
 
 const MapModal = ({
   onMapWindowClick,
@@ -14,24 +18,33 @@ const MapModal = ({
   country,
   address,
 }) => {
-  /**
-   * @TODO : IMPROVE MAP
-   */
-  useEffect(() => {
-    mapboxgl.accessToken = 'YOUR-MAPBOX-ACCESS-TOKEN';
+  const [mapData, setMapData] = useState([]);
+  const mapAreaRef = useRef(null);
+  const map = useRef(null);
 
-    const map = new mapboxgl.Map({
-      container: 'mapArea',
+  //There is default Latitude and Longitude but in case we remove the defaults, the Map Window will be empty
+  //For such cases, we should remove the See Map and Directions button from business card.
+  //This will be possible with the help of Redux, if Dealer data does not contain Longitude and Latitude
+  //On business card, we will remove button from the Business Card section of the page.
+
+  useEffect(() => {
+    if (map.current) return;
+    if (!Latitude && !Longitude) return;
+
+    map.current = new mapboxgl.Map({
+      container: mapAreaRef.current,
       style: 'mapbox://styles/mapbox/streets-v11',
       zoom: 15,
-      center: [33.378401, 35.213839], //[Longitude, Latitude]
+      center: [Longitude, Latitude], //[Longitude, Latitude]
       pitch: 60,
       bearing: -50,
-      antialias: true,
     });
 
-    // map.addControl(new mapboxgl.FullscreenControl({ container: 'mapArea' }));
-    map.addControl(
+    map.current.addControl(
+      new mapboxgl.FullscreenControl({ container: 'mapArea' })
+    );
+
+    map.current.addControl(
       new mapboxgl.GeolocateControl({
         positionOptions: {
           enableHighAccuracy: true,
@@ -44,30 +57,27 @@ const MapModal = ({
       color: 'red',
       draggable: true,
     })
-      .setLngLat([33.378401, 35.213839])
-      .addTo(map);
+      .setLngLat([Longitude, Latitude])
+      .addTo(map.current);
 
-    map.on('click', () => {
-      new mapboxgl.Popup({ offset: [0, -30] })
-        .setLngLat([33.378401, 35.213839])
-        .setHTML(`<h3>Dealer is here...</h3>`)
-        .addTo(map);
-    });
+    //Click process must show a popup component, setHTML won't be a good approach
+    // map.current.on('click', () => {
+    //   new mapboxgl.Popup({ offset: [0, -30] })
+    //     .setLngLat([Longitude, Latitude])
+    //     .setHTML(`<h1>Test<h1>`)
+    //     .addTo(map);
+    // });
 
     const nav = new mapboxgl.NavigationControl();
 
-    map.addControl(nav, 'top-left');
+    map.current.addControl(nav, 'top-left');
 
-    // console.log(map);
     var scale = new mapboxgl.ScaleControl({
       maxWidth: 80,
       unit: 'metric',
     });
-    map.addControl(scale);
-
-    // scale.setUnit('metric');
-    //end of test
-  }, []);
+    map.current.addControl(scale);
+  }, [Longitude, Latitude]);
 
   useEffect(() => {
     if (!hideMap) {
@@ -77,16 +87,62 @@ const MapModal = ({
     }
   }, [hideMap]);
 
+  useEffect(() => {
+    if (!hideMap) {
+      const closeModalByEsc = (e) => {
+        if (e.key === 'Escape') {
+          onMapWindowClick();
+        }
+      };
+
+      document.addEventListener('keyup', closeModalByEsc);
+
+      return () => {
+        document.removeEventListener('keyup', closeModalByEsc);
+      };
+    }
+  }, [onMapWindowClick, hideMap]);
+
+  //create mapdata array
+  useEffect(() => {
+    const mapDataArray = [];
+
+    if (Longitude) {
+      mapDataArray.push({
+        title: 'Longitude',
+        data: Longitude,
+      });
+    }
+
+    if (Latitude) {
+      mapDataArray.push({
+        title: 'Latitude',
+        data: Latitude,
+      });
+    }
+
+    if (location) {
+      mapDataArray.push({
+        title: 'City',
+        data: location,
+      });
+    }
+
+    setMapData(mapDataArray);
+  }, [Latitude, Longitude, location]);
+
   return (
     <Modal hide={hideMap} onClick={onMapWindowClick}>
-      <div>
-        <div>
-          <h1>Dealer Name</h1>
-          <h3>Location - Country</h3>
-          <p>Address</p>
-        </div>
-        <div className={classes.MapArea} id='mapArea'>
-          MAP AREA
+      <div className={classes.Container}>
+        {dealerName && (
+          <div className={classes.ModalHeaders}>
+            <h1>{dealerName}</h1>
+            {location && country && <h3>{`${location} - ${country}`}</h3>}
+            <p>514 Crows Landing Road Modesto, CA 95351</p>
+          </div>
+        )}
+        <div className={classes.MapArea} id='mapArea' ref={mapAreaRef}>
+          <MapDataWindow dataObjectArray={mapData} />
         </div>
         <div>
           <Button btnType='success' onClick={onMapWindowClick}>
@@ -96,6 +152,23 @@ const MapModal = ({
       </div>
     </Modal>
   );
+};
+
+//Put Longitude and Latitude of the Car World (if any :)) )
+MapModal.defaultProps = {
+  Longitude: 33.3823,
+  Latitude: 35.1856,
+};
+
+MapModal.propTypes = {
+  onMapWindowClick: PropTypes.func.isRequired,
+  hideMap: PropTypes.bool.isRequired,
+  Latitude: PropTypes.number.isRequired,
+  Longitude: PropTypes.number.isRequired,
+  dealerName: PropTypes.string.isRequired,
+  location: PropTypes.string,
+  country: PropTypes.string,
+  address: PropTypes.string,
 };
 
 export default MapModal;
