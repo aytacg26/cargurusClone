@@ -4,12 +4,11 @@ import {
   textValidation,
 } from '../../../../../utils/utilsFuncs';
 import Button from '../../../../ui/Button/Button';
-// import Envelope from '../../../../ui/Envelope/Envelope';
 import Input from '../../../../ui/Input/Input';
 import Loader from '../../../../ui/Loader/Loader';
 import TextArea from '../../../../ui/TextArea/TextArea';
-// import FormSuccess from './FormSuccess/FormSuccess';
 import classes from './MessageForm.module.css';
+import PropTypes from 'prop-types';
 
 const FormSuccess = lazy(() => import('./FormSuccess/FormSuccess'));
 const Envelope = lazy(() => import('../../../../ui/Envelope/Envelope'));
@@ -233,6 +232,11 @@ const MessageForm = ({ formHeader, dealerPhone }) => {
       )}
     </div>
   );
+};
+
+MessageForm.propTypes = {
+  formHeader: PropTypes.string,
+  dealerPhone: PropTypes.string,
 };
 
 export default MessageForm;
