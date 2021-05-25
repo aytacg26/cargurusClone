@@ -79,30 +79,6 @@ const MapModal = ({
     map.current.addControl(scale);
   }, [Longitude, Latitude]);
 
-  useEffect(() => {
-    if (!hideMap) {
-      document.body.setAttribute('style', 'overflow:hidden');
-    } else {
-      document.body.removeAttribute('style', 'overflow:hidden');
-    }
-  }, [hideMap]);
-
-  useEffect(() => {
-    if (!hideMap) {
-      const closeModalByEsc = (e) => {
-        if (e.key === 'Escape') {
-          onMapWindowClick();
-        }
-      };
-
-      document.addEventListener('keyup', closeModalByEsc);
-
-      return () => {
-        document.removeEventListener('keyup', closeModalByEsc);
-      };
-    }
-  }, [onMapWindowClick, hideMap]);
-
   //create mapdata array
   useEffect(() => {
     const mapDataArray = [];

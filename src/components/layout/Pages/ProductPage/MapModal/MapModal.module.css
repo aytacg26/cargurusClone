@@ -1,6 +1,6 @@
 .MapArea {
-  width: 100%;
-  max-width: 100%;
+  width: 920px;
+  max-width: 95vw;
   height: 500px;
   padding: 15px;
   margin-bottom: 20px;
