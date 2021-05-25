@@ -7,7 +7,7 @@ import classes from './SearchForm.module.css';
 
 const ByBody = lazy(() => import('../ByBody/ByBody'));
 const ByPrice = lazy(() => import('../ByPrice/ByPrice'));
-const Financing = lazy(() => import('../Financing/Financing'));
+const Financing = lazy(() => import('../../Financing/Financing'));
 
 const btns = [
   {
@@ -207,7 +207,12 @@ const SearchForm = ({ onSubmit }) => {
   if (isFinancing) {
     formType = (
       <Suspense fallback={<Loader />}>
-        <Financing />
+        <Financing
+          header='Shop with real rates in hand'
+          to='/financing'
+          btnType='success'
+          btnTitle='See my options'
+        />
       </Suspense>
     );
   }
