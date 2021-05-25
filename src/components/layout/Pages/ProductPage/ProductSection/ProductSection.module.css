@@ -2,10 +2,30 @@
   display: flex;
   flex-flow: column nowrap;
   flex: 5;
+  padding: 0 10px;
 }
 
 .ImageBox {
   width: 100%;
   height: 550px;
   background-color: black;
+}
+
+.DetailsText {
+  padding: 20px 0;
+  margin-top: 10px;
+}
+
+.FinancingContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 720px;
+  max-width: 85vw;
+  align-items: center;
+}
+
+.FinancingPolicy {
+  height: 220px;
+  overflow: auto;
+  padding: 10px 35px;
 }
