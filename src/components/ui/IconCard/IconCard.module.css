@@ -1,0 +1,17 @@
+.PresentationGroup {
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: 230px;
+  width: 100%;
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.PresentationGroup span {
+  margin-top: 8px;
+}
+
+.PresentationGroup img {
+  max-width: 40px;
+}
