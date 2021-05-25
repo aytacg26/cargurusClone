@@ -1,5 +1,5 @@
 .ModalOverlay {
-  width: 75%;
+  width: max-content;
   max-width: 90vw;
   height: max-content;
   padding: 25px;
@@ -11,6 +11,9 @@
   transform: translate(-50%, -50%);
   border-radius: 10px;
   box-shadow: 5px 5px 6px black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .ModalOverlay.Show {

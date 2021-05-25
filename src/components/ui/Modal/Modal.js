@@ -2,9 +2,9 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 import ModalOverlay from './ModalOverlay/ModalOverlay';
 
-const Modal = ({ children, onClick, hide }) => {
+const Modal = ({ children, onClick, hide, modalStyle }) => {
   const content = (
-    <ModalOverlay onClick={onClick} hide={hide}>
+    <ModalOverlay onClick={onClick} hide={hide} modalStyle={modalStyle}>
       {children}
     </ModalOverlay>
   );
