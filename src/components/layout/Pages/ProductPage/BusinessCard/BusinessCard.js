@@ -24,7 +24,6 @@ const BusinessCard = ({
   const [hideMap, setHideMap] = useState(true);
 
   const handleMapWindow = () => {
-    document.scrollingElement.scrollTop = 0;
     setHideMap((prevState) => !prevState);
   };
 
