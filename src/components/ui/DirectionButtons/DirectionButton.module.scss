@@ -5,11 +5,11 @@
   @include minmax-height-width(40px, 40px, 'max');
   @include flex-all-center(row, nowrap);
   @include transition(all, 0.4s);
+  @include border($site-blue);
   background-color: transparent;
-  border: 1px solid $site-blue;
   margin: 5px;
   padding: 10px;
-  border-radius: 4px;
+  border-radius: $smooth-radius;
   color: $site-blue;
   cursor: pointer;
 
@@ -21,9 +21,9 @@
     @include icon('\002BC7');
 
     &:hover {
+      @include border(transparent);
       background-color: $site-blue;
       color: $default-color;
-      border: 1px solid transparent;
     }
   }
 
@@ -43,8 +43,8 @@
   &.right:hover,
   &.up:hover,
   &.down:hover {
-    background-color: opacify($color: $site-blue, $amount: 0.6);
+    @include border(transparent);
+    background-color: transparentize($color: $site-blue, $amount: 0.3);
     color: $default-color;
-    border: 1px solid transparent;
   }
 }

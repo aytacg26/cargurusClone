@@ -24,8 +24,8 @@
 
 .ImageSection {
   @include minmax-height-width(150px, 150px, 'max');
+  @include border($light-grey, 'bottom');
   margin: 0 auto;
-  border-bottom: 1px solid $light-grey;
   overflow: hidden;
 
   img {

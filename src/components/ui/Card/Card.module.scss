@@ -3,8 +3,8 @@
 
 .Card {
   @include width-height(100%, max-content);
+  @include border($light-grey);
   padding: 15px 10px;
-  border: 1px solid $light-grey;
   background-color: $light-grey;
   margin: 0 15px 10px 15px;
 }

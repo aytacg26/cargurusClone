@@ -5,7 +5,7 @@
   @include flex-all-center(row, nowrap);
   @include width-height(17px, 17px);
   @include position-absolute(-8px, null, null, 6px);
-  background-color: opacify($color: $danger, $amount: 0.85);
+  background-color: transparentize($color: $danger, $amount: 0.15);
   color: $default-color;
   border-radius: 50%;
   font-size: 11px;

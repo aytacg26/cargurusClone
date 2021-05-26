@@ -10,11 +10,11 @@
   position: relative;
 
   &:hover > .Hover {
-    background-color: rgba(151, 151, 151, 0.15);
+    background-color: transparentize($color: $dark-grey, $amount: 0.85);
   }
 
   &:hover > .Hover.selected {
-    background-color: #0278bd54;
+    background-color: transparentize($color: $site-blue, $amount: 0.9);
   }
 
   img {
@@ -30,14 +30,13 @@
   @include full-height-width;
   @include transition(all, 0.35s);
   @include position-absolute();
-
-  border: 0.5px solid $light-grey;
+  @include border($light-grey);
   cursor: pointer;
   display: flex;
   align-items: flex-start;
 
   &.selected {
-    background-color: #0278bd54;
-    border-color: #0277bd;
+    background-color: transparentize($site-blue, 0.75);
+    border-color: $site-blue;
   }
 }

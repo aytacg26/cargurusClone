@@ -1,0 +1,144 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins/mixins';
+
+.Input {
+  @include border(transparent);
+  max-width: 100%;
+  width: 100%;
+  padding: 12px 15px;
+  margin: 8px 0;
+  background-color: $default-color;
+  outline: transparent;
+  border-radius: $smooth-radius;
+  z-index: 1;
+
+  &:focus {
+    @include border($site-light-green);
+    box-shadow: 0 0 3px $site-light-green;
+    outline: 0 none;
+  }
+
+  &:focus ~ .Label,
+  .Label.filled {
+    @include position-absolute(-21px, null, null, 10px);
+    @include border($site-light-green);
+    font-size: 10.5px;
+    color: $dark-grey;
+    background-color: $default-color;
+    border-radius: $smooth-radius;
+  }
+
+  &.NotValid {
+    @include border(lighten($color: $danger, $amount: 25%));
+    background-color: lighten($color: $danger, $amount: 30%);
+  }
+}
+
+label {
+  width: 100%;
+  position: relative;
+}
+
+.Label {
+  @include position-absolute(0, null, null, 9px);
+  @include transition(all, 0.35s);
+  font-size: 13px;
+  font-weight: 600;
+  color: $medium-grey;
+  padding: 3px 10px;
+  box-shadow: 0 none;
+}
+
+.Warning {
+  @include flex-items-center(row, nowrap);
+  @include position-absolute(null, null, null, 4%);
+  @include width-height(max-content, max-content);
+  @include border($danger);
+  min-height: 60px;
+  background-color: transparentize($color: $default-color, $amount: 0.1);
+  margin-top: 10px;
+  max-width: 100%;
+  padding: 15px;
+  border-radius: $smooth-radius;
+  box-shadow: $box-shadow;
+  color: $danger;
+  font-weight: 500;
+  font-size: 0.85rem;
+  z-index: 100;
+}
+
+.Triangle {
+  @include width-height(0, 0);
+  @include position-absolute(-10px, null, null, 15%);
+  @include border(transparent, left, 10px);
+  @include border(transparent, right, 10px);
+  @include border($danger, bottom, 20px);
+  opacity: 0.7;
+}
+
+.WarningContainer {
+  display: none;
+  opacity: 0;
+
+  &.Show {
+    display: block;
+    animation: warning 0.8s ease-in-out 0s 1 forwards;
+  }
+}
+
+.TextError {
+  font-size: 11.5px;
+  margin-top: -5px;
+  display: flex;
+  margin-left: 8px;
+  color: $danger;
+  margin-bottom: 5px;
+}
+
+.Label.NotValid {
+  color: $danger;
+}
+
+.Label.NotValid::after {
+  color: $danger;
+  content: '(Required!)';
+  font-size: 10.5px;
+  margin-left: 5px;
+  animation: textAnimation 2s ease-in-out 0s infinite;
+}
+
+@keyframes textAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes warning {
+  0% {
+    display: none;
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  25% {
+    display: block;
+    opacity: 0.4;
+    transform: scale(0.5);
+  }
+
+  50% {
+    display: block;
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+
+  100% {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+  }
+}

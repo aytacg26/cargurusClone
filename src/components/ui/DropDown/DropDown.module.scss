@@ -21,7 +21,10 @@
 
   &.selected {
     color: $default-color;
-    background-color: opacify($color: lighten($site-blue, 25%), $amount: 0.5);
+    background-color: transparentize(
+      $color: lighten($site-blue, 25%),
+      $amount: 0.5
+    );
   }
 }
 

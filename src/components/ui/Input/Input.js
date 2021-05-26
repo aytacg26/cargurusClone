@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Input.module.css';
+import classes from './Input.module.scss';
 
 const Input = (props) => {
   const label = props.label;
@@ -19,14 +19,21 @@ const Input = (props) => {
 
   return (
     <label>
-      <input {...inputProps} className={inputClass} autoComplete='off' />
-      <span
-        className={`${classes.Label} ${props.value ? classes.filled : ''} ${
-          notValid ? classes.NotValid : ''
-        }`}
-      >
-        {label}
-      </span>
+      <input
+        {...inputProps}
+        className={inputClass}
+        autoComplete='off'
+        placeholder={label ? '' : inputProps.placeholder}
+      />
+      {label && (
+        <span
+          className={`${classes.Label} ${props.value ? classes.filled : ''} ${
+            notValid ? classes.NotValid : ''
+          }`}
+        >
+          {label}
+        </span>
+      )}
       {textError && notValid && (
         <span className={classes.TextError}>{warningMessage}</span>
       )}
