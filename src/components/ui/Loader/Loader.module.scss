@@ -1,0 +1,44 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins/mixins';
+
+.LoaderContainer {
+  @include flex-all-center(row, nowrap);
+  @include width-height(100vw, 100vh);
+  @include minmax-height-width(100%, 100%, 'max');
+  padding: 10px;
+}
+
+.lds-ripple {
+  @include width-height(80px, 80px);
+  display: inline-block;
+  position: relative;
+
+  div {
+    @include border($site-blue, null, 4px);
+    position: absolute;
+    opacity: 1;
+    border-radius: 50%;
+    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+
+    &:nth-child(2) {
+      animation-delay: -0.5s;
+    }
+  }
+}
+
+@keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 72px;
+    height: 72px;
+    opacity: 0;
+  }
+}
