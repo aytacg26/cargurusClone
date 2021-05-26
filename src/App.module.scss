@@ -1,0 +1,9 @@
+@import './scss/variables';
+@import './scss/mixins/mixins';
+
+.container {
+  @include width-height(100%, calc(100vh - 65px));
+  margin: 65px auto 0 auto;
+  z-index: 1;
+  background-color: $lighter-grey;
+}

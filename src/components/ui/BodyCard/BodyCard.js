@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import classes from './BodyCard.module.css';
+import classes from './BodyCard.module.scss';
 import { FaCheckCircle } from 'react-icons/fa';
 import loading from '../../../assets/images/BodyStyles/ajax-loader.gif';
 import { loadImage } from '../../../utils/utilsFuncs';

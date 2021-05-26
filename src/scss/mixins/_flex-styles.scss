@@ -1,0 +1,19 @@
+@mixin flex-all-center($direction, $wrap) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-items-center($direction, $wrap) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-flow: column nowrap;
+}

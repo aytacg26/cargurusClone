@@ -1,0 +1,14 @@
+@mixin full-height-width {
+  height: 100%;
+  width: 100%;
+}
+
+@mixin width-height($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin minmax-height-width($height, $width, $type) {
+  #{$type}-height: $height;
+  #{$type}-width: $width;
+}

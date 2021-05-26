@@ -1,0 +1,61 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins/_mixins.scss';
+
+.BadgeContainer {
+  @include flex-all-center(row, nowrap);
+  @include width-height(max-content, max-content);
+  padding: 6px;
+  max-height: 50px;
+  cursor: help;
+
+  h3 {
+    margin: 0;
+  }
+}
+
+.DealTextSection {
+  @include flex-column;
+  max-height: 100%;
+  align-items: flex-start;
+
+  &span {
+    font-size: 12px;
+  }
+}
+
+.IconSection {
+  @include width-height(35px, 35px);
+  @include flex-all-center(row, nowrap);
+  padding: 3px;
+  border-radius: 50%;
+  position: relative;
+  margin-right: 5px;
+  transform: rotate(0deg);
+
+  &.Great {
+    transform: rotate(-90deg);
+  }
+
+  &.Good {
+    transform: rotate(-45deg);
+  }
+
+  &.High {
+    transform: rotate(45deg);
+  }
+
+  &.Over {
+    transform: rotate(90deg);
+  }
+}
+
+.Icon::after {
+  @include position-absolute(-1px, null, null, 5px);
+  @include icon('\00279C');
+  color: $default-color;
+}
+
+.IconNoArrow {
+  @include icon('', 20px, 700);
+  color: $default-color;
+}

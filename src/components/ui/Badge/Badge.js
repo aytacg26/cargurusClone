@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Badge.module.css';
+import classes from './Badge.module.scss';
 
 const Badge = ({ number, width, height, bgColor }) => {
   if (!number) {

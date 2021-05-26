@@ -1,0 +1,57 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins/_mixins.scss';
+
+.DropDown {
+  position: relative;
+  width: 100%;
+}
+
+.Option {
+  color: $dark-grey;
+  padding: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  background-color: transparent;
+  min-width: 100%;
+  text-align: left;
+
+  &:hover {
+    color: lighten($site-blue, 10%);
+  }
+
+  &.selected {
+    color: $default-color;
+    background-color: opacify($color: lighten($site-blue, 25%), $amount: 0.5);
+  }
+}
+
+.DropBtn {
+  @include minmax-height-width(35px, 140px !important, 'min');
+  @include flex-items-center(row, nowrap);
+  padding: 7px 10px;
+  background: transparent;
+  border: 0 none;
+  color: $medium-grey;
+  cursor: pointer;
+  margin: 2px 3px;
+  width: 100%;
+  position: relative;
+
+  &:first-child {
+    font-weight: 500;
+    font-size: 13.5px;
+    min-width: 100%;
+    display: inline-block;
+    text-align: left;
+  }
+}
+
+.icon {
+  @include transition(transform, 0.35s);
+  @include position-absolute(8px, 10px, null, null);
+  transform: rotate(0deg);
+}
+
+.icon.dropped {
+  transform: rotate(180deg);
+}

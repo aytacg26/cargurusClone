@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './IconCard.module.css';
+import classes from './IconCard.module.scss';
 
 const IconCard = ({ image, text, title, alt }) => {
   return (

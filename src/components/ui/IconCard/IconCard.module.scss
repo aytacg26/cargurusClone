@@ -1,0 +1,17 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins/mixins';
+
+.PresentationGroup {
+  @include flex-all-center(column, nowrap);
+  max-width: 230px;
+  width: 100%;
+  font-size: 12px;
+
+  span {
+    margin-top: 8px;
+  }
+
+  img {
+    max-width: 40px;
+  }
+}

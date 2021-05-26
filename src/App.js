@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import classes from './App.module.css';
+import classes from './App.module.scss';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import appStore from './store/store';

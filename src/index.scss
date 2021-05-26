@@ -1,0 +1,59 @@
+@import './scss/variables';
+@import './scss/mixins/mixins';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
+  scrollbar-width: 2px;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $light-grey;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $site-blue;
+}
+
+.PageContainer {
+  @include flex-column;
+  position: relative;
+  overflow-x: hidden;
+  background-color: $default-color;
+  min-height: 110px;
+}
+
+.PageBottomContainer {
+  @include flex-column;
+  @include width-height(95%, max-content);
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (min-width: 1024px) and (max-width: 1360px) {
+  .PageBottomContainer {
+    width: 80%;
+    margin: 10px auto;
+  }
+}
+
+@media (min-width: 1361px) {
+  .PageBottomContainer {
+    width: 70%;
+    margin: 10px auto;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  .PageBottomContainer {
+    width: 90%;
+    margin: 10px auto;
+  }
+}

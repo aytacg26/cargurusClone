@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import classes from './InfoCard.module.css';
+import classes from './InfoCard.module.scss';
 import { loadImage } from '../../../utils/utilsFuncs';
 import loading from '../../../assets/images/BodyStyles/ajax-loader.gif';
 

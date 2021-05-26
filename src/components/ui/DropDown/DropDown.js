@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import DropMenu from '../../layout/Nav/DropMenu';
-import classes from './DropDown.module.css';
+import classes from './DropDown.module.scss';
 import { FaChevronDown, FaTimes } from 'react-icons/fa';
 import { numberList } from '../../../utils/utilsFuncs';
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { loadImage } from '../../../utils/utilsFuncs';
-import classes from './BrandCard.module.css';
+import classes from './BrandCard.module.scss';
 import imageLoader from '../../../assets/images/BodyStyles/ajax-loader.gif';
 
 const BrandCard = ({ brand, id, logo, company }) => {

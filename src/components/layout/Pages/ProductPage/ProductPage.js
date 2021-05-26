@@ -21,7 +21,7 @@ const ProductPage = (props) => {
           <DealerInteraction
             rate={3.4}
             numberOfReviews={25}
-            dealStatus='good'
+            dealStatus='uncertain'
             priceDifference={3500}
           />
         </div>

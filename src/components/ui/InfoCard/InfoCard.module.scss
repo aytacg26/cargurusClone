@@ -1,0 +1,61 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins/mixins';
+
+.infoCard {
+  @include minmax-height-width(325px, 395px, 'max');
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content max-content;
+  justify-items: center;
+  color: $dark-grey;
+  margin: 15px 0;
+
+  h3 {
+    font-size: 18px;
+    text-align: center;
+  }
+}
+
+.InfoCardImage {
+  grid-row: 1/2;
+  padding: 5px;
+}
+
+.InfoCardImage img {
+  max-width: 100%;
+}
+
+.InfoCardText {
+  padding: 0 18px;
+  text-align: center;
+
+  p {
+    font-size: 14.3px;
+    margin-top: 15px;
+  }
+}
+
+/*Media Queries for all devices*/
+/* ----------- iPhone 4 and 4S ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  .infoCard {
+    margin: 20px 0 5px 0;
+
+    h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+  }
+
+  .InfoCardImage img {
+    max-width: 80%;
+  }
+
+  .InfoCardText p {
+    margin-top: 8px;
+    font-size: 13px;
+  }
+}

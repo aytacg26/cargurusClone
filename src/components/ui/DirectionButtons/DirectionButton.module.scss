@@ -1,0 +1,50 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins/mixins';
+
+.Direction {
+  @include minmax-height-width(40px, 40px, 'max');
+  @include flex-all-center(row, nowrap);
+  @include transition(all, 0.4s);
+  background-color: transparent;
+  border: 1px solid $site-blue;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 4px;
+  color: $site-blue;
+  cursor: pointer;
+
+  &.disabled {
+    @include disabled;
+  }
+
+  &.left::before {
+    @include icon('\002BC7');
+
+    &:hover {
+      background-color: $site-blue;
+      color: $default-color;
+      border: 1px solid transparent;
+    }
+  }
+
+  &.right::before {
+    @include icon('\002BC8');
+  }
+
+  &.up::before {
+    @include icon('\0025B2');
+  }
+
+  &.down::before {
+    @include icon('\0025BC');
+  }
+
+  &.left:hover,
+  &.right:hover,
+  &.up:hover,
+  &.down:hover {
+    background-color: opacify($color: $site-blue, $amount: 0.6);
+    color: $default-color;
+    border: 1px solid transparent;
+  }
+}

@@ -1,0 +1,14 @@
+@import '../variables';
+
+@mixin disabled {
+  color: $dark-grey;
+  background-color: $light-grey;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+@mixin icon($content, $font-size: 25px, $font-weight: 800) {
+  content: $content;
+  font-size: $font-size;
+  font-weight: $font-weight;
+}

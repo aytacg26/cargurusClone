@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './DirectionButton.module.css';
+import classes from './DirectionButton.module.scss';
 
 const DirectionButton = ({ direction, onClick, style, id, disabled }) => {
   if (!direction) {

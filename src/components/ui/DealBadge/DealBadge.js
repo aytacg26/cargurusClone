@@ -1,6 +1,6 @@
 import React from 'react';
 // import { ImArrowRight } from 'react-icons/im';
-import classes from './DealBadge.module.css';
+import classes from './DealBadge.module.scss';
 import PropTypes from 'prop-types';
 
 const DealBadge = ({

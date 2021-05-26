@@ -1,0 +1,43 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins/mixins';
+
+.CarBodyCard {
+  @include flex-all-center(column, nowrap);
+  @include full-height-width;
+  @include minmax-height-width(200px, 200px, 'max');
+  padding: 5px;
+  font-size: 14px;
+  position: relative;
+
+  &:hover > .Hover {
+    background-color: rgba(151, 151, 151, 0.15);
+  }
+
+  &:hover > .Hover.selected {
+    background-color: #0278bd54;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  span {
+    margin: 3px;
+  }
+}
+
+.Hover {
+  @include full-height-width;
+  @include transition(all, 0.35s);
+  @include position-absolute();
+
+  border: 0.5px solid $light-grey;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+
+  &.selected {
+    background-color: #0278bd54;
+    border-color: #0277bd;
+  }
+}
