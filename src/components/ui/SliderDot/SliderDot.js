@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './SliderDot.module.css';
+import classes from './SliderDot.module.scss';
 
 const SliderDot = ({ isActive }) => {
   const dotClass = `${classes.SliderDot} ${isActive ? classes.Active : ''}`;

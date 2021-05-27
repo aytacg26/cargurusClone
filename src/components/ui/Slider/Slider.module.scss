@@ -1,14 +1,14 @@
+@import '../../../scss/manifest';
+
 .Slider {
-  width: 100%;
-  height: max-content;
-
+  @include width-height(100%, max-content);
   overflow: hidden;
-}
 
-.Slider > h2 {
-  text-align: left !important;
-  padding-bottom: 6px;
-  border-bottom: 1px solid #ccc;
+  & > h2 {
+    @include border($light-grey, 'bottom');
+    text-align: left !important;
+    padding-bottom: 6px;
+  }
 }
 
 .SliderContainer {
@@ -33,9 +33,7 @@
     height: 605px;
   }
   .SliderDots {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-all-center();
     position: absolute;
     bottom: 2px;
     width: 100%;
@@ -48,9 +46,7 @@
   }
 
   .SliderDots {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-all-center();
     position: absolute;
     bottom: 2px;
     width: 100%;

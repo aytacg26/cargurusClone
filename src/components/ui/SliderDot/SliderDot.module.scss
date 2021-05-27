@@ -1,0 +1,14 @@
+@import '../../../scss/manifest';
+
+.SliderDot {
+  @include width-height(12px, 12px);
+  @include border($light-grey, null);
+  background-color: transparent;
+  border-radius: 50%;
+  margin: 5px 6px;
+
+  &.Active {
+    border-color: $site-blue;
+    background-color: $site-blue;
+  }
+}

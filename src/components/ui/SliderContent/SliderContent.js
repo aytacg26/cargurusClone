@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './SliderContent.module.css';
+import classes from './SliderContent.module.scss';
 
 const SliderContent = ({ left, children }) => {
   const contentClass = `${classes.SliderContent} ${

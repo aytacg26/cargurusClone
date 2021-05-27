@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import SliderArrows from '../SliderArrows/SliderArrows';
 import SliderContent from '../SliderContent/SliderContent';
 import SliderDot from '../SliderDot/SliderDot';
-import classes from './Slider.module.css';
+import classes from './Slider.module.scss';
 import { chunkArray } from '../../../utils/utilsFuncs';
 
 const Slider = ({

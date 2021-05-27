@@ -1,0 +1,34 @@
+@import '../../../scss/manifest';
+
+.SliderContent {
+  @include position-absolute(null, null, null, 0);
+  @include flex-items-center();
+  @include transition(all, 0.8s);
+  filter: blur(10px);
+  transform: scale(0.95);
+  width: 100%;
+
+  &.Move {
+    animation: move 0.8s ease-in-out 0.3s 1 forwards;
+  }
+}
+
+@keyframes move {
+  0% {
+    opacity: 0;
+    filter: blur(80px);
+    transform: scale(0.1);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+@media (min-width: 1024px) {
+  .SliderContent {
+    flex-flow: row nowrap;
+  }
+}
