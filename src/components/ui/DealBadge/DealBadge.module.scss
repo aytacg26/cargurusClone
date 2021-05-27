@@ -1,8 +1,7 @@
-@import '../../../scss/variables';
-@import '../../../scss/mixins/_mixins.scss';
+@import '../../../scss/manifest';
 
 .BadgeContainer {
-  @include flex-all-center(row, nowrap);
+  @include flex-all-center();
   @include width-height(max-content, max-content);
   padding: 6px;
   max-height: 50px;
@@ -25,7 +24,7 @@
 
 .IconSection {
   @include width-height(35px, 35px);
-  @include flex-all-center(row, nowrap);
+  @include flex-all-center();
   padding: 3px;
   border-radius: 50%;
   position: relative;

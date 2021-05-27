@@ -1,5 +1,4 @@
-@import '../../../scss/variables';
-@import '../../../scss/mixins/mixins';
+@import '../../../scss/manifest';
 
 .Input {
   @include border(transparent);
@@ -18,14 +17,8 @@
     outline: 0 none;
   }
 
-  &:focus ~ .Label,
-  .Label.filled {
-    @include position-absolute(-21px, null, null, 10px);
-    @include border($site-light-green);
-    font-size: 10.5px;
-    color: $dark-grey;
-    background-color: $default-color;
-    border-radius: $smooth-radius;
+  &:focus ~ .Label {
+    @include input-placeholder-top;
   }
 
   &.NotValid {
@@ -42,18 +35,21 @@ label {
 .Label {
   @include position-absolute(0, null, null, 9px);
   @include transition(all, 0.35s);
-  font-size: 13px;
-  font-weight: 600;
-  color: $medium-grey;
+  @include font(13px, 600, $medium-grey, null);
   padding: 3px 10px;
   box-shadow: 0 none;
+
+  &.filled {
+    @include input-placeholder-top;
+  }
 }
 
 .Warning {
-  @include flex-items-center(row, nowrap);
+  @include flex-items-center();
   @include position-absolute(null, null, null, 4%);
   @include width-height(max-content, max-content);
   @include border($danger);
+  @include font(0.85rem, 500, $danger, null);
   min-height: 60px;
   background-color: transparentize($color: $default-color, $amount: 0.1);
   margin-top: 10px;
@@ -61,19 +57,11 @@ label {
   padding: 15px;
   border-radius: $smooth-radius;
   box-shadow: $box-shadow;
-  color: $danger;
-  font-weight: 500;
-  font-size: 0.85rem;
   z-index: 100;
 }
 
 .Triangle {
-  @include width-height(0, 0);
-  @include position-absolute(-10px, null, null, 15%);
-  @include border(transparent, left, 10px);
-  @include border(transparent, right, 10px);
-  @include border($danger, bottom, 20px);
-  opacity: 0.7;
+  @include css-triangle();
 }
 
 .WarningContainer {
@@ -81,30 +69,29 @@ label {
   opacity: 0;
 
   &.Show {
+    @include animate-one-time(warning);
     display: block;
-    animation: warning 0.8s ease-in-out 0s 1 forwards;
   }
 }
 
 .TextError {
-  font-size: 11.5px;
+  @include font(11.5px, null, $danger, null);
   margin-top: -5px;
   display: flex;
   margin-left: 8px;
-  color: $danger;
   margin-bottom: 5px;
 }
 
 .Label.NotValid {
   color: $danger;
-}
 
-.Label.NotValid::after {
-  color: $danger;
-  content: '(Required!)';
-  font-size: 10.5px;
-  margin-left: 5px;
-  animation: textAnimation 2s ease-in-out 0s infinite;
+  &::after {
+    color: $danger;
+    content: '(Required!)';
+    font-size: 10.5px;
+    margin-left: 5px;
+    animation: textAnimation 2s ease-in-out 0s infinite;
+  }
 }
 
 @keyframes textAnimation {

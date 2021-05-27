@@ -1,5 +1,7 @@
 $site-background: #f5f6f6;
-$box-shadow: 1px 1px 3px black;
+$black: #000;
+$shadow-color: $black;
+$box-shadow: 1px 1px 3px $shadow-color;
 $lighter-grey: #f5f6f6;
 $light-grey: #ccc;
 $medium-grey: rgb(148, 148, 148);
@@ -12,3 +14,4 @@ $site-blue: #0277bd;
 $default-color: #fff;
 $site-light-green: yellowgreen;
 $smooth-radius: 3px;
+$star-color: #ffb100;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { textEllipsis } from '../../../utils/utilsFuncs';
-import classes from './CardText.module.css';
+import classes from './CardText.module.scss';
 
 const CardText = ({ header, author, text }) => {
   const revisedText = textEllipsis(text, 35);

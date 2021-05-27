@@ -1,3 +1,7 @@
 @mixin transition($property, $duration) {
-  transition: all $duration linear;
+  transition: $property $duration linear;
+}
+
+@mixin animate-one-time($name, $duration: 0.8s) {
+  animation: $name $duration ease-in-out 0s 1 forwards;
 }

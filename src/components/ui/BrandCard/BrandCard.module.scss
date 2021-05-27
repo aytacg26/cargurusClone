@@ -1,5 +1,4 @@
-@import '../../../scss/variables';
-@import '../../../scss/mixins/mixins';
+@import '../../../scss/manifest';
 
 .BrandCard {
   @include flex-items-center(column, wrap);
@@ -23,7 +22,7 @@
 }
 
 .ImageSection {
-  @include minmax-height-width(150px, 150px, 'max');
+  @include minmax-height-width(150px, 150px);
   @include border($light-grey, 'bottom');
   margin: 0 auto;
   overflow: hidden;
@@ -41,16 +40,13 @@
   padding: 8px 5px;
 
   h3 {
+    @include font(0.95rem, null, #000, center);
     margin: 2px 0;
-    text-align: center;
-    color: #000;
-    font-size: 0.95rem;
   }
 
   span {
+    @include font(0.7rem, null, $dark-grey, null);
     text-decoration: none;
-    color: $dark-grey;
-    font-size: 0.7rem;
   }
 }
 
@@ -62,7 +58,7 @@
   }
 
   .ImageSection {
-    @include minmax-height-width(130px, 130px, 'max');
+    @include minmax-height-width(130px, 130px);
 
     img {
       @include width-height(100px, 100px);
@@ -91,7 +87,7 @@
   }
 
   .ImageSection {
-    @include minmax-height-width(120px, 120px, 'max');
+    @include minmax-height-width(120px, 120px);
     img {
       @include width-height(90px, 90px);
     }

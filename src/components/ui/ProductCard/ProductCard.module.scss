@@ -1,0 +1,178 @@
+@import '../../../scss/manifest';
+
+.ProductCard {
+  @include minmax-height-width(100%, 100%);
+  width: 380px;
+  background-color: $default-color;
+  margin: 2px 2px 2px 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 300px 160px;
+  box-shadow: $box-shadow;
+  border-radius: 10px;
+  overflow: hidden;
+  text-decoration: none;
+  color: $black;
+
+  &.NoBoxShadow {
+    box-shadow: none;
+    border-radius: 0;
+
+    .ImageSection img {
+      @include border($default-color, null, 1px);
+      border-radius: 0;
+      height: 200px;
+    }
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.12);
+    }
+
+    h2,
+    span {
+      color: $site-blue;
+    }
+
+    .HeadingSubHeading {
+      h4,
+      h5 {
+        color: $site-blue;
+      }
+    }
+  }
+}
+
+.ImageSection {
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.New {
+  @include position-absolute(1px, 10px);
+  @include font(13px, 600, $lighter-grey);
+  z-index: 999;
+  padding: 10px 5px;
+  background-color: rgba(255, 54, 54, 0.788);
+  border-radius: 0 0 3px 3px;
+  box-shadow: $box-shadow;
+}
+
+.ImageSection img {
+  @include transition(all, 1.2s);
+  max-width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px 10px 0 0;
+}
+
+.HeadingSubHeading {
+  @include border($light-grey, null, 1px);
+  width: 100%;
+  padding: 5px 15px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 15px;
+
+  h4,
+  h5 {
+    color: lighten($color: $black, $amount: 15%);
+    margin: 0;
+    margin-bottom: 5px;
+  }
+
+  h4 {
+    @include font(15px, null);
+  }
+
+  h5 {
+    @include font(14px, 500);
+  }
+}
+
+.Subheading {
+  @include flex-items-center();
+  justify-content: space-between;
+
+  span {
+    @include font(12px);
+  }
+}
+
+@media (min-width: 1026px) {
+  .ProductCard {
+    width: 360px;
+    margin: 2px 28px 2px 0;
+    grid-template-rows: 245px 165px;
+
+    &.NoBoxShadow {
+      .ImageSection img {
+        @include border($default-color, null);
+        border-radius: 0;
+        height: 200px;
+      }
+    }
+  }
+
+  .ImageSection img {
+    width: 100%;
+    height: 245px;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+/*Media Queries for all devices*/
+
+@media (min-width: 799px) and (max-width: 1025px) {
+  .ProductCard {
+    width: 360px;
+    margin: 2px 28px 2px 0;
+    grid-template-rows: 245px 165px;
+
+    &.NoBoxShadow {
+      .ImageSection img {
+        @include border($default-color, null);
+        border-radius: 0;
+        height: 200px;
+      }
+    }
+  }
+
+  .ImageSection img {
+    width: 100%;
+    height: 245px;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+/* ----------- iPhone 4 and 4S ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  .ProductCard.NoBoxShadow {
+    max-height: 100%;
+    max-width: 100vw;
+    margin: 0;
+  }
+
+  .ProductCard.NoBoxShadow .ImageSection img {
+    border-radius: 0;
+    border: 1px solid #fff;
+    width: 90%;
+  }
+
+  .HeadingSubHeading h4,
+  .HeadingSubHeading h5 {
+    color: rgb(34, 34, 34);
+    margin: 0;
+    margin: 3px;
+    text-align: left;
+  }
+}

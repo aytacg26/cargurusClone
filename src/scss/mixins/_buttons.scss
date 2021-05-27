@@ -12,3 +12,11 @@
   font-size: $font-size;
   font-weight: $font-weight;
 }
+
+@mixin default-button($border-radius, $font-size, $color, $background-color) {
+  cursor: pointer;
+  background-color: $background-color;
+  border-radius: $border-radius;
+  color: $color;
+  font-size: $font-size;
+}

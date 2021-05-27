@@ -1,8 +1,7 @@
-@import '../../../scss/variables';
-@import '../../../scss/mixins/mixins';
+@import '../../../scss/manifest';
 
 .infoCard {
-  @include minmax-height-width(325px, 395px, 'max');
+  @include minmax-height-width(325px, 395px);
   width: 100%;
   display: grid;
   grid-template-columns: 1fr;
@@ -12,8 +11,7 @@
   margin: 15px 0;
 
   h3 {
-    font-size: 18px;
-    text-align: center;
+    @include font(18px, null, null, center);
   }
 }
 
@@ -27,11 +25,10 @@
 }
 
 .InfoCardText {
+  @include font(14.3px, null, null, center);
   padding: 0 18px;
-  text-align: center;
 
   p {
-    font-size: 14.3px;
     margin-top: 15px;
   }
 }

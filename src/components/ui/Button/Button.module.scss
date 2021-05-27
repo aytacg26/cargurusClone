@@ -1,19 +1,15 @@
-@import '../../../scss/variables';
-@import '../../../scss/mixins/mixins';
+@import '../../../scss/manifest';
 
 .btn {
-  @include flex-all-center(row, nowrap);
+  @include flex-all-center();
   @include transition(all, 0.3s);
+  @include default-button($smooth-radius, 15px, $default-color, $medium-grey);
   padding: 12px 15px;
-  cursor: pointer;
   border: 0 none;
-  border-radius: $smooth-radius;
   font-weight: 500;
   max-width: 100%;
   width: 100%;
   text-decoration: none;
-  color: $default-color;
-  font-size: 15px;
 
   &.disabled {
     @include disabled;

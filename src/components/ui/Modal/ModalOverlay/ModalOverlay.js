@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import Backdrop from '../Backdrop/Backdrop';
-import classes from './ModalOverlay.module.css';
+import classes from './ModalOverlay.module.scss';
 
 const ModalOverlay = ({ children, onClick, hide, modalStyle }) => {
   const modalClass = `${classes.ModalOverlay} ${!hide ? classes.Show : ''}`;

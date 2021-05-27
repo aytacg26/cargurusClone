@@ -1,13 +1,11 @@
-@import '../../../scss/variables';
-@import '../../../scss/mixins/mixins';
+@import '../../../scss/manifest';
 
 .Badge {
-  @include flex-all-center(row, nowrap);
+  @include flex-all-center();
   @include width-height(17px, 17px);
   @include position-absolute(-8px, null, null, 6px);
-  background-color: transparentize($color: $danger, $amount: 0.15);
-  color: $default-color;
+  @include font(11px, null, $default-color, null);
+  background-color: transparentize($color: $danger, $amount: 0.25);
   border-radius: 50%;
-  font-size: 11px;
   box-shadow: $box-shadow;
 }

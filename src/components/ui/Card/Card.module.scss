@@ -1,5 +1,4 @@
-@import '../../../scss/variables';
-@import '../../../scss/mixins/mixins';
+@import '../../../scss/manifest';
 
 .Card {
   @include width-height(100%, max-content);

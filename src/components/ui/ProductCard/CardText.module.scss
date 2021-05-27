@@ -1,0 +1,27 @@
+@import '../../../scss/manifest';
+
+.TextSection {
+  @include minmax-height-width(160px, 100%);
+  @include flex-column;
+  text-align: left;
+  padding: 5px 15px 10px 15px;
+  overflow: hidden;
+
+  h2 {
+    @include transition(all, 0.7s);
+    font-size: 1.2rem;
+    margin: 8px 0;
+  }
+
+  span {
+    @include transition(all, 0.7s);
+    @include font(0.85rem, null, $dark-grey, null);
+  }
+
+  p {
+    @include font(0.82rem, null, $medium-grey, left);
+    margin-top: 12px;
+    margin-bottom: 5px;
+    line-height: 17px;
+  }
+}

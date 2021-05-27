@@ -1,5 +1,4 @@
-@import '../../../scss/variables';
-@import '../../../scss/mixins/mixins';
+@import '../../../scss/manifest';
 
 .PresentationGroup {
   @include flex-all-center(column, nowrap);

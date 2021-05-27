@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Star.module.css';
+import classes from './Star.module.scss';
 
 const Star = ({ starType }) => {
   const half = `${classes.StarIcon} ${classes.Half}`;

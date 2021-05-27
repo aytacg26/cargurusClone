@@ -1,5 +1,4 @@
-@import '../../../scss/variables';
-@import '../../../scss/mixins/_mixins.scss';
+@import '../../../scss/manifest';
 
 .DropDown {
   position: relative;
@@ -7,13 +6,11 @@
 }
 
 .Option {
-  color: $dark-grey;
+  @include font(null, 600, $dark-grey, left);
   padding: 8px;
   cursor: pointer;
-  font-weight: 600;
   background-color: transparent;
   min-width: 100%;
-  text-align: left;
 
   &:hover {
     color: lighten($site-blue, 10%);
@@ -30,22 +27,18 @@
 
 .DropBtn {
   @include minmax-height-width(35px, 140px !important, 'min');
-  @include flex-items-center(row, nowrap);
+  @include flex-items-center();
+  @include default-button(0, 0, $medium-grey, transparent);
   padding: 7px 10px;
-  background: transparent;
   border: 0 none;
-  color: $medium-grey;
-  cursor: pointer;
   margin: 2px 3px;
   width: 100%;
   position: relative;
 
   &:first-child {
-    font-weight: 500;
-    font-size: 13.5px;
+    @include font(13.5px, 500, null, left);
     min-width: 100%;
     display: inline-block;
-    text-align: left;
   }
 }
 

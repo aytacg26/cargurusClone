@@ -1,6 +1,6 @@
 import React from 'react';
 import Star from '../Star/Star';
-import classes from './RatingStarPresentation.module.css';
+import classes from './RatingStarPresentation.module.scss';
 import { starObjArray } from '../../../../utils/utilsFuncs';
 
 const RatingStarPresentation = ({ rate }) => {

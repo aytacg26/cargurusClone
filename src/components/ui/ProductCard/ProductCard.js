@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import classes from './ProductCard.module.css';
+import classes from './ProductCard.module.scss';
 import imageLoader from '../../../assets/images/BodyStyles/ajax-loader.gif';
 import { loadImage, textEllipsis } from '../../../utils/utilsFuncs';
 import CardText from './CardText';

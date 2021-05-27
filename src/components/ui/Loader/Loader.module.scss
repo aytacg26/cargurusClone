@@ -1,10 +1,9 @@
-@import '../../../scss/variables';
-@import '../../../scss/mixins/mixins';
+@import '../../../scss/manifest';
 
 .LoaderContainer {
-  @include flex-all-center(row, nowrap);
+  @include flex-all-center();
   @include width-height(100vw, 100vh);
-  @include minmax-height-width(100%, 100%, 'max');
+  @include minmax-height-width(100%, 100%);
   padding: 10px;
 }
 

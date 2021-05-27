@@ -1,17 +1,13 @@
-@import '../../../scss/variables';
-@import '../../../scss/mixins/mixins';
+@import '../../../scss/manifest';
 
 .Direction {
-  @include minmax-height-width(40px, 40px, 'max');
-  @include flex-all-center(row, nowrap);
+  @include minmax-height-width(40px, 40px);
+  @include flex-all-center();
   @include transition(all, 0.4s);
   @include border($site-blue);
-  background-color: transparent;
+  @include default-button($smooth-radius, 0, $site-blue, transparent);
   margin: 5px;
   padding: 10px;
-  border-radius: $smooth-radius;
-  color: $site-blue;
-  cursor: pointer;
 
   &.disabled {
     @include disabled;

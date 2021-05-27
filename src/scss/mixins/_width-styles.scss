@@ -8,7 +8,7 @@
   height: $height;
 }
 
-@mixin minmax-height-width($height, $width, $type) {
+@mixin minmax-height-width($height, $width, $type: 'max') {
   #{$type}-height: $height;
   #{$type}-width: $width;
 }

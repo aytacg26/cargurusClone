@@ -5,3 +5,32 @@
     border: $width solid $color;
   }
 }
+
+@mixin font(
+  $font-size: 12px,
+  $font-weight: 500,
+  $color: null,
+  $text-align: null
+) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  color: $color;
+  text-align: $text-align;
+}
+
+@mixin input-placeholder-top {
+  @include position-absolute(-21px, null, null, 10px);
+  @include border($site-light-green);
+  @include font(10.5px, null, $dark-grey, null);
+  background-color: $default-color;
+  border-radius: $smooth-radius;
+}
+
+@mixin css-triangle($opacity: 0.7) {
+  @include width-height(0, 0);
+  @include position-absolute(-10px, null, null, 15%);
+  @include border(transparent, left, 10px);
+  @include border(transparent, right, 10px);
+  @include border($danger, bottom, 20px);
+  opacity: $opacity;
+}

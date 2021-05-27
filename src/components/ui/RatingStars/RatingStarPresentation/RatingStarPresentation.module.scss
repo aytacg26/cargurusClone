@@ -1,0 +1,13 @@
+@import '../../../../scss/manifest';
+
+.Stars {
+  @include flex-all-center();
+  margin-bottom: 5px;
+  cursor: help;
+}
+
+.StarRate {
+  @include font(10px, null, $medium-grey, null);
+  margin: 3px 0 0 5px;
+  letter-spacing: 1.2px;
+}

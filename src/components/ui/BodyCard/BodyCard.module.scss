@@ -1,12 +1,11 @@
-@import '../../../scss/variables';
-@import '../../../scss/mixins/mixins';
+@import '../../../scss/manifest';
 
 .CarBodyCard {
   @include flex-all-center(column, nowrap);
   @include full-height-width;
-  @include minmax-height-width(200px, 200px, 'max');
+  @include minmax-height-width(200px, 200px);
+  @include font(14px, null, $dark-grey, null);
   padding: 5px;
-  font-size: 14px;
   position: relative;
 
   &:hover > .Hover {
