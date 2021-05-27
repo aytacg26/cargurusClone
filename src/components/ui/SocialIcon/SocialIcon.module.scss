@@ -1,0 +1,10 @@
+@import '../../../scss/manifest';
+
+.Animate {
+  @include transition(all, 0.65s);
+  transform: scale(1);
+
+  &:hover {
+    transform: scale(1.3);
+  }
+}

@@ -1,0 +1,52 @@
+@import '../../../scss/manifest';
+
+.dealStory {
+  @include position-absolute(null, -100%, 25px, null);
+  @include flex-all-center();
+  @include border($dark-grey, null, 0.5px);
+  width: max-content;
+  padding: 20px 12px;
+  // background-color: rgba(255, 255, 255, 0.95);
+  background-color: transparentize($color: $default-color, $amount: 0.1);
+  color: $dark-grey;
+  box-shadow: -4px 3px 5px $shadow-color;
+  border-radius: 3px 0 0 3px;
+  animation: story-card 0.5s ease-in 0.2s 1 forwards;
+
+  p {
+    @include font(14px, null, $black, null);
+    max-width: 260px;
+    margin: 0 20px;
+  }
+}
+
+.storyIcon {
+  @include flex-all-center();
+  @include width-height(35px, 35px);
+  margin-right: 20px;
+  background-color: $success;
+  border-radius: 50%;
+  font-size: 25px;
+
+  &::before {
+    content: '\1F845';
+    margin-top: -3px;
+    color: $default-color;
+  }
+}
+
+@keyframes story-card {
+  0% {
+    right: -100%;
+  }
+
+  100% {
+    right: 0;
+  }
+}
+
+@media (max-width: 1220px) {
+  .dealStory {
+    display: none;
+  }
+}

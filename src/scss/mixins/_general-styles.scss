@@ -26,11 +26,18 @@
   border-radius: $smooth-radius;
 }
 
-@mixin css-triangle($opacity: 0.7) {
+@mixin css-triangle(
+  $top,
+  $right,
+  $bottom,
+  $left,
+  $opacity: 0.7,
+  $color: $danger
+) {
   @include width-height(0, 0);
-  @include position-absolute(-10px, null, null, 15%);
+  @include position-absolute($top, $right, $bottom, $left);
   @include border(transparent, left, 10px);
   @include border(transparent, right, 10px);
-  @include border($danger, bottom, 20px);
+  @include border($color, bottom, 20px);
   opacity: $opacity;
 }

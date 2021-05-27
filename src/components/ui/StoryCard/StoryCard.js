@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './StoryCard.module.css';
+import classes from './StoryCard.module.scss';
 
 const StoryCard = ({ title, story, style }) => {
   if (!title && !story) {

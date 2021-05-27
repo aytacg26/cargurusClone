@@ -7,7 +7,7 @@ import {
   FaInstagram,
   FaLinkedinIn,
 } from 'react-icons/fa';
-import classes from './SocialIcon.module.css';
+import classes from './SocialIcon.module.scss';
 
 const SocialIcon = ({ socialName, username, color, fullUrl }) => {
   let icon = null;

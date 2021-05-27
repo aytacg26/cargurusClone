@@ -61,7 +61,7 @@ label {
 }
 
 .Triangle {
-  @include css-triangle();
+  @include css-triangle(-10px, null, null, 15%);
 }
 
 .WarningContainer {

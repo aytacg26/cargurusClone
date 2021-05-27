@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './TabButton.module.css';
+import classes from './TabButton.module.scss';
 
 const TabButton = ({ onClick, children, selected }) => {
   const btnClass = `${classes.TabButton} ${selected ? classes.selected : ''}`;

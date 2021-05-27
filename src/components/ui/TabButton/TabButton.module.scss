@@ -1,0 +1,43 @@
+@import '../../../scss/manifest';
+
+.TabButtonShell {
+  position: relative;
+  width: 100%;
+  display: grid;
+  column-gap: 1px;
+}
+
+.TabButton {
+  @include font(16px, null, $default-color, null);
+  background-color: $snomo;
+  border: 0 none;
+  padding: 12px 15px;
+  transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
+  margin: 3px 3px 3px 0;
+  min-width: max-content;
+
+  &:hover {
+    background-color: $site-blue;
+  }
+
+  &.selected {
+    background-color: $site-blue;
+  }
+}
+
+.Triangle {
+  @include css-triangle(34px, null, null, 40%, 1, $default-color);
+  @include width-height(0, 0);
+  @include animate-one-time(triangle, 0.35s);
+}
+
+@keyframes triangle {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.85;
+  }
+}

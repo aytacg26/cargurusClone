@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import classes from './SuccessErrorSign.module.css';
+import classes from './SuccessErrorSign.module.scss';
 
 const SuccessSign = ({ isError }) => {
   return (
