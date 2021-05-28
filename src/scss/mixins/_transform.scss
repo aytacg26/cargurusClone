@@ -1,5 +1,23 @@
 @mixin rotate($deg) {
-  -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
+  -webkit-transform: rotate($deg);
+  -ms-transform: rotate($deg);
+  transform: rotate($deg);
+}
+
+@mixin scale($value) {
+  -webkit-transform: scale($value);
+  -ms-transform: scale($value);
+  transform: scale($value);
+}
+
+@mixin translate($xValue, $yValue: null) {
+  @if $yValue==null {
+    -webkit-transform: translate($xValue);
+    -ms-transform: translate($xValue);
+    transform: translate($xValue);
+  } @else {
+    -webkit-transform: translate($xValue, $yValue);
+    -ms-transform: translate($xValue, $yValue);
+    transform: translate($xValue, $yValue);
+  }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './MapDataWindow.module.css';
+import classes from './MapDataWindow.module.scss';
 import PropTypes from 'prop-types';
 
 const DataGroup = ({ title, data }) => {

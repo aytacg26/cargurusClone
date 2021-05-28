@@ -1,6 +1,6 @@
 import React from 'react';
 import PageContainer from '../PageContainer/PageContainer';
-import classes from './ProductPage.module.css';
+import classes from './ProductPage.module.scss';
 import ShareData from './ShareData/ShareData';
 import DealerInteraction from './DealerInteraction/DealerInteraction';
 import ProductSection from './ProductSection/ProductSection';

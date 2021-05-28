@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './HeaderSection.module.css';
+import classes from './HeaderSection.module.scss';
 
 const HeaderSection = ({ productHeader, location, dealer }) => {
   return (

@@ -7,7 +7,7 @@ import Button from '../../../../ui/Button/Button';
 import Input from '../../../../ui/Input/Input';
 import Loader from '../../../../ui/Loader/Loader';
 import TextArea from '../../../../ui/TextArea/TextArea';
-import classes from './MessageForm.module.css';
+import classes from './MessageForm.module.scss';
 import PropTypes from 'prop-types';
 
 const FormSuccess = lazy(() => import('./FormSuccess/FormSuccess'));

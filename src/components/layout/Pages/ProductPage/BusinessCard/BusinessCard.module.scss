@@ -1,0 +1,69 @@
+@import '../../../../../scss/manifest';
+
+.BusinessCard {
+  @include flex-all-center(column, nowrap);
+  margin: 0 20px;
+}
+
+.DealerBranding {
+  @include flex(row, nowrap, null, null);
+}
+
+.LogoContainer {
+  @include flex(row, nowrap, center, null);
+  @include width-height(120px, 120px);
+  background-color: $default-color;
+  padding: 5px;
+  border-radius: 50%;
+  margin-right: 14px;
+
+  img {
+    @include width-height(100%, 100%);
+    max-width: 100%;
+    object-position: center;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+
+.DealerBranding {
+  @include border($dark-grey, solid, bottom, 1px);
+  color: $dark-grey;
+  margin-bottom: 10px;
+  padding: 0 0 15px 0;
+  width: 100%;
+}
+
+.DealerLocation {
+  @include flex(column, nowrap, left, center);
+  text-align: left;
+
+  h2,
+  h3 {
+    margin: 0;
+  }
+}
+
+.DetailsSection {
+  @include border($dark-grey, solid, bottom, 1px);
+  padding: 10px 0;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.DealerDetailsGroup {
+  @include flex(row, nowrap, center, null);
+  max-width: 100%;
+  margin: 10px 0;
+  font-size: 13.5px;
+
+  button,
+  a {
+    @include minmax-height-width(35px, 100%, 'max');
+  }
+}
+
+.IconSection {
+  margin: 0 20px 0 0;
+  color: $dark-grey;
+}

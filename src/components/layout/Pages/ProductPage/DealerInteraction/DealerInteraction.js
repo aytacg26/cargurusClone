@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import Button from '../../../../ui/Button/Button';
 import Card from '../../../../ui/Card/Card';
 import DealBadge from '../../../../ui/DealBadge/DealBadge';
-import classes from './DealerInteraction.module.css';
+import classes from './DealerInteraction.module.scss';
 import { BiChat } from 'react-icons/bi';
 import RatingStarPresentation from '../../../../ui/RatingStars/RatingStarPresentation/RatingStarPresentation';
 import MessageForm from '../MessageForm/MessageForm';

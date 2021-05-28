@@ -1,0 +1,34 @@
+@import '../../../../../scss/manifest';
+
+.MapArea {
+  @include width-height(920px, 500px);
+  max-width: 95vw;
+  padding: 15px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.Container {
+  @include flex(column, nowrap, null, null);
+  padding: 5px 20px;
+
+  button {
+    max-width: 140px;
+    margin: auto;
+  }
+}
+
+.ModalHeaders {
+  @include flex(column, nowrap, center, null);
+  padding: 5px;
+  width: 100%;
+  margin-bottom: 1px;
+
+  h1 {
+    @include font(1.65rem, null, $dark-grey, null);
+  }
+
+  p {
+    font-size: 0.81rem;
+  }
+}

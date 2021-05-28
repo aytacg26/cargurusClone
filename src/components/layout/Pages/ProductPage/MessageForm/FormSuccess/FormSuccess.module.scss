@@ -1,0 +1,65 @@
+@import '../../../../../../scss/manifest';
+
+.Container {
+  @include flex(column, nowrap, center, flex-start);
+  @include scale(0.9);
+  padding: 70px 10px 0 10px;
+  min-height: 420px;
+  position: relative;
+
+  h1 {
+    @include position-absolute(null, null, -100%, 50%);
+    @include translate(-50%);
+    color: $site-light-green;
+    animation: success 0.4s ease-in-out 0.45s 1 forwards;
+  }
+
+  h2 {
+    @include position-absolute(25px, null, null, -100%);
+    @include translate(-50%);
+    color: $dark-grey;
+    animation: message 0.4s ease-in-out 0.25s 1 forwards;
+  }
+
+  &.Error h2 {
+    color: $danger;
+    font-size: 28px;
+  }
+}
+
+.ErrorMessage {
+  @include flex(column, nowrap, null, null);
+  @include font(15px, 600, $danger, null);
+  margin-top: 20px;
+}
+
+@keyframes message {
+  0% {
+    left: -100%;
+  }
+
+  50% {
+    left: 60%;
+  }
+
+  100% {
+    left: 50%;
+  }
+}
+
+@keyframes success {
+  0% {
+    bottom: -100%;
+    filter: blur(30px);
+  }
+
+  50% {
+    bottom: 43%;
+    filter: blur(1px);
+  }
+
+  100% {
+    bottom: 35%;
+    filter: blur(0);
+  }
+}

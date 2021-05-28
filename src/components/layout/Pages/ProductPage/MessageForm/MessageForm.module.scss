@@ -1,0 +1,29 @@
+@import '../../../../../scss/manifest';
+
+.FormContainer {
+  max-width: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.FormHeader {
+  @include flex(row, nowrap, center, space-between);
+  @include border($light-grey, solid, bottom, 1px);
+  font-size: 0.9rem;
+  padding: 3px 3px 10px 3px;
+  margin: 4px 4px 10px 4px;
+}
+
+.header {
+  font-weight: 600;
+}
+
+.formModal {
+  @include position-absolute(0, null, null, 0);
+  @include flex-all-center();
+  @include width-height(100%, 100%);
+  max-width: 100%;
+  background-color: transparentize($color: $black, $amount: 1);
+  border-radius: 10px 10px 0 0;
+}

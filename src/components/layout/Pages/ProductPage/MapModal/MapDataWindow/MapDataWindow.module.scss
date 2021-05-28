@@ -1,0 +1,35 @@
+@import '../../../../../../scss/manifest';
+
+.DataWindow {
+  @include position-absolute(null, 0, 0, null);
+  width: max-content;
+  padding: 12px;
+  display: flex;
+  background-color: transparentize($color: $black, $amount: 0.65);
+  z-index: 999;
+  color: $default-color;
+  box-shadow: -1px -1px 2px $shadow-color;
+}
+
+.DataGroup {
+  @include border($default-color, solid, right, 1px);
+  display: flex;
+  padding: 0 14px;
+
+  &:last-child {
+    border-right: 0 none;
+  }
+
+  label {
+    font-weight: 700;
+    margin-right: 8px;
+
+    &::after {
+      content: ' :';
+    }
+  }
+
+  span {
+    font-weight: 400;
+  }
+}

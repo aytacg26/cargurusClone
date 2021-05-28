@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Button from '../../../../ui/Button/Button';
 import Modal from '../../../../ui/Modal/Modal';
-import classes from './MapModal.module.css';
+import classes from './MapModal.module.scss';
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl';
 import MapDataWindow from './MapDataWindow/MapDataWindow';
 import PropTypes from 'prop-types';

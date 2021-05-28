@@ -1,11 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
-import classes from './BusinessCard.module.css';
+import classes from './BusinessCard.module.scss';
 import { FaMapMarkerAlt, FaPhoneAlt, FaHome, FaCarAlt } from 'react-icons/fa';
-// import testLogo1 from '../../../../../assets/images/dealers/shottenkirk_honda_of_davis-pic-7948653745168081062-200x200.jpeg';
-// import testLogo2 from '../../../../../assets/images/dealers/star_auto_sales-pic-13264880354944981651-200x200.jpeg';
-// import correctSizing from '../../../../../assets/images/dealers/DealerlogoSizing.png';
-// import correctSizing2 from '../../../../../assets/images/dealers/DealerlogoSizing2.png';
 import sampleCorrectSize from '../../../../../assets/images/dealers/SampleLOGO.png';
 import Button from '../../../../ui/Button/Button';
 import MapModal from '../MapModal/MapModal';
