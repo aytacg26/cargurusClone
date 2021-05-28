@@ -1,0 +1,7 @@
+@import '../../../../../scss/manifest';
+
+.GetDataSection {
+  @include flex(column, nowrap);
+  flex: 1;
+  max-width: 90px;
+}

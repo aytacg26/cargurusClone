@@ -3,7 +3,7 @@ import Loader from '../../../../ui/Loader/Loader';
 // import Modal from '../../../../ui/Modal/Modal';
 import Financing from '../../../Financing/Financing';
 import DetailIconsList from './DetailIconsList/DetailIconsList';
-import classes from './ProductSection.module.css';
+import classes from './ProductSection.module.scss';
 
 const Modal = lazy(() => import('../../../../ui/Modal/Modal'));
 

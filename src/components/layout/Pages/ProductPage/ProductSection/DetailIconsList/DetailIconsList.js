@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './DetailIconsList.module.css';
+import classes from './DetailIconsList.module.scss';
 import milage from '../../../../../../assets/images/vehicledetails/mileage.svg';
 import owner from '../../../../../../assets/images/vehicledetails/owner.svg';
 import gearbox from '../../../../../../assets/images/vehicledetails/gearbox.svg';

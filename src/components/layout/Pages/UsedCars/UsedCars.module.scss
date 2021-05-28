@@ -1,0 +1,7 @@
+@import '../../../../scss/manifest';
+
+.FilterArea {
+  @include flex(row, nowrap, center, space-between);
+  @include width-height(100%, max-content);
+  padding: 10px 0 50px 0;
+}

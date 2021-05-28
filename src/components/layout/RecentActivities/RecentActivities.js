@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './RecentActivities.module.css';
+import classes from './RecentActivities.module.scss';
 import RecentActivity from './RecentActivity/RecentActivity';
 
 const recentActivities = [

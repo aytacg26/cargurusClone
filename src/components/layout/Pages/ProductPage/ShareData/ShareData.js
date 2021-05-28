@@ -2,7 +2,7 @@ import React from 'react';
 import BodyCard from '../../../../ui/BodyCard/BodyCard';
 import { FaMobileAlt, FaPrint } from 'react-icons/fa';
 import { GrMailOption } from 'react-icons/gr';
-import classes from './ShareData.module.css';
+import classes from './ShareData.module.scss';
 
 const ShareData = () => {
   return (

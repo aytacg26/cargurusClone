@@ -1,6 +1,7 @@
+@import '../../../../../scss/manifest';
+
 .ProductSection {
-  display: flex;
-  flex-flow: column nowrap;
+  @include flex(column, nowrap);
   flex: 5;
   padding: 0 10px;
 }
@@ -8,7 +9,7 @@
 .ImageBox {
   width: 100%;
   height: 550px;
-  background-color: black;
+  background-color: $black;
 }
 
 .DetailsText {
@@ -17,11 +18,9 @@
 }
 
 .FinancingContainer {
-  display: flex;
-  flex-flow: column nowrap;
+  @include flex(column, nowrap, center, null);
   width: 720px;
   max-width: 85vw;
-  align-items: center;
 }
 
 .FinancingPolicy {

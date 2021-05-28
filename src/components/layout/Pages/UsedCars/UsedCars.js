@@ -4,7 +4,7 @@ import ListSection from '../../ListSection/ListSection';
 import RecentActivities from '../../RecentActivities/RecentActivities';
 import DetailedSearchForm from '../../SearchWindow/DetailedSearchForm/DetailedSearchForm';
 import PageContainer from '../PageContainer/PageContainer';
-import classes from './UsedCars.module.css';
+import classes from './UsedCars.module.scss';
 const popularUsedCars = [
   {
     id: 'popular-used-0001',

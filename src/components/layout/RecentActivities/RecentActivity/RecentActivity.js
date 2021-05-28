@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductCard from '../../../ui/ProductCard/ProductCard';
-import classes from './RecentActivity.module.css';
+import classes from './RecentActivity.module.scss';
 
 const RecentActivity = ({
   id,

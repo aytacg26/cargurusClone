@@ -1,0 +1,11 @@
+@import '../../../../scss/manifest';
+
+.RecentActivity {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 25px max-content;
+
+  & > span {
+    @include font(20px, 600, $dark-grey, left);
+  }
+}
