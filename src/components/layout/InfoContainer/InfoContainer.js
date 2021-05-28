@@ -1,6 +1,6 @@
 import React from 'react';
 import InfoCards from '../InfoCards/InfoCards';
-import classes from './InfoContainer.module.css';
+import classes from './InfoContainer.module.scss';
 
 const InfoContainer = ({ heading }) => {
   return (
