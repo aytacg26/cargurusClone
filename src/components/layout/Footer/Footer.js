@@ -1,7 +1,6 @@
 import React from 'react';
 import AppStoreSection from './AppStoreSection/AppStoreSection';
-
-import classes from './Footer.module.css';
+import classes from './Footer.module.scss';
 import FooterNavigation from './FooterNavigation/FooterNavigation';
 import SocialSection from './SocialSection/SocialSection';
 import SubscribeSection from './SubscribeSection/SubscribeSection';

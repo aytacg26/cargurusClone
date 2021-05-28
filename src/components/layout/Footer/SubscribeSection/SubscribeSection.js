@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { emailValidation } from '../../../../utils/utilsFuncs';
 import Button from '../../../ui/Button/Button';
 import Input from '../../../ui/Input/Input';
-import classes from './SubscribeSection.module.css';
+import classes from './SubscribeSection.module.scss';
 
 const SubscribeSection = ({ header }) => {
   const [subscribe, setSubscribe] = useState('');

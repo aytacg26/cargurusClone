@@ -1,0 +1,26 @@
+@import '../../../scss/manifest';
+
+.Footer {
+  max-width: 100vw;
+  background: $lighter-grey;
+  margin-top: 60px;
+}
+
+.upperContainer {
+  @include flex-all-center();
+  height: 180px;
+  background: linear-gradient(to right, #0277bb, #0389d6);
+  padding: 35px 10px;
+}
+
+/*Media Queries for all devices*/
+/* ----------- iPhone 4 and 4S ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  .upperContainer {
+    height: max-content;
+    padding: 10px;
+    flex-flow: column;
+  }
+}

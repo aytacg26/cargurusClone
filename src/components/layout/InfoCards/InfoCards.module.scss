@@ -1,0 +1,23 @@
+@import '../../../scss/manifest';
+
+.cardContainer {
+  @include flex-all-center(column, wrap);
+  margin: 25px 0;
+}
+
+@media (min-width: 650px) {
+  .cardContainer {
+    @include flex-all-center(row, wrap);
+  }
+}
+
+/*Media Queries for all devices*/
+/* ----------- iPhone 4 and 4S ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  .cardContainer {
+    @include flex-all-center(column, wrap);
+    margin: 20px 0;
+  }
+}

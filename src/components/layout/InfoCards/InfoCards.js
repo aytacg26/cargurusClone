@@ -1,5 +1,5 @@
 import InfoCard from '../../ui/InfoCard/InfoCard';
-import classes from './InfoCards.module.css';
+import classes from './InfoCards.module.scss';
 
 const infoCards = [
   {

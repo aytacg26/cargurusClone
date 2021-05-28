@@ -1,0 +1,80 @@
+@import '../../../../scss/manifest';
+
+.SubscribeContainer {
+  @include flex-all-center(column, nowrap);
+  @include width-height(100%, 100%);
+  @include border($default-color, solid, right, 1px);
+  max-width: 33.333%;
+  padding-top: 14px;
+  color: $default-color;
+}
+
+.SubscribeHeading {
+  @include font(16px 600, null, null);
+  margin-left: -10px;
+  margin-bottom: -5px;
+}
+
+.Subscribe {
+  @include flex(row, nowrap, center, null);
+  @include width-height(100%, 100%);
+  max-width: 100%;
+  padding: 0 50px 0 50px;
+  color: $default-color !important;
+  margin-right: 10px;
+
+  input {
+    height: 45px;
+    border-radius: 5px 0 0 5px;
+    margin: 0;
+  }
+
+  button {
+    height: 45px;
+    margin: 0;
+    border-radius: 0 5px 5px 0;
+  }
+}
+
+/*Media Queries for all devices*/
+/* ----------- iPhone 4 and 4S ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  .SubscribeContainer {
+    max-width: 100%;
+    flex-flow: column nowrap;
+    border-right: 0 none;
+    margin: 5px 0 10px 0;
+    height: 100%;
+    padding: 15px 0 20px 0;
+    border-bottom: 1px solid $light-grey;
+  }
+
+  .SubscribeHeading {
+    @include font(14px, null, null, center);
+    margin-left: 0;
+    margin-bottom: 10px;
+    width: 70%;
+  }
+
+  .Subscribe {
+    @include flex(column, nowrap, center, null);
+    padding: 0 0 0 10px;
+    height: 100%;
+    margin-right: 10px;
+
+    input {
+      height: 40px;
+      border-radius: 5px;
+      margin: 10px 0;
+    }
+
+    button {
+      height: 45px;
+      width: 100% !important;
+      margin: 0;
+      border-radius: 5px;
+    }
+  }
+}
