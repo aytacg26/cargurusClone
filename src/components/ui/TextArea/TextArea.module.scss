@@ -1,0 +1,200 @@
+@import '../../../scss/manifest';
+
+.TextArea {
+  @include border(transparent, solid, null, 1px);
+  width: 100%;
+  max-width: 100%;
+  background: $default-color;
+  resize: none;
+  padding: 10px;
+  outline: 0 none;
+  margin: 10px 0 0 0;
+
+  &:focus {
+    @include border($site-light-green, solid, null, 1px);
+    -webkit-box-shadow: 0 0 4px $site-light-green;
+    box-shadow: 0 0 4px $site-light-green;
+  }
+
+  &:focus ~ .Label {
+    @include border($site-light-green, solid, null, 1px);
+    @include font(10.5px, null, $medium-grey, null);
+    top: -79px;
+    left: 10px;
+    background-color: $default-color;
+    border-radius: 3px;
+  }
+
+  &.NotValid {
+    @include border($not-valid-border, solid, null, 1px);
+    @include transition(all, 0.45s, null, linear);
+    background-color: $not-valid-bg;
+  }
+}
+
+.textareaLabel {
+  position: relative;
+}
+
+.Label {
+  @include position-absolute(-55px, null, null, 7px);
+  @include font(12.5px, 600, $medium-grey, null);
+  @include transition(all, 0.4s, 0s, ease-in-out);
+  padding: 3px 10px;
+  -webkit-box-shadow: 0 none;
+  box-shadow: 0 none;
+
+  &.NotValid {
+    color: $danger;
+
+    &::after {
+      color: $danger;
+      content: ' (Required!)';
+      font-size: 10.5px;
+      margin-left: 5px;
+      -webkit-animation: textAnimation 2s ease-in-out 0s 40 forwards;
+      animation: textAnimation 2s ease-in-out 0s 40 forwards;
+    }
+  }
+
+  &.filled {
+    @include border($site-light-green, solid, null, 1px);
+    @include font(10.5px, null, $medium-grey, null);
+    top: -79px;
+    left: 10px;
+    background-color: $default-color;
+    border-radius: 3px;
+  }
+}
+
+.remainingAmount {
+  @include flex-items-center();
+  @include width-height(100%, 25px);
+  @include font(11.5px, null, $light-grey, null);
+  max-width: 100%;
+  background: $default-color;
+  margin: -4px 0 15px 0;
+  padding: 0 5px;
+}
+
+.CounterText {
+  margin-right: 5px;
+}
+
+.MaxLength {
+  font-size: 11px;
+}
+
+.Warning {
+  @include max-content-wh;
+  @include flex-items-center();
+  @include border($danger, solid, null, 1px);
+  @include position-absolute(null, null, null, 4%);
+  @include font(0.85rem, 500, $danger, null);
+  min-height: 60px;
+  background-color: transparentize($color: $default-color, $amount: 0.4);
+  margin-top: 10px;
+  max-width: 100%;
+  padding: 15px;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 3px black;
+  box-shadow: 1px 1px 3px black;
+}
+
+.Triangle {
+  @include css-triangle(-10px, null, null, 15%, 0.7, $danger);
+}
+
+.WarningContainer {
+  @include no-display;
+
+  &.Show {
+    display: block;
+    -webkit-animation: warning 0.8s ease-in-out 0s 1 forwards;
+    animation: warning 0.8s ease-in-out 0s 1 forwards;
+  }
+}
+
+.TextError {
+  @include flex-row;
+  @include font(11.5px, null, $danger, null);
+  margin: -13px 0 15px 8px;
+}
+
+@-webkit-keyframes textAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes textAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes warning {
+  0% {
+    @include no-display;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  25% {
+    display: block;
+    opacity: 0.4;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+
+  50% {
+    display: block;
+    opacity: 0.6;
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    display: block;
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes warning {
+  0% {
+    @include no-display;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  25% {
+    display: block;
+    opacity: 0.4;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+
+  50% {
+    display: block;
+    opacity: 0.6;
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    display: block;
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}

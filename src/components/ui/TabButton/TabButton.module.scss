@@ -9,10 +9,10 @@
 
 .TabButton {
   @include font(16px, null, $default-color, null);
+  @include transition(background-color, 0.3s, null, ease-in-out);
   background-color: $snomo;
   border: 0 none;
   padding: 12px 15px;
-  transition: background-color 0.3s ease-in-out;
   cursor: pointer;
   margin: 3px 3px 3px 0;
   min-width: max-content;

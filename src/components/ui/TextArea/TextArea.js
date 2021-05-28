@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import classes from './TextArea.module.css';
+import classes from './TextArea.module.scss';
 
 /**
  * @TODO : Add emoji selection option to message (textarea part) like in facebook

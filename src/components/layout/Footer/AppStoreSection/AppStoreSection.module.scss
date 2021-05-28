@@ -1,0 +1,36 @@
+@import '../../../../scss/manifest';
+
+.Mobile {
+  @include flex-all-center(column, nowrap);
+  max-width: 33.333%;
+  width: 100%;
+  padding: 0 15px;
+  height: 100%;
+  color: $default-color !important;
+
+  span {
+    margin: -3px 0 15px 0;
+    font-weight: 600;
+  }
+}
+
+.AppStoreLinks a {
+  margin: 0 10px;
+}
+
+/*Media Queries for all devices*/
+/* ----------- iPhone 4 and 4S ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  .Mobile {
+    max-width: 100%;
+    width: 100%;
+    padding: 5px 0;
+    height: 100%;
+  }
+
+  .AppStoreLinks a {
+    margin: 0 5px;
+  }
+}

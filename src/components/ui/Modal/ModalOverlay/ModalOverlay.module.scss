@@ -1,7 +1,7 @@
 @import '../../../../scss/manifest';
 
 .ModalOverlay {
-  @include width-height(max-content, max-content);
+  @include max-content-wh;
   @include position-absolute(-100%, null, null, 50%);
   @include flex-all-center();
   max-width: 90vw;
@@ -19,8 +19,7 @@
 
 @keyframes show {
   0% {
-    opacity: 0;
-    display: none;
+    @include no-display;
     top: -100%;
     filter: blur(100px);
   }

@@ -2,7 +2,7 @@
 
 .SliderArrows {
   @include position-absolute(null, 25px, 5px, null);
-  display: flex;
+  @include flex(row, nowrap);
   max-width: 120px;
 }
 

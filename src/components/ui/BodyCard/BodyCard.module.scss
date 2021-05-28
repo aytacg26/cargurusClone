@@ -30,9 +30,8 @@
   @include transition(all, 0.35s);
   @include position-absolute();
   @include border($light-grey);
+  @include flex(row, nowrap, flex-start, null);
   cursor: pointer;
-  display: flex;
-  align-items: flex-start;
 
   &.selected {
     background-color: transparentize($site-blue, 0.75);

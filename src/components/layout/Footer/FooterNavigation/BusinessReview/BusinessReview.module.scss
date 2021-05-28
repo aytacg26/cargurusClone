@@ -1,0 +1,11 @@
+@import '../../../../../scss/manifest';
+
+.FooterBlackSeal {
+  @include flex-all-center();
+  width: 100%;
+  margin: 15px 0 10px 0;
+
+  img {
+    max-width: 100%;
+  }
+}

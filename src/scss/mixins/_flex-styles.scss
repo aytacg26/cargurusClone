@@ -1,19 +1,71 @@
-@mixin flex-all-center($direction: row, $wrap: nowrap) {
+@mixin flex-all-center(
+  $direction: row,
+  $wrap: nowrap,
+  $align-items: center,
+  $justify-content: center
+) {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: $direction;
   flex-wrap: $wrap;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: $align-items;
+  -ms-flex-align: $align-items;
+  align-items: $align-items;
+  -webkit-box-pack: $justify-content;
+  -ms-flex-pack: $justify-content;
+  justify-content: $justify-content;
 }
 
 @mixin flex-items-center($direction: row, $wrap: nowrap) {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: $direction;
   flex-wrap: $wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
-@mixin flex-column {
+@mixin flex($direction, $wrap, $align-items: null, $justify-content: null) {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+
+  @if ($direction==column) {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+  } @else {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+  }
+  -ms-flex-flow: $direction $wrap;
+  flex-flow: $direction $wrap;
+  -webkit-box-align: $align-items;
+  -ms-flex-align: $align-items;
+  align-items: $align-items;
+  -webkit-box-pack: $justify-content;
+  -ms-flex-pack: $justify-content;
+  justify-content: $justify-content;
+}
+
+@mixin flex-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
+}
+
+@mixin flex-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
 }

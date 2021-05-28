@@ -1,9 +1,32 @@
-@mixin border($color, $position: null, $width: 1px) {
+@mixin border($color, $type: solid, $position: null, $width: 1px) {
   @if $position!=null {
-    border-#{$position}: $width solid $color;
+    border-#{$position}: $width $type $color;
   } @else {
-    border: $width solid $color;
+    border: $width $type $color;
   }
+}
+
+@mixin max-content-wh {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+@mixin no-display {
+  display: none;
+  opacity: 0;
+}
+
+@mixin ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin box-shadow() {
 }
 
 @mixin font(
@@ -36,8 +59,8 @@
 ) {
   @include width-height(0, 0);
   @include position-absolute($top, $right, $bottom, $left);
-  @include border(transparent, left, 10px);
-  @include border(transparent, right, 10px);
-  @include border($color, bottom, 20px);
+  @include border(transparent, solid, left, 10px);
+  @include border(transparent, solid, right, 10px);
+  @include border($color, solid, bottom, 20px);
   opacity: $opacity;
 }

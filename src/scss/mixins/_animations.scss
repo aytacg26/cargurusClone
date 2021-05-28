@@ -1,7 +1,17 @@
-@mixin transition($property, $duration) {
-  transition: $property $duration linear;
+@mixin transition(
+  $property: all,
+  $duration: 0.4s,
+  $delay: 0s,
+  $timing-function: linear
+) {
+  -webkit-transition: $property $duration $delay $timing-function;
+  -o-transition: $property $duration $delay $timing-function;
+  transition: $property $duration $delay $timing-function;
 }
 
 @mixin animate-one-time($name, $duration: 0.8s) {
   animation: $name $duration ease-in-out 0s 1 forwards;
+}
+
+@mixin text-animation {
 }

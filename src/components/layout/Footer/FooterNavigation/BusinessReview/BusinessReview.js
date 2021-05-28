@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './BusinessReview.Module.css';
+import classes from './BusinessReview.module.scss';
 import blackSeal from '../../../../../assets/images/blackseal.png';
 
 export const BusinessReview = () => {

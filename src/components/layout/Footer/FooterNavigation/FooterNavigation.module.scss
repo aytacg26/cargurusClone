@@ -1,0 +1,20 @@
+@import '../../../../scss/manifest';
+
+.FooterNav {
+  @include flex(column, nowrap, center, null);
+  @include width-height(100%, max-content);
+  max-width: 100%;
+  padding: 40px 10px 20px 10px;
+  position: relative;
+
+  span {
+    @include font(12px, null, $dark-grey, null);
+    margin-top: 20px;
+    margin-bottom: -12px;
+  }
+}
+
+.FooterLinks {
+  @include flex(row, nowrap, flex-start, space-between);
+  @include width-height(70%, max-content);
+}

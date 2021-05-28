@@ -5,7 +5,7 @@
   min-height: 100%;
   position: fixed;
   z-index: 997;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: $back-drop-color;
   left: 0;
   opacity: 0;
   top: -100%;
@@ -17,8 +17,7 @@
 
 @keyframes show {
   0% {
-    opacity: 0;
-    display: none;
+    @include no-display;
     top: -100%;
     filter: blur(100px);
   }

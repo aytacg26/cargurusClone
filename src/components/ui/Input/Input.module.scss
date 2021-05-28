@@ -22,8 +22,8 @@
   }
 
   &.NotValid {
-    @include border(lighten($color: $danger, $amount: 25%));
-    background-color: lighten($color: $danger, $amount: 30%);
+    @include border($not-valid-border);
+    background-color: $not-valid-bg;
   }
 }
 
@@ -47,7 +47,7 @@ label {
 .Warning {
   @include flex-items-center();
   @include position-absolute(null, null, null, 4%);
-  @include width-height(max-content, max-content);
+  @include max-content-wh;
   @include border($danger);
   @include font(0.85rem, 500, $danger, null);
   min-height: 60px;
@@ -65,8 +65,7 @@ label {
 }
 
 .WarningContainer {
-  display: none;
-  opacity: 0;
+  @include no-display;
 
   &.Show {
     @include animate-one-time(warning);
@@ -106,8 +105,7 @@ label {
 
 @keyframes warning {
   0% {
-    display: none;
-    opacity: 0;
+    @include no-display;
     transform: scale(0);
   }
 

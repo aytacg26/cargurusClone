@@ -1,7 +1,7 @@
 import React from 'react';
 import { BusinessReview } from './BusinessReview/BusinessReview';
 import FooterLinkSection from './FooterLinkSection/FooterLinkSection';
-import classes from './FooterNavigation.module.css';
+import classes from './FooterNavigation.module.scss';
 
 const linkSections = [
   {

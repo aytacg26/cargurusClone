@@ -1,0 +1,38 @@
+@import '../../../../scss/manifest';
+
+.Social {
+  @include flex-all-center(column, nowrap);
+  @include border($default-color, solid, right, 1px);
+  @include width-height(100%, 100%);
+  max-width: 33.333%;
+  padding: 0 15px;
+  color: $default-color !important;
+
+  span {
+    @include font(16px, 600, null, null);
+  }
+}
+
+.SocialIcons {
+  display: flex;
+  margin-top: 10px;
+
+  a {
+    @include font(30px, null, $default-color, null);
+    margin: 5px 10px;
+  }
+}
+
+/*Media Queries for all devices*/
+/* ----------- iPhone 4 and 4S ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  .Social {
+    max-width: 100%;
+    padding: 15px 5px 5px 5px;
+    color: $default-color !important;
+    border-right: 0 none;
+    border-bottom: 1px solid $light-grey;
+  }
+}

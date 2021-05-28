@@ -1,6 +1,6 @@
 import React from 'react';
 import SocialIcon from '../../../ui/SocialIcon/SocialIcon';
-import classes from './SocialSection.module.css';
+import classes from './SocialSection.module.scss';
 
 const socialLinks = [
   {

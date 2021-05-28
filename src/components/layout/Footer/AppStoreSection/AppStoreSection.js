@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './AppStoreSection.module.css';
+import classes from './AppStoreSection.module.scss';
 import AppStore from '../../../../assets/images/AppStore/download-on-the-app-store.png';
 import GooglePlay from '../../../../assets/images/AppStore/get-it-on-google-play.png';
 

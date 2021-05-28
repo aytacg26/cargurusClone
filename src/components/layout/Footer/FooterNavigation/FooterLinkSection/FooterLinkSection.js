@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import classes from './FooterLinkSection.module.css';
+import classes from './FooterLinkSection.module.scss';
 
 const FooterLinkSection = ({ header, links }) => {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../../ui/Button/Button';
-import classes from './Financing.module.css';
+import classes from './Financing.module.scss';
 import card from '../../../assets/images/financing/credit_card.png';
 import clock from '../../../assets/images/financing/fast_clock.png';
 import chart from '../../../assets/images/financing/chart.png';

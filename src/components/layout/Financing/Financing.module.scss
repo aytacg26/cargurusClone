@@ -1,0 +1,30 @@
+@import '../../../scss/manifest';
+
+.Financing {
+  @include flex(column, nowrap, center, null);
+  color: $dark-grey;
+  padding: 8px;
+
+  h3 {
+    @include border($light-grey, solid, bottom, 1px);
+    @include font(18px, null, null, center);
+    margin-bottom: 8px;
+    width: 100%;
+    padding: 0 0 8px 0;
+  }
+}
+
+.Presentation {
+  @include border($light-grey, solid, bottom, 1px);
+  padding: 10px 5px;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) max-content;
+  width: 100%;
+
+  & > span {
+    @include flex(row, nowrap, flex-end, null);
+    height: 100%;
+    padding: 6px 0;
+  }
+}

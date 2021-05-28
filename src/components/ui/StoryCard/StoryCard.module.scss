@@ -6,7 +6,6 @@
   @include border($dark-grey, null, 0.5px);
   width: max-content;
   padding: 20px 12px;
-  // background-color: rgba(255, 255, 255, 0.95);
   background-color: transparentize($color: $default-color, $amount: 0.1);
   color: $dark-grey;
   box-shadow: -4px 3px 5px $shadow-color;

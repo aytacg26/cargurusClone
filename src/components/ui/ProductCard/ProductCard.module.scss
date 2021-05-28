@@ -19,7 +19,7 @@
     border-radius: 0;
 
     .ImageSection img {
-      @include border($default-color, null, 1px);
+      @include border($default-color, solid, null, 1px);
       border-radius: 0;
       height: 200px;
     }
@@ -55,7 +55,7 @@
   @include font(13px, 600, $lighter-grey);
   z-index: 999;
   padding: 10px 5px;
-  background-color: rgba(255, 54, 54, 0.788);
+  background-color: transparentize($color: $danger, $amount: 0.5);
   border-radius: 0 0 3px 3px;
   box-shadow: $box-shadow;
 }
@@ -70,13 +70,11 @@
 }
 
 .HeadingSubHeading {
-  @include border($light-grey, null, 1px);
+  @include border($light-grey, solid, null, 1px);
+  @include ellipsis;
   width: 100%;
   padding: 5px 15px;
   text-align: left;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   margin-bottom: 15px;
 
   h4,

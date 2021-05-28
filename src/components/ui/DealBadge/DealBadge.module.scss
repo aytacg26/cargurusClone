@@ -2,7 +2,7 @@
 
 .BadgeContainer {
   @include flex-all-center();
-  @include width-height(max-content, max-content);
+  @include max-content-wh;
   padding: 6px;
   max-height: 50px;
   cursor: help;

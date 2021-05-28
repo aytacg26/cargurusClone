@@ -5,7 +5,7 @@
   overflow: hidden;
 
   & > h2 {
-    @include border($light-grey, 'bottom');
+    @include border($light-grey, solid, 'bottom');
     text-align: left !important;
     padding-bottom: 6px;
   }
@@ -34,8 +34,7 @@
   }
   .SliderDots {
     @include flex-all-center();
-    position: absolute;
-    bottom: 2px;
+    @include position-absolute(0, 0, 2px, 0);
     width: 100%;
   }
 }
@@ -47,8 +46,7 @@
 
   .SliderDots {
     @include flex-all-center();
-    position: absolute;
-    bottom: 2px;
+    @include position-absolute(0, 0, 2px, 0);
     width: 100%;
   }
 }
