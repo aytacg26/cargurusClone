@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
-import classes from './ListSection.module.css';
+import classes from './ListSection.module.scss';
 
 const ListSection = ({ header, items, Component }) => {
   const [itemsList, setBrandsList] = useState([]);

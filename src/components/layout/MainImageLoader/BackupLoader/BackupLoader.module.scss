@@ -1,0 +1,69 @@
+@import '../../../../scss/manifest';
+.MainLoader {
+  width: 100vw;
+  min-height: 300px;
+  animation: loader 6.5s ease-in-out infinite;
+}
+
+.inner {
+  @include position-absolute(0, null, null, null);
+  @include width-height(100px, 100%);
+  background-color: $default-color;
+  opacity: 0.3;
+  filter: blur(15px);
+  animation: inner 5s ease-in infinite;
+}
+
+.textLoading {
+  @include position-absolute(null, 30px, 15px, null);
+  @include font(35px, null, $default-color, null);
+}
+
+@keyframes inner {
+  0% {
+    left: 0;
+    filter: blur(65px);
+  }
+
+  50% {
+    left: calc(100% - 100px);
+    filter: blur(100px);
+  }
+
+  100% {
+    left: 0;
+    filter: blur(65px);
+  }
+}
+
+@keyframes loader {
+  0% {
+    opacity: 0.25;
+    filter: blur(20px);
+    background-color: rgb(121, 121, 255);
+  }
+
+  50% {
+    opacity: 0.75;
+    filter: blur(2px);
+    background-color: rgb(90, 115, 170);
+  }
+
+  100% {
+    opacity: 0.25;
+    filter: blur(20px);
+    background-color: rgb(121, 121, 255);
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1920px) {
+  .MainLoader {
+    @include width-height(100vw, 530px);
+  }
+}
+
+@media (min-width: 1921px) and (max-width: 3200px) {
+  .MainLoader {
+    @include width-height(100vw, 680px);
+  }
+}

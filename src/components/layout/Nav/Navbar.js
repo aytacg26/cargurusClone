@@ -1,5 +1,5 @@
 import React, { useState, lazy, Suspense, useEffect } from 'react';
-import classes from './Navbar.module.css';
+import classes from './Navbar.module.scss';
 import logo from '../../../assets/images/forIcons.png';
 import MenuItem from './MenuItem/MenuItem';
 import { GoPrimitiveDot } from 'react-icons/go';

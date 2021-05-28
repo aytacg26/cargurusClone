@@ -1,0 +1,37 @@
+@import '../../../scss/manifest';
+.PopularBrands {
+  @include flex(row, wrap, center, space-around);
+  @include border($light-grey, solid, top, 1px);
+  max-width: 100%;
+  margin: 10px 0 75px 0;
+  padding: 10px;
+}
+
+.Header {
+  @include flex(row, nowrap, center, space-between);
+  @include font(1.65rem, 600, null, left);
+  margin-top: 8px;
+
+  & > div > span {
+    @include font(14px, 500, $light-grey, null);
+  }
+}
+
+.ForSmallScreen {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .Header {
+    @include flex-all-center(column, nowrap);
+
+    & > div > span {
+      display: none;
+    }
+  }
+
+  .ForSmallScreen {
+    @include font(14px, 500, $light-grey, center);
+    display: block;
+  }
+}

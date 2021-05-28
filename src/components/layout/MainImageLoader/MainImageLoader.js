@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import classes from './MainImageLoader.module.css';
+import classes from './MainImageLoader.module.scss';
 import { randomNum, loadImage } from '../../../utils/utilsFuncs';
 import StoryCard from '../../ui/StoryCard/StoryCard';
 import BackupLoader from './BackupLoader/BackupLoader';

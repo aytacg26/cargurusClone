@@ -1,0 +1,58 @@
+@import '../../../../scss/manifest';
+
+.Link {
+  @include flex(row, nowrap, center, space-between);
+  @include font(14.5px, 500, $medium-grey, null);
+  @include transition(all, 0.3s, null, ease-in-out);
+  text-decoration: none;
+  padding: 6px;
+  min-height: 50px;
+
+  &:hover {
+    color: $site-blue;
+  }
+}
+
+.linkImage {
+  @include flex(row, nowrap, center, null);
+  width: 18px;
+  margin: 0 8px 0 0;
+  color: $light-grey;
+
+  &.active {
+    color: $site-light-green;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.MenuTitle {
+  @include ellipsis;
+  max-width: 200px;
+}
+
+.ItemButton {
+  @include flex(row, nowrap, center !important, space-between);
+  border: 0 none;
+  background-color: transparent;
+  padding: 15px 4px;
+  min-height: 50px;
+  cursor: pointer;
+}
+
+.IconTextSection {
+  display: flex;
+}
+
+.Date {
+  font-size: 11.5px;
+  font-weight: 500;
+}
+
+@media (min-width: 1280px) {
+  .Link {
+    padding: 10px;
+  }
+}

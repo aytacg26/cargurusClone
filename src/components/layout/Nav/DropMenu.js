@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import classes from './DropMenu.module.css';
+import classes from './DropMenu.module.scss';
 
 const DropMenu = (
   { top, left, right, bottom, children, name, onClick },

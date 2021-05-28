@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { formatDate } from '../../../../utils/utilsFuncs';
-import classes from './MenuItem.module.css';
+import classes from './MenuItem.module.scss';
 
 const MenuItem = ({
   title,
