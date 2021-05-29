@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
+import ShowHideIcon from '../../ui/ShowHideIcon/ShowHideIcon';
 import classes from './ListSection.module.scss';
 
 const ListSection = ({ header, items, Component }) => {
@@ -34,24 +34,13 @@ const ListSection = ({ header, items, Component }) => {
         <span className={classes.ForSmallScreen}>
           ({itemsList.length} of {items.length} brands is shown)
         </span>
+
         {items.length > 6 && (
-          <span>
-            {!all ? (
-              <BsEyeFill
-                title='Show All'
-                color='blue'
-                style={{ margin: '0 15px -10px 0', cursor: 'pointer' }}
-                onClick={handleBrandsShow}
-              />
-            ) : (
-              <BsEyeSlashFill
-                title='Hide Brands'
-                color='red'
-                style={{ margin: '0 15px -10px 0', cursor: 'pointer' }}
-                onClick={handleBrandsShow}
-              />
-            )}
-          </span>
+          <ShowHideIcon
+            show={all}
+            onClick={handleBrandsShow}
+            style={{ margin: '0 15px -10px 0', cursor: 'pointer' }}
+          />
         )}
       </div>
       <div className={classes.PopularBrands}>
