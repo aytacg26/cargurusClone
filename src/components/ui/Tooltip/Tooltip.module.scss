@@ -1,0 +1,63 @@
+@import '../../../scss/manifest';
+
+.Tooltip {
+  position: relative;
+  display: inline-block;
+
+  .TooltipText {
+    @include position-absolute(-40px, null, null, 105%);
+    @include font(12px, null, $default-color, left);
+    visibility: hidden;
+    min-width: 120px;
+    width: 220px;
+    max-height: 160px;
+    min-height: 70px;
+    overflow: auto;
+    background-color: transparentize($color: $site-blue, $amount: 0.1);
+    border-radius: 6px;
+    padding: 5px 0;
+    z-index: 999;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: $box-shadow;
+
+    &.right {
+      @include position-absolute(-50px, null, null, 105%);
+    }
+
+    &.left {
+      @include position-absolute(-50px, 105%, null, null);
+      transform: translate(-110%);
+    }
+
+    &.top {
+      @include position-absolute(null, null, 100%, 50%);
+      transform: translate(-50%, -50%);
+    }
+
+    &.bottom {
+      @include position-absolute(100%, null, null, 50%);
+    }
+  }
+}
+
+.TooltipText.Show {
+  animation: show 0.35s ease-in 0.2s 1 forwards;
+}
+
+@keyframes show {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  50% {
+    visibility: visible;
+    opacity: 0.1;
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
