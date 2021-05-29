@@ -13,6 +13,13 @@ TextArea automatically expands and shrinks vertically, no scroll required,
 also with maxLength, optional remaining char size counter added, which shows how many more characters
 remain to write message (something similar to Twitter)
 
+### Completed Parts: (Without any state management)
+
+Nav
+Home Page
+Used Cars Page
+Product/#id page (No car image, will be added after completion of New Car Form and Backend for image upload)
+
 ```
 let rowAdded = [{ count: 0, charSize: 0 }]; //This one used outside of function, instead of as state, state version tried but creates problems because of state update
                                             //latecy.
