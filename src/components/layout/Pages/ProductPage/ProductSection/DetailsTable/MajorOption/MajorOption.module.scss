@@ -1,0 +1,45 @@
+@import '../../../../../../../scss/manifest';
+
+.MajorOption {
+  @include flex(row, nowrap, center);
+  margin: 15px;
+  position: relative;
+
+  label {
+    font-size: 10.5px;
+    margin-top: 1px;
+    text-align: left;
+  }
+}
+
+.CheckMark {
+  color: $danger;
+  margin: 0 5px;
+  font-size: 13px;
+
+  &.Exist {
+    color: $site-light-green;
+  }
+
+  &::after {
+    content: '\002716';
+  }
+
+  &.Exist::after {
+    content: '\002714';
+  }
+}
+
+.InfoIcon {
+  color: $site-blue;
+  font-size: 14px;
+  margin: 0 5px 0 0;
+  cursor: help;
+  z-index: 999;
+  position: relative;
+
+  &::after {
+    content: '\01F6C8';
+    text-align: left;
+  }
+}
