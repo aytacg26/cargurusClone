@@ -1,5 +1,5 @@
 import React from 'react';
-import './Envelope.css';
+import './Envelope.scss';
 
 const Envelope = ({ name, surname, sending }) => {
   return (

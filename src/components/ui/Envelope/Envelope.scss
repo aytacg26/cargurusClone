@@ -1,13 +1,112 @@
+@import '../../../scss/manifest';
+
 .envlope-wrapper {
+  @include position-absolute(12%, null, null, null);
   height: max-content;
   transform: scale(0) translate(0%);
   opacity: 1;
-  position: absolute;
-  top: 12%;
+
+  &.sending {
+    animation: sending 1.8s ease-in-out 0s 1 forwards;
+  }
 }
 
-.envlope-wrapper.sending {
-  animation: sending 1.8s ease-in-out 0s 1 forwards;
+#envelope {
+  @include width-height(280px, 180px);
+  position: relative;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin-left: auto;
+  margin-right: auto;
+  top: 150px;
+  background-color: darken($site-blue, 15%);
+  box-shadow: 0 4px 20px transparentize($color: $shadow-color, $amount: 0.8);
+}
+
+.front {
+  position: absolute;
+  width: 0;
+  height: 0;
+  z-index: 3;
+}
+
+.flap {
+  border-left: 140px solid transparent;
+  border-right: 140px solid transparent;
+  border-bottom: 82px solid transparent;
+  /* a little smaller */
+  border-top: 98px solid lighten($site-blue, 5%);
+  /* a little larger */
+  transform-origin: top;
+  pointer-events: none;
+  transform: rotateX(180deg);
+  transition: transform 0.4s ease, z-index 0.6s;
+  z-index: 1;
+  animation: envelopeCloseFlap 0.5s ease-in 0.6s 1 forwards;
+}
+
+.pocket {
+  border-left: 140px solid $site-blue;
+  border-right: 140px solid $site-blue;
+  border-bottom: 90px solid darken($site-blue, 5%);
+  border-top: 90px solid transparent;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.letter {
+  position: relative;
+  background-color: #fff;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 90%;
+  top: 5%;
+  border-radius: 6px;
+  box-shadow: 0 2px 26px rgba(0, 0, 0, 0.12);
+  animation: envelopeCloseLetter 0.5s ease-in 0s 1 forwards;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 25%,
+      rgba(215, 227, 239, 0.7) 55%,
+      #d7e3ef 100%
+    );
+  }
+}
+
+.words {
+  @include position-absolute(null, null, null, 10%);
+  @include width-height(80%, 14%);
+  background-color: $lighter-grey;
+
+  &.line1 {
+    @include flex-all-center();
+    top: 15%;
+    width: max-content;
+    padding: 2px;
+    height: 7%;
+    font-size: 8px;
+  }
+
+  &.line2 {
+    top: 30%;
+  }
+
+  &.line3 {
+    top: 50%;
+  }
+
+  &.line4 {
+    top: 70%;
+  }
 }
 
 @keyframes sending {
@@ -40,109 +139,6 @@
     opacity: 1;
     filter: blur(10px);
   }
-}
-
-#envelope {
-  position: relative;
-  width: 280px;
-  height: 180px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-  margin-left: auto;
-  margin-right: auto;
-  top: 150px;
-  background-color: #00334c;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-.front {
-  position: absolute;
-  width: 0;
-  height: 0;
-  z-index: 3;
-}
-
-.flap {
-  border-left: 140px solid transparent;
-  border-right: 140px solid transparent;
-  border-bottom: 82px solid transparent;
-  /* a little smaller */
-  border-top: 98px solid #0b85c2;
-  /* a little larger */
-  transform-origin: top;
-  pointer-events: none;
-  transform: rotateX(180deg);
-  transition: transform 0.4s ease, z-index 0.6s;
-  z-index: 1;
-  animation: envelopeCloseFlap 0.5s ease-in 0.6s 1 forwards;
-}
-
-.pocket {
-  border-left: 140px solid #0077b2;
-  border-right: 140px solid #0077b2;
-  border-bottom: 90px solid #006da3;
-  border-top: 90px solid transparent;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
-
-.letter {
-  position: relative;
-  background-color: #fff;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  height: 90%;
-  top: 5%;
-  border-radius: 6px;
-  box-shadow: 0 2px 26px rgba(0, 0, 0, 0.12);
-  animation: envelopeCloseLetter 0.5s ease-in 0s 1 forwards;
-}
-
-.letter:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-image: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) 25%,
-    rgba(215, 227, 239, 0.7) 55%,
-    #d7e3ef 100%
-  );
-}
-
-.words {
-  position: absolute;
-  left: 10%;
-  width: 80%;
-  height: 14%;
-  background-color: #eeeff0;
-}
-
-.words.line1 {
-  top: 15%;
-  width: max-content;
-  padding: 2px;
-  height: 7%;
-  font-size: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.words.line2 {
-  top: 30%;
-}
-
-.words.line3 {
-  top: 50%;
-}
-
-.words.line4 {
-  top: 70%;
 }
 
 @keyframes envelopeCloseLetter {
