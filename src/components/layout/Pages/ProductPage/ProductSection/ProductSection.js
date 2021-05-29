@@ -3,6 +3,7 @@ import Loader from '../../../../ui/Loader/Loader';
 // import Modal from '../../../../ui/Modal/Modal';
 import Financing from '../../../Financing/Financing';
 import DetailIconsList from './DetailIconsList/DetailIconsList';
+import DetailsTable from './DetailsTable/DetailsTable';
 import classes from './ProductSection.module.scss';
 
 const Modal = lazy(() => import('../../../../ui/Modal/Modal'));
@@ -41,7 +42,7 @@ const ProductSection = () => {
           btnTitle='See my options'
           btnType='success'
         />
-        <div className={classes.DetailsText}>Details Text Section</div>
+        <DetailsTable />
         <div id='reviews' className={classes.Reviews}>
           Reviews
         </div>
@@ -58,6 +59,7 @@ const ProductSection = () => {
               style={{ width: '100%' }}
               onClick={() => console.log('Open next page on modal...')}
             />
+
             <div className={classes.FinancingPolicy}>
               <p>
                 Take this Modal to another folder as a seperate component, this
