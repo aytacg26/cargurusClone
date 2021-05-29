@@ -1,0 +1,9 @@
+@import '../../../../../../../scss/manifest';
+
+.MajorOptions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 15px auto;
+  width: 100%;
+  column-gap: 5px;
+}
