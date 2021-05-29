@@ -3,7 +3,7 @@ import Loader from '../../../ui/Loader/Loader';
 import ByMake from '../ByMake/ByMake';
 import FormTabs from '../FormTabs/FormTabs';
 import TabButtons from '../TabButtons/TabButtons';
-import classes from './SearchForm.module.css';
+import classes from './SearchForm.module.scss';
 
 const ByBody = lazy(() => import('../ByBody/ByBody'));
 const ByPrice = lazy(() => import('../ByPrice/ByPrice'));

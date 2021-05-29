@@ -1,0 +1,28 @@
+@import '../../../../scss/manifest';
+
+.FormShell {
+  @include minmax-height-width(null, max-content, 'max');
+  display: none;
+}
+
+.TabShell {
+  position: relative;
+  width: 100%;
+}
+
+.SearchForm {
+  background-color: $default-color;
+  padding: 8px;
+  box-shadow: $box-shadow;
+  border-radius: 3px;
+  margin-top: 3px;
+}
+
+@media (min-width: 900px) {
+  .FormShell {
+    @include minmax-height-width(null, max-content, 'max');
+    width: 680px;
+    display: block;
+    margin: 0 auto;
+  }
+}

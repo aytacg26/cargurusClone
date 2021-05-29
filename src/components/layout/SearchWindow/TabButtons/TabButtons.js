@@ -1,6 +1,6 @@
 import React from 'react';
 import TabButton from '../../../ui/TabButton/TabButton';
-import classes from './TabButtons.module.css';
+import classes from './TabButtons.module.scss';
 
 const TabButtons = ({ buttons, onSelect }) => {
   return (

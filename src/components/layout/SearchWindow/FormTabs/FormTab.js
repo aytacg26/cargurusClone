@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './FormTab.module.css';
+import classes from './FormTab.module.scss';
 
 const FormTab = ({ title, selected, onSelect }) => {
   const tabClass = `${classes.FormTab} ${selected && classes.selected}`;

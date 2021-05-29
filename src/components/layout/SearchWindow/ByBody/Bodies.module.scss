@@ -1,0 +1,10 @@
+@import '../../../../scss/manifest';
+
+.Bodies {
+  @include minmax-height-width(null, max-content, 'max');
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 3px;
+  margin: 5px auto;
+}

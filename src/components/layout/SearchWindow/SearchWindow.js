@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './SearchWindow.module.css';
+import classes from './SearchWindow.module.scss';
 import SearchForm from './SearchForm/SearchForm';
 
 const SearchWindow = ({ header }) => {

@@ -1,6 +1,6 @@
 import Testimonial from '../Testimonial/Testimonial';
 import VideoSection from '../VideoSection/VideoSection';
-import classes from './VideoSliderContent.module.css';
+import classes from './VideoSliderContent.module.scss';
 
 const VideoSliderContent = ({ video, name, testimonial, story }) => {
   return (

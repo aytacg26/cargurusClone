@@ -1,7 +1,7 @@
 import React from 'react';
 import ByPrice from '../ByPrice/ByPrice';
 import Bodies from './Bodies';
-import classes from './ByBody.module.css';
+import classes from './ByBody.module.scss';
 
 const ByBody = ({ priceFilter }) => {
   return (

@@ -1,0 +1,7 @@
+@import '../../../../scss/manifest';
+
+.TabButtons {
+  @include flex();
+  max-width: 100%;
+  margin-bottom: 4px;
+}

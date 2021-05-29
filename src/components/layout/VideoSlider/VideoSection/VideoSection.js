@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './VideoSection.module.css';
+import classes from './VideoSection.module.scss';
 import StoryCard from '../../../ui/StoryCard/StoryCard';
 
 const VideoSection = ({ url, story }) => {

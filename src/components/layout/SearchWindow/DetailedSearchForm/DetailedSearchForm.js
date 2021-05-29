@@ -2,7 +2,7 @@ import React, { useState, useMemo, useCallback } from 'react';
 import Button from '../../../ui/Button/Button';
 import DropDown from '../../../ui/DropDown/DropDown';
 import CarBodyCard from '../../../ui/BodyCard/BodyCard';
-import classes from './DetailedSearchForm.module.css';
+import classes from './DetailedSearchForm.module.scss';
 
 const brands = [
   {

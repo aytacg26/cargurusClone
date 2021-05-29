@@ -2,7 +2,7 @@ import React from 'react';
 import { useDropForm } from '../../../../hooks/useDropForm';
 import DropDown from '../../../ui/DropDown/DropDown';
 import Button from '../../../ui/Button/Button';
-import classes from './ByPrice.module.css';
+import classes from './ByPrice.module.scss';
 
 const generatePriceRange = (
   minValue = 1000,

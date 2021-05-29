@@ -1,0 +1,27 @@
+@import '../../../scss/manifest';
+
+.SearchWindow {
+  @include position-absolute(1vh, null, null, 50%);
+  @include translate(-50%);
+  color: $default-color;
+
+  h1 {
+    @include font(18px, null, null, center);
+    text-shadow: $box-shadow;
+    min-width: 100vw;
+    margin: 50px auto 5px auto;
+  }
+}
+
+@media (min-width: 1220px) {
+  .SearchWindow {
+    top: 6vh;
+
+    h1 {
+      text-shadow: $box-shadow;
+      width: max-content;
+      margin: 20px auto 5px auto;
+      font-size: 26px;
+    }
+  }
+}

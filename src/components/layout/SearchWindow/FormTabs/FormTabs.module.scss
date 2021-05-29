@@ -1,0 +1,9 @@
+@import '../../../../scss/manifest';
+
+.FormTabs {
+  @include flex();
+  @include border($light-grey, solid, bottom, 1px);
+  padding: 8px;
+  margin-bottom: 6px;
+  color: $medium-grey;
+}

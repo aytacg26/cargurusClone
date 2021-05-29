@@ -1,0 +1,22 @@
+@import '../../../../scss/manifest';
+
+.VideoSection {
+  width: 100%;
+  margin-bottom: 15px;
+  position: relative;
+
+  iframe {
+    @include width-height(90vw, 43vh);
+  }
+}
+
+@media (min-width: 1024px) {
+  .VideoSection {
+    @include width-height(60%, 100%);
+    margin-bottom: 0;
+
+    iframe {
+      @include width-height(100%, 420px);
+    }
+  }
+}

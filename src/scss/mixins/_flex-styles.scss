@@ -28,7 +28,12 @@
   align-items: center;
 }
 
-@mixin flex($direction, $wrap, $align-items: null, $justify-content: null) {
+@mixin flex(
+  $direction: row,
+  $wrap: nowrap,
+  $align-items: null,
+  $justify-content: null
+) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

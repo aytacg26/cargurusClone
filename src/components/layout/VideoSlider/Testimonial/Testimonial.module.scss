@@ -1,0 +1,49 @@
+@import '../../../../scss/manifest';
+
+.Testimonies {
+  max-width: 100%;
+
+  h2,
+  h3,
+  h4 {
+    @include font(12.5px, null, $dark-grey, center);
+    margin: 10px 0;
+  }
+
+  h2 {
+    @include font(12.5px, null, $black, left);
+    margin-left: 10px;
+  }
+
+  h3 {
+    @include border($light-grey, solid, top, 1px);
+    @include border($light-grey, solid, bottom, 1px);
+    text-align: justify;
+    padding: 20px 15px;
+    letter-spacing: 1.1px;
+    line-height: 22px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .Testimonies {
+    @include flex(column, nowrap);
+    max-width: 40%;
+    padding: 25px 30px;
+
+    h2,
+    h3,
+    h4 {
+      @include font(15.5px, null, null, left);
+      margin: 15px 0;
+    }
+
+    h2 {
+      @include font(18.5px, null, null, null);
+    }
+
+    h3 {
+      @include font(17px, null, null, justify);
+    }
+  }
+}

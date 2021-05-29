@@ -1,7 +1,7 @@
 import React from 'react';
 import DropDown from '../../../ui/DropDown/DropDown';
 import Button from '../../../ui/Button/Button';
-import classes from './ByMake.module.css';
+import classes from './ByMake.module.scss';
 import { useDropForm } from '../../../../hooks/useDropForm';
 
 const brands = [

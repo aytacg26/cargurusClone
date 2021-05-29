@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CarBodyCard from '../../../ui/BodyCard/BodyCard';
-import classes from './Bodies.module.css';
+import classes from './Bodies.module.scss';
 
 const bodies = [
   {

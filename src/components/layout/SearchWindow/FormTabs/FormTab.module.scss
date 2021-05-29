@@ -1,0 +1,12 @@
+@import '../../../../scss/manifest';
+
+.FormTab {
+  @include font(14px, 600, $medium-grey, null);
+  margin: 2px 20px 0 0;
+  cursor: pointer;
+
+  &.selected {
+    @include border($site-blue, solid, bottom, 2px);
+    color: $medium-grey;
+  }
+}

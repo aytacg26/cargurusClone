@@ -1,0 +1,52 @@
+@import '../../../../scss/manifest';
+
+.FormContainer {
+  @include flex(column, nowrap);
+}
+
+.headerSection {
+  margin-bottom: 45px;
+
+  h2 {
+    margin-top: 12px;
+  }
+}
+
+//For display grid, a fully general mixin should be created
+.DetailedSearchForm {
+  max-width: 100%;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 35% 60px 65%;
+  grid-template-columns: 35% 65%;
+  -webkit-column-gap: 60px;
+  -moz-column-gap: 60px;
+  column-gap: 60px;
+}
+
+.DropDowns {
+  @include flex(column, nowrap);
+}
+
+.formGroup {
+  @include flex(row, nowrap, center, space-between);
+  width: 100%;
+  margin: 10px 0 10px 0;
+
+  span {
+    width: 80px;
+    color: $dark-grey;
+  }
+}
+
+.Bodies {
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  a {
+    text-decoration: none;
+    color: $dark-grey;
+  }
+}

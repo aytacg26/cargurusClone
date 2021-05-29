@@ -1,0 +1,11 @@
+@import '../../../../scss/manifest';
+
+.Inputs {
+  @include flex();
+}
+
+.FormElShell {
+  @include border($light-grey, solid, right, $light-grey);
+  padding: 2px;
+  margin: 0 5px;
+}

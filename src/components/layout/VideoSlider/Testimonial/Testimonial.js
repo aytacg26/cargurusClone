@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Testimonial.module.css';
+import classes from './Testimonial.module.scss';
 
 const Testimonial = ({ header, testimonial, name }) => {
   return (

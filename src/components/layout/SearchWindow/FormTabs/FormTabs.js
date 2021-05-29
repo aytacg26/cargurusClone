@@ -1,6 +1,6 @@
 import React from 'react';
 import FormTab from './FormTab';
-import classes from './FormTabs.module.css';
+import classes from './FormTabs.module.scss';
 
 const FormTabs = ({ onSelect, formTabs }) => {
   return (
