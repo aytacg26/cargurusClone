@@ -1,0 +1,66 @@
+@import '../../../../../../../scss/manifest';
+
+.DetailGroup {
+  @include border($light-grey, solid, null, 1px);
+  @include transition(all, 0.4s, null, ease-in-out);
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  width: 100%;
+  margin: 5px 0;
+  padding: 14px 12px;
+  border-radius: $smooth-radius;
+  box-shadow: $box-shadow;
+  position: relative;
+
+  label,
+  p,
+  span {
+    @include font(0.9rem, null, $dark-grey, left);
+    margin-left: 5px;
+  }
+
+  label {
+    font-weight: 600;
+
+    &::after {
+      content: ' :';
+    }
+  }
+
+  &:hover {
+    background-color: lighten($site-blue, 25%);
+  }
+
+  &:hover label,
+  &:hover p,
+  &:hover span {
+    color: $default-color !important;
+  }
+
+  &.Zoom {
+    transform: scale(1.11) translate(0, 20%);
+    background-color: lighten($site-blue, 25%);
+    z-index: 995;
+    label,
+    p,
+    span {
+      color: $default-color !important;
+      font-weight: 700;
+    }
+  }
+}
+
+.DetailData {
+  @include flex(column, nowrap, flex-start, center);
+
+  span {
+    margin-bottom: 10px;
+  }
+}
+
+.Close {
+  @include position-absolute(2px, 2px, null, null);
+  @include font(25px, 600, $default-color, null);
+  cursor: pointer;
+  z-index: 999;
+}
