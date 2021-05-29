@@ -13,7 +13,7 @@ TextArea automatically expands and shrinks vertically, no scroll required,
 also with maxLength, optional remaining char size counter added, which shows how many more characters
 remain to write message (something similar to Twitter)
 
-### Completed Parts: (Without any state management)
+### Completed Parts: (Without any state management - Redux will be used...)
 
 - Nav
 - Home Page
