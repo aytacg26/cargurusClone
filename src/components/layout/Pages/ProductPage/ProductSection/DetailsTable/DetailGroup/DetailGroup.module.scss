@@ -29,6 +29,7 @@
 
   &:hover {
     background-color: lighten($site-blue, 25%);
+    transform: scale(1.06);
   }
 
   &:hover label,
