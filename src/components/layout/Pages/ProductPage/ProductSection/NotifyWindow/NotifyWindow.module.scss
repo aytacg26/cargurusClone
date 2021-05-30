@@ -1,0 +1,33 @@
+@import '../../../../../../scss/manifest';
+
+.NotifyWindow {
+  @include flex(column, nowrap, center, center);
+  @include transition(height, 0.35s, null, linear);
+  min-width: 100%;
+  min-height: 260px;
+  background-color: lighten($site-blue, 52.3%);
+  margin: 15px 0;
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+
+  .Form {
+    @include flex(row, nowrap, center);
+    width: 100%;
+    padding: 0 55px;
+    margin: 25px 0;
+
+    button {
+      width: 120px;
+      height: 40px;
+    }
+
+    input {
+      max-width: 100%;
+    }
+  }
+}
+
+.formModal {
+  @include formModal;
+}
