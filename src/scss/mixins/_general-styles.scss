@@ -25,6 +25,7 @@
   overflow: hidden;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
+  max-width: 115px;
 }
 
 @mixin box-shadow() {
