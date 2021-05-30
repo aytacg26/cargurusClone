@@ -9,21 +9,12 @@ import Loader from '../../../../ui/Loader/Loader';
 import TextArea from '../../../../ui/TextArea/TextArea';
 import classes from './MessageForm.module.scss';
 import PropTypes from 'prop-types';
-import useFormSubmit from '../../../../../hooks/useFormSubmit';
 
 const FormSuccess = lazy(() => import('./FormSuccess/FormSuccess'));
 const Envelope = lazy(() => import('../../../../ui/Envelope/Envelope'));
 
 const MessageForm = ({ formHeader, dealerPhone }) => {
-  const {
-    data: formData,
-    setData: setFormData,
-    disabledBtn,
-    sending,
-    success,
-    error,
-    validResult,
-  } = useFormSubmit({
+  const [formData, setFormData] = useState({
     name: '',
     surname: '',
     email: '',
@@ -40,6 +31,10 @@ const MessageForm = ({ formHeader, dealerPhone }) => {
   const [surnameIsValid, setSurnameIsValid] = useState(false);
   const [emailIsValid, setEmailIsValid] = useState(false);
   const [messageIsValid, setMessageIsValid] = useState(false);
+  const [disabledBtn, setDisabledBtn] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleFormChange = (e) => {
     e.target.name === 'name' && setNameIsValid(false);
@@ -69,12 +64,24 @@ const MessageForm = ({ formHeader, dealerPhone }) => {
   const handleMessageSubmit = async (e) => {
     e.preventDefault();
 
+    const showForm = (time) => {
+      const timer = setTimeout(() => {
+        setSuccess(false);
+        setError(false);
+        setSending(false);
+        setDisabledBtn(false);
+        clearTimeout(timer);
+      }, time);
+    };
+
     const isValidName = textValidation(name, 35);
     const isValidSurname = textValidation(surname, 35);
     const isValidEmail = emailValidation(email);
     const isValidMessage = textValidation(message, 650);
 
     if (isValidName && isValidSurname && isValidEmail && isValidMessage) {
+      setDisabledBtn(true);
+      setSending(true);
       const messageForm = {
         dealerId: '0000000000000', //get this from the product page
         productId: '000001111111', //get this from the product page
@@ -94,8 +101,28 @@ const MessageForm = ({ formHeader, dealerPhone }) => {
 
       let res = true; //if this is set to false, it will show error message, this is just to mimic the response from backend
       // after creating backend, this part will be revised accordingly.
-      validResult(res);
+
       //To Mimic lateness of async fetch process
+
+      setTimeout(() => {
+        if (res) {
+          setSuccess(true);
+          setFormData({
+            name: '',
+            surname: '',
+            email: '',
+            phone: '',
+            message: '',
+          });
+
+          //After showing success message, show empty form within 4 seconds
+          showForm(3500);
+        } else {
+          setError(true);
+          //after error message, show form with data within 5 seconds
+          showForm(4500);
+        }
+      }, 2500);
     } else {
       setNameIsValid(!isValidName);
       setSurnameIsValid(!isValidSurname);
