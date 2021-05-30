@@ -2,7 +2,7 @@
 
 .DetailGroup {
   @include border($light-grey, solid, null, 1px);
-  @include transition(all, 0.4s, null, ease-in-out);
+  @include transition(all, 0.45s, null, ease-in-out);
   display: grid;
   grid-template-columns: repeat(2, 50%);
   width: 100%;
@@ -29,25 +29,12 @@
 
   &:hover {
     background-color: lighten($site-blue, 25%);
-    transform: scale(1.06);
   }
 
   &:hover label,
   &:hover p,
   &:hover span {
     color: $default-color !important;
-  }
-
-  &.Zoom {
-    transform: scale(1.11) translate(0, 20%);
-    background-color: lighten($site-blue, 25%);
-    z-index: 995;
-    label,
-    p,
-    span {
-      color: $default-color !important;
-      font-weight: 700;
-    }
   }
 }
 
