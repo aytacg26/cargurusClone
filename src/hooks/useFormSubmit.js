@@ -20,6 +20,8 @@ const useFormSubmit = (formData) => {
   const validResult = (response) => {
     setDisabledBtn(true);
     setSending(true);
+    //Remove this part when we start to use data from DB, this is just to mimic the async op.
+    //Timings may also need some revisions.
     setTimeout(() => {
       if (response) {
         setSuccess(true);
