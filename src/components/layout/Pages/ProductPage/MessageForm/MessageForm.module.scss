@@ -20,10 +20,5 @@
 }
 
 .formModal {
-  @include position-absolute(0, null, null, 0);
-  @include flex-all-center();
-  @include width-height(100%, 100%);
-  max-width: 100%;
-  background-color: transparentize($color: $black, $amount: 1);
-  border-radius: 10px 10px 0 0;
+  @include formModal;
 }
