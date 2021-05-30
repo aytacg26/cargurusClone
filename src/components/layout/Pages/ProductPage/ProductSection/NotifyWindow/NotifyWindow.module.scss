@@ -32,7 +32,7 @@
   }
 
   span {
-    @include font(12.5px, 400, $medium-grey, null);
+    @include terms-conditions;
   }
 }
 

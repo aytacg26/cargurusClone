@@ -21,8 +21,8 @@
     color: $site-blue;
   }
 
-  p {
-    @include font(12.5px, 400, $medium-grey, left);
+  span {
+    @include terms-conditions(left);
     margin: 15px 0;
   }
 }
