@@ -3,6 +3,7 @@ import Loader from '../../../../ui/Loader/Loader';
 import Financing from '../../../Financing/Financing';
 import DetailIconsList from './DetailIconsList/DetailIconsList';
 import DetailsTable from './DetailsTable/DetailsTable';
+import NotifyWindow from './NotifyWindow/NotifyWindow';
 import classes from './ProductSection.module.scss';
 import VehicleHistory from './VehicleHistory/VehicleHistory';
 
@@ -223,6 +224,8 @@ const ProductSection = () => {
           rentalUse={carDetails.rentalUse}
           autoCheckDate={carDetails.autoCheckDate}
         />
+        <NotifyWindow productId={carDetails.id} />
+
         <div id='reviews' className={classes.Reviews}>
           Reviews
         </div>
