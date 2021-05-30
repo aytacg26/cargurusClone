@@ -15,6 +15,11 @@
   border-radius: 10px 10px 0 0;
 }
 
+@mixin terms-conditions($text-align: center) {
+  @include font(12px, 400, $medium-grey, $text-align);
+  font-style: italic;
+}
+
 @mixin max-content-wh {
   height: -webkit-max-content;
   height: -moz-max-content;
