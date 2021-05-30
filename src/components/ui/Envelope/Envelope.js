@@ -1,10 +1,14 @@
 import React from 'react';
 import './Envelope.scss';
 
-const Envelope = ({ name, surname, sending }) => {
+const Envelope = ({ name, surname, sending, translateX }) => {
   return (
     <div className={`envlope-wrapper ${sending ? 'sending' : ''}`}>
-      <div id='envelope' className='open'>
+      <div
+        id='envelope'
+        className='open'
+        style={{ transform: `translateX(${translateX}%)` }}
+      >
         <div className='front flap'></div>
         <div className='front pocket'></div>
         <div className='letter'>
