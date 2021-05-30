@@ -22,6 +22,16 @@
   background-color: $site-blue;
 }
 
+a {
+  @include transition(color, 0.25s, null, ease-in);
+  text-decoration: none;
+  color: $site-blue;
+}
+
+a:hover {
+  color: lighten($site-blue, 10%);
+}
+
 .PageContainer {
   @include flex-column;
   position: relative;
