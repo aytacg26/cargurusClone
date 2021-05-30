@@ -15,7 +15,7 @@
 
   p {
     @include font(12.5px, 400, $medium-grey);
-    @include ellipsis;
+    @include ellipsis(115px);
     margin: 0 2px;
   }
 }
