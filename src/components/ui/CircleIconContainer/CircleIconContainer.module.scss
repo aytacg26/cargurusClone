@@ -1,0 +1,9 @@
+@import '../../../scss/manifest';
+
+.Circle {
+  @include flex-all-center();
+  @include width-height(45px, 45px);
+  padding: 10px;
+  border-radius: 50%;
+  margin: 0 5px;
+}
