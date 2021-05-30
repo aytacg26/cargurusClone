@@ -1,0 +1,27 @@
+@import '../../../../../../../scss/manifest';
+
+.DescriptionContainer {
+  @include flex(column, nowrap, flex-start, center);
+  padding: 10px;
+  text-align: left;
+  color: $dark-grey;
+
+  h2 {
+    @include border($light-grey, solid, bottom, 1px);
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+}
+
+.Description {
+  padding: 0 5px;
+  max-height: 155px;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  p {
+    font-size: 0.8rem;
+    line-height: 20px;
+  }
+}
