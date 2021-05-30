@@ -5,8 +5,9 @@
   display: inline-block;
 
   .TooltipText {
+    @include flex(row, nowrap, center);
     @include position-absolute(-40px, null, null, 105%);
-    @include font(12px, null, $default-color, left);
+    @include font(12.5px, null, $default-color, left);
     visibility: hidden;
     min-width: 120px;
     width: 220px;
