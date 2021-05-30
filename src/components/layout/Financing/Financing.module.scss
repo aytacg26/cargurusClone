@@ -3,7 +3,7 @@
 .Financing {
   @include flex(column, nowrap, center, null);
   color: $dark-grey;
-  padding: 8px;
+  padding: 8px 0;
 
   h3 {
     @include border($light-grey, solid, bottom, 1px);
