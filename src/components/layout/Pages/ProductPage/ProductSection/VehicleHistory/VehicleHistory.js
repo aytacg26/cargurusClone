@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReviewCards from './ReviewCards/ReviewCards';
 import classes from './VehicleHistory.module.scss';
+import { Link } from 'react-router-dom';
 
 const VehicleHistory = ({
   owners,
@@ -28,7 +29,7 @@ const VehicleHistory = ({
         >
           Save 20% on the full AutoCheck Vehicle History Report
         </a>
-        <p>
+        <span>
           Vehicle history data provided by Experian AutoCheck on {autoCheckDate}
           . This data, and any reliance on it, is subject to the{' '}
           <a
@@ -39,8 +40,12 @@ const VehicleHistory = ({
           >
             AutoCheck Terms and Conditions
           </a>{' '}
-          and the CarWorld Terms of Use.
-        </p>
+          and the{' '}
+          <Link to='/carworld/terms-of-use' title='Terms of Use'>
+            CarWorld Terms of Use
+          </Link>
+          .
+        </span>
       </div>
     </div>
   );
