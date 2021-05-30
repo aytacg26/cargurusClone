@@ -6,6 +6,15 @@
   }
 }
 
+@mixin formModal {
+  @include position-absolute(0, null, null, 0);
+  @include flex-all-center();
+  @include width-height(100%, 100%);
+  max-width: 100%;
+  background-color: transparentize($color: $black, $amount: 1);
+  border-radius: 10px 10px 0 0;
+}
+
 @mixin max-content-wh {
   height: -webkit-max-content;
   height: -moz-max-content;
@@ -20,12 +29,12 @@
   opacity: 0;
 }
 
-@mixin ellipsis {
+@mixin ellipsis($maxWidth: null) {
   white-space: nowrap;
   overflow: hidden;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
-  max-width: 115px;
+  max-width: $maxWidth;
 }
 
 @mixin box-shadow() {
