@@ -26,6 +26,14 @@
       max-width: 100%;
     }
   }
+
+  h5 {
+    @include font(14.5px, 600, $dark-grey, null);
+  }
+
+  span {
+    @include font(12.5px, 400, $medium-grey, null);
+  }
 }
 
 .formModal {
