@@ -3,6 +3,7 @@ import Loader from '../../../../ui/Loader/Loader';
 import Financing from '../../../Financing/Financing';
 import DetailIconsList from './DetailIconsList/DetailIconsList';
 import DetailsTable from './DetailsTable/DetailsTable';
+import Negotiation from './Negotiation/Negotiation';
 import NotifyWindow from './NotifyWindow/NotifyWindow';
 import ProductNav from './ProductNav/ProductNav';
 import classes from './ProductSection.module.scss';
@@ -180,6 +181,20 @@ const carDetails = {
   quidem molestias fugit eligendi nihil unde recusandae ipsa laudantium
   minima aspernatur dolores laborum! Repudiandae pariatur vitae adipisci
   maiores doloribus dolores.`,
+  listDate: '15/01/2021',
+  numberOfSaves: 5,
+  priceStatistics: [
+    {
+      id: 'price-00001',
+      date: '01/01/2019',
+      price: '£19500',
+    },
+    {
+      id: 'price-00002',
+      date: '01/01/2020',
+      price: '£16500',
+    },
+  ],
 };
 
 //car details will come from database and we will get this data directly to this component from Redux
@@ -218,7 +233,11 @@ const ProductSection = () => {
           btnType='success'
         />
         <DetailsTable details={carDetails} />
-
+        <Negotiation
+          numberOfSaves={carDetails.numberOfSaves}
+          listDate={carDetails.listDate}
+          priceStatistics={carDetails.priceStatistics}
+        />
         <VehicleHistory
           owners={carDetails.owners}
           title={carDetails.titleCheck}
