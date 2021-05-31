@@ -1,0 +1,10 @@
+@import '../../../scss/manifest';
+
+.Counter {
+  @include flex(row, nowrap, center, center);
+  max-width: max-content;
+
+  span {
+    margin: 1px 2px;
+  }
+}
