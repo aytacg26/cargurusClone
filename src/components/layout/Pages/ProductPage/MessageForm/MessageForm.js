@@ -113,6 +113,8 @@ const MessageForm = ({ formHeader, dealerPhone, autoCloseFunction }) => {
       //this will check autoCloseFunction and then set the timer which will be less than 8 seconds.
       //this part will be used for the modal cases. Not a perfect solution but it does job well.
       //this must work if the response status code is 200 (OK), in case of error, it must not close the modal!!!
+      //AUTOCLOSE MUST BE REMOVED FROM HERE... AND AUTOCLOSE MUST BE THE DUTY OF MODAL. AFTER RESPOSE, THIS MAY SEND PROCESS COMPLETED
+      //OR WITH THE HELP OF REDUX, WHEN RESPONSE PROCESS COMPLETE SUCCESSFULLY, WE can dispose modal close action.
       if (autoCloseFunction && res) {
         console.log('Is it inside autoclose condition...');
         const timer = setTimeout(() => {
