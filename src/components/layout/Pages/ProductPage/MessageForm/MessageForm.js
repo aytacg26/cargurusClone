@@ -11,10 +11,12 @@ import classes from './MessageForm.module.scss';
 import PropTypes from 'prop-types';
 import useFormSubmit from '../../../../../hooks/useFormSubmit';
 
-const FormSuccess = lazy(() => import('./FormSuccess/FormSuccess'));
+const FormSuccess = lazy(() =>
+  import('../../../../ui/FormSuccess/FormSuccess')
+);
 const Envelope = lazy(() => import('../../../../ui/Envelope/Envelope'));
 
-const MessageForm = ({ formHeader, dealerPhone }) => {
+const MessageForm = ({ formHeader, dealerPhone, autoCloseFunction }) => {
   const {
     data: formData,
     setData: setFormData,
@@ -41,12 +43,23 @@ const MessageForm = ({ formHeader, dealerPhone }) => {
   const [emailIsValid, setEmailIsValid] = useState(false);
   const [messageIsValid, setMessageIsValid] = useState(false);
 
-  const handleFormChange = (e) => {
-    e.target.name === 'name' && setNameIsValid(false);
-    e.target.name === 'surname' && setSurnameIsValid(false);
-    e.target.name === 'email' && setEmailIsValid(false);
-    e.target.name === 'message' && setMessageIsValid(false);
+  const removeError = (e) => {
+    e.target.name === 'name' &&
+      textValidation(name, 35) &&
+      setNameIsValid(false);
+    e.target.name === 'surname' &&
+      textValidation(surname, 35) &&
+      setSurnameIsValid(false);
+    e.target.name === 'email' &&
+      emailValidation(email) &&
+      setEmailIsValid(false);
+    e.target.name === 'message' &&
+      textValidation(message, 650) &&
+      setMessageIsValid(false);
+  };
 
+  const handleFormChange = (e) => {
+    removeError(e);
     setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
@@ -96,6 +109,17 @@ const MessageForm = ({ formHeader, dealerPhone }) => {
       // after creating backend, this part will be revised accordingly.
       validResult(res);
       //To Mimic lateness of async fetch process
+
+      //this will check autoCloseFunction and then set the timer which will be less than 8 seconds.
+      //this part will be used for the modal cases. Not a perfect solution but it does job well.
+      //this must work if the response status code is 200 (OK), in case of error, it must not close the modal!!!
+      if (autoCloseFunction && res) {
+        console.log('Is it inside autoclose condition...');
+        const timer = setTimeout(() => {
+          autoCloseFunction();
+          clearTimeout(timer);
+        }, 8000);
+      }
     } else {
       setNameIsValid(!isValidName);
       setSurnameIsValid(!isValidSurname);
