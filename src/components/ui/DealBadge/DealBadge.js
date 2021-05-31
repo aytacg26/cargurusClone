@@ -12,6 +12,7 @@ const DealBadge = ({
   NoAnalysis,
   Uncertain,
   priceDifference,
+  size,
 }) => {
   const dealColor =
     (Great && '#006B00') ||
@@ -48,6 +49,7 @@ const DealBadge = ({
     <div
       className={classes.BadgeContainer}
       title={`£${priceDifference} UK Pound ${priceStatus} Market Price`}
+      style={{ transform: `scale(${size || 1})` }}
     >
       <div className={IconSectionClass} style={{ backgroundColor: dealColor }}>
         {showArrow && <span className={classes.Icon}></span>}
