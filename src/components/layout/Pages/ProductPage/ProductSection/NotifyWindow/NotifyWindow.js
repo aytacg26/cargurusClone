@@ -6,11 +6,11 @@ import Button from '../../../../../ui/Button/Button';
 import { emailValidation } from '../../../../../../utils/utilsFuncs';
 import useFormSubmit from '../../../../../../hooks/useFormSubmit';
 import Loader from '../../../../../ui/Loader/Loader';
-// import FormSuccess from '../../MessageForm/FormSuccess/FormSuccess';
-// import Envelope from '../../../../../ui/Envelope/Envelope';
+
 const FormSuccess = lazy(() =>
-  import('../../MessageForm/FormSuccess/FormSuccess')
+  import('../../../../../ui/FormSuccess/FormSuccess')
 );
+
 const Envelope = lazy(() => import('../../../../../ui/Envelope/Envelope'));
 
 const NotifyWindow = ({ productId }) => {
