@@ -28,10 +28,15 @@ const TextArea = ({
   placeholder,
   name,
   title,
+  label,
   value,
   maxLength,
   counterText,
   showCounter,
+  warningMessage,
+  notValid,
+  useTextError,
+  onBlur,
 }) => {
   const [rowSize, setRowSize] = useState(4);
   const [currentScrollHeight, setCurrentScrollHeight] = useState(null);
@@ -41,6 +46,7 @@ const TextArea = ({
   const textAreaRef = useRef();
 
   useEffect(() => {
+    //Both are same but, one changes in every expand of textarea, the other one remains same for the end of shrink process
     setCurrentScrollHeight(textAreaRef.current.scrollHeight);
     setInitScrollHeight(textAreaRef.current.scrollHeight);
   }, []);
@@ -65,15 +71,17 @@ const TextArea = ({
     if (e.target.scrollHeight > currentScrollHeight) {
       setRowSize((prevState) => prevState + 1);
       setCurrentScrollHeight(e.target.scrollHeight);
+      //convert to number array and use push method to add new charSize
       rowAdded = [
         ...rowAdded,
         {
-          count: rowAdded[rowAdded.length - 1].count + 1,
+          count: rowAdded[rowAdded.length - 1].count + 1, //not required, unnecessary calculation and copy process.
           charSize: e.target.value.length,
         },
       ];
     }
 
+    //instead of rowAdded[rowAdded.length-1].charSize, use  rowAdded[rowAdded.length-1]
     if (
       rowAdded.length > 0 &&
       e.target.value.length < rowAdded[rowAdded.length - 1].charSize
@@ -85,7 +93,19 @@ const TextArea = ({
         setCurrentScrollHeight(initScrollHeight);
       }
     }
+
+    //prevent unnecessary space at the beginning of message and also in case of select&delete by the help
+    //of mouse & backspace, it will set counter to maxLength
+    if (textAreaRef.current.value.trim() === '') {
+      setCounter(maxLength || 500);
+      textAreaRef.current.value = '';
+    }
   };
+
+  const textClass = `${classes.TextArea} ${notValid ? classes.NotValid : ''}`;
+  const warningClass = `${classes.WarningContainer} ${
+    notValid ? classes.Show : ''
+  }`;
 
   return (
     <label className={classes.textareaLabel}>
@@ -98,18 +118,39 @@ const TextArea = ({
         title={title}
         maxLength={counterInit}
         value={value}
-        className={classes.TextArea}
+        className={textClass}
         onChange={handleChange}
+        onBlur={onBlur}
         ref={textAreaRef}
         style={{ marginBottom: !showCounter ? '15px' : '' }}
       ></textarea>
+      <span
+        className={`${classes.Label} ${value ? classes.filled : ''} ${
+          notValid ? classes.NotValid : ''
+        }`}
+      >
+        {label}
+      </span>
+      {warningMessage && !useTextError && (
+        <div className={warningClass}>
+          <span className={classes.Triangle}></span>
+          <div className={classes.Warning}>{warningMessage}</div>
+        </div>
+      )}
       {showCounter && (
-        <div className={classes.remainingAmount}>
+        <div
+          className={`${classes.remainingAmount} ${
+            notValid ? classes.NotValid : ''
+          }`}
+        >
           <span className={classes.CounterText}>
             {counterText || 'Remaining : '}
           </span>
           <span className={classes.MaxLength}>{counter}</span>
         </div>
+      )}
+      {useTextError && notValid && (
+        <span className={classes.TextError}>{warningMessage}</span>
       )}
     </label>
   );
