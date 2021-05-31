@@ -1,0 +1,104 @@
+@import '../../../../../../scss/manifest';
+
+.ProductNav {
+  display: grid;
+  grid-template-columns: 1fr repeat(2, 2fr) 1fr;
+  grid-template-rows: 100%;
+  position: fixed;
+  align-items: center;
+  top: -90px;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 85px;
+  background-color: $default-color;
+  box-shadow: $box-shadow;
+  padding: 4px;
+}
+
+.ProductNav.Show {
+  animation: show 0.45s ease-in-out 0s 1 forwards;
+}
+
+.ProductNav.Hide {
+  animation: hide 0.45s ease-in-out 0s 1 forwards;
+}
+
+@keyframes show {
+  0% {
+    top: -90px;
+  }
+
+  100% {
+    top: 0px;
+  }
+}
+
+@keyframes hide {
+  0% {
+    top: 0px;
+  }
+
+  100% {
+    top: -90px;
+  }
+}
+
+.ProductInfo {
+  @include flex(row, nowrap, center, center);
+  @include width-height(100%, 100%);
+  border-right: 1px solid $light-grey;
+}
+
+.ImageSection {
+  width: 120px;
+  height: 100%;
+  margin: 0 5px;
+  padding: 5px;
+
+  img {
+    max-width: 100%;
+    width: 120px;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: $smooth-radius;
+  }
+}
+
+.InfoSection {
+  @include flex(column, nowrap, flex-start);
+
+  h4 {
+    color: $dark-grey;
+    margin-bottom: 5px;
+  }
+
+  span {
+    color: $medium-grey;
+    font-size: 12.5px;
+  }
+}
+
+.Buttons {
+  @include flex(row, nowrap, center);
+  @include width-height(100%, 100%);
+}
+
+.PriceData {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, max-content);
+}
+
+.Price {
+  @include font(16px, 600, $dark-grey);
+  margin-bottom: -8px;
+}
+
+.ButtonsSection {
+  width: 60%;
+  display: grid;
+  grid-template-rows: repeat(2, 33px);
+  row-gap: 6px;
+}
