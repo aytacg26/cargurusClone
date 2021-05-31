@@ -1,5 +1,5 @@
 import React from 'react';
-import SuccessErrorSign from '../../../../../ui/SuccessSign/SuccessErrorSign';
+import SuccessErrorSign from '../SuccessSign/SuccessErrorSign';
 import classes from './FormSuccess.module.scss';
 
 const FormSuccess = ({ isError }) => {

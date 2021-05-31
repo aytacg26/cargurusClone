@@ -1,4 +1,4 @@
-@import '../../../../../../scss/manifest';
+@import '../../../scss/manifest';
 
 .Container {
   @include flex(column, nowrap, center, flex-start);
