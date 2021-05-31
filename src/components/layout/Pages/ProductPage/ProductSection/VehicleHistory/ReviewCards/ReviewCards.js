@@ -5,13 +5,13 @@ import { AiOutlineCar } from 'react-icons/ai';
 import { BsArrowCounterclockwise } from 'react-icons/bs';
 import { MdFiberNew } from 'react-icons/md';
 import { BiShapeCircle } from 'react-icons/bi';
-import classes from './ReviewCards.module.scss';
+import ReviewCardsContainer from '../../../../../../ui/ReviewCardsContainer/ReviewCardsContainer';
 
 const ReviewCards = ({ title, accidents, owners, rentalUse }) => {
   const color = '#fff';
   const size = '25px';
   return (
-    <div className={classes.ReviewCards}>
+    <ReviewCardsContainer>
       <ReviewIconCard
         IconComponent={
           title ? (
@@ -61,7 +61,7 @@ const ReviewCards = ({ title, accidents, owners, rentalUse }) => {
           toolTipInfo='A fleet vehicle was part of a corporate or rental group of cars'
         />
       )}
-    </div>
+    </ReviewCardsContainer>
   );
 };
 
