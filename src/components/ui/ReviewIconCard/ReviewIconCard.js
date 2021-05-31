@@ -13,11 +13,13 @@ const ReviewIconCard = ({
   text,
   toolTipSide,
   toolTipInfo,
+  additionalInfo,
 }) => {
   let textSection = (
     <div className={classes.TextSection}>
       <h4>{header}</h4>
       {text && <p>{text}</p>}
+      {additionalInfo && <p>{additionalInfo}</p>}
     </div>
   );
 
