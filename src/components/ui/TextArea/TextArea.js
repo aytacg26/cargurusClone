@@ -78,6 +78,13 @@ const TextArea = ({
         setCurrentScrollHeight(initScrollHeight);
       }
     }
+
+    //prevent unnecessary space at the beginning of message and also in case of select&delete by the help
+    //of mouse & backspace, it will set counter to maxLength
+    if (textAreaRef.current.value.trim() === '') {
+      setCounter(maxLength || 500);
+      textAreaRef.current.value = '';
+    }
   };
 
   const textClass = `${classes.TextArea} ${notValid ? classes.NotValid : ''}`;
@@ -116,7 +123,11 @@ const TextArea = ({
         </div>
       )}
       {showCounter && (
-        <div className={classes.remainingAmount}>
+        <div
+          className={`${classes.remainingAmount} ${
+            notValid ? classes.NotValid : ''
+          }`}
+        >
           <span className={classes.CounterText}>
             {counterText || 'Remaining : '}
           </span>

@@ -29,6 +29,7 @@
     @include border($not-valid-border, solid, null, 1px);
     @include transition(all, 0.45s, null, linear);
     background-color: $not-valid-bg;
+    border-bottom: 0 none;
   }
 }
 
@@ -75,6 +76,13 @@
   background: $default-color;
   margin: -4px 0 15px 0;
   padding: 0 5px;
+
+  &.NotValid {
+    @include border($not-valid-border, solid, null, 1px);
+    background-color: $not-valid-bg;
+    border-top: 0 none;
+    color: $default-color;
+  }
 }
 
 .CounterText {
