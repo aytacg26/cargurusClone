@@ -101,11 +101,11 @@ const NotifyWindow = ({ productId }) => {
       {!success && !error && (
         <span>
           By clicking "Email me" you agree to our{' '}
-          <Link to='/carworld/privacy-policy' title='Privacy Policy'>
+          <Link to='/terms/privacy-policy' title='Privacy Policy'>
             Privacy Policy
           </Link>{' '}
           and{' '}
-          <Link to='/carworld/terms-of-use' title='Terms of Use'>
+          <Link to='/terms/terms-of-use' title='Terms of Use'>
             Terms of Use
           </Link>
           .

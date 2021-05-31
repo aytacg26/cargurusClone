@@ -45,7 +45,7 @@ const VehicleHistory = ({
             AutoCheck Terms and Conditions
           </a>{' '}
           and the{' '}
-          <Link to='/carworld/terms-of-use' title='Terms of Use'>
+          <Link to='/terms/terms-of-use' title='Terms of Use'>
             CarWorld Terms of Use
           </Link>
           .

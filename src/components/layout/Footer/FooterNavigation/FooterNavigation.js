@@ -78,12 +78,12 @@ const linkSections = [
       {
         id: 'terms-link-00002',
         text: 'Terms of Use',
-        url: '/terms/termsofuse',
+        url: '/terms/terms-of-use',
       },
       {
         id: 'terms-link-00003',
         text: 'Privacy',
-        url: '/terms/privacy',
+        url: '/terms/privacy-policy',
       },
       {
         id: 'terms-link-00004',

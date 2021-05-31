@@ -7,6 +7,8 @@ import Navbar from './components/layout/Nav/Navbar';
 import Home from './components/layout/Pages/Home/Home';
 import Footer from './components/layout/Footer/Footer';
 import Loader from './components/ui/Loader/Loader';
+import TermsOfUse from './components/layout/Pages/TermsOfUse/TermsOfUse';
+import PrivacyPolicy from './components/layout/Pages/PrivacyPolicy/PrivacyPolicy';
 
 const UsedCars = lazy(() =>
   import('./components/layout/Pages/UsedCars/UsedCars')
@@ -27,6 +29,12 @@ const App = () => {
               <Route path='/' exact component={Home} />
               <Route path='/used-cars' exact render={() => <UsedCars />} />
               <Route path='/new-cars' exact render={() => <NewCars />} />
+              <Route path='/terms/terms-of-use' exact component={TermsOfUse} />
+              <Route
+                path='/terms/privacy-policy'
+                exact
+                component={PrivacyPolicy}
+              />
               <Route
                 path='/products/:productId'
                 exact
