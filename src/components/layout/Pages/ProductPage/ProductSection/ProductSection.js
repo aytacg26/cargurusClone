@@ -4,6 +4,7 @@ import Financing from '../../../Financing/Financing';
 import DetailIconsList from './DetailIconsList/DetailIconsList';
 import DetailsTable from './DetailsTable/DetailsTable';
 import NotifyWindow from './NotifyWindow/NotifyWindow';
+import ProductNav from './ProductNav/ProductNav';
 import classes from './ProductSection.module.scss';
 import VehicleHistory from './VehicleHistory/VehicleHistory';
 
@@ -206,6 +207,7 @@ const ProductSection = () => {
 
   return (
     <Fragment>
+      <ProductNav onShowFinancing={handleFinancingModal} />
       <div className={classes.ProductSection}>
         <div className={classes.ImageBox}>ImageBox</div>
         <DetailIconsList carDetails={details} header='Vehicle Details' />
