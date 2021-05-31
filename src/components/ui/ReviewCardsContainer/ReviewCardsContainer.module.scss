@@ -1,0 +1,8 @@
+.ReviewCards {
+  //   @include border($light-grey, solid, null, 1px);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+
+  row-gap: 12px;
+}
