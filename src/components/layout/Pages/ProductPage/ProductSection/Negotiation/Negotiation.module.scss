@@ -1,0 +1,10 @@
+@import '../../../../../../scss/manifest';
+
+.Negotiation {
+  @include flex(column, nowrap);
+
+  span {
+    @include terms-conditions(left);
+    margin: 15px 0;
+  }
+}
