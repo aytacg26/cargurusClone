@@ -1,0 +1,31 @@
+@import '../../../scss/manifest';
+
+.StatisticsCard {
+  @include flex(column, nowrap);
+  @include minmax-height-width(50px, max-content);
+  @include border($light-grey, solid, left, 1px);
+  padding: 5px;
+
+  span {
+    @include font(16px, 600, $dark-grey);
+    margin: 2px 0;
+  }
+}
+
+.IconLabel {
+  display: grid;
+  grid-template-columns: 10px max-content;
+  align-items: center;
+  justify-items: center;
+
+  .Dot {
+    @include width-height(7px, 7px);
+    margin: 0 3px 0 0;
+    border-radius: 100%;
+  }
+
+  label {
+    @include font(10px, 400, $medium-grey, null);
+    text-transform: uppercase;
+  }
+}
