@@ -4,6 +4,7 @@ import ReviewCards from './ReviewCards/ReviewCards';
 import classes from './VehicleHistory.module.scss';
 import { Link } from 'react-router-dom';
 import CardWindow from '../../../../../ui/CardWindow/CardWindow';
+import { formatDate } from '../../../../../../utils/utilsFuncs';
 
 const VehicleHistory = ({
   owners,
@@ -34,8 +35,9 @@ const VehicleHistory = ({
           Save 20% on the full AutoCheck Vehicle History Report
         </a>
         <span>
-          Vehicle history data provided by Experian AutoCheck on {autoCheckDate}
-          . This data, and any reliance on it, is subject to the{' '}
+          Vehicle history data provided by Experian AutoCheck on{' '}
+          {formatDate(autoCheckDate)}. This data, and any reliance on it, is
+          subject to the{' '}
           <a
             href='#!'
             title='AutoCheck Terms and Conditions'
