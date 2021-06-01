@@ -11,9 +11,7 @@ const SaveCounter = ({ count }) => {
     <div className={classes.Counter}>
       <span>{count}</span>
       <span>{count === 1 ? 'save' : 'saves'}</span>
-      <span>
-        <FaHeart size={14} color='#0277bd' />
-      </span>
+      <FaHeart size={13} color='#0277bd' />
     </div>
   );
 };
