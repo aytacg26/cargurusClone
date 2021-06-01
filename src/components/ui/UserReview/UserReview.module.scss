@@ -1,0 +1,7 @@
+@import '../../../scss/manifest';
+
+.ReviewData {
+  @include flex(row, nowrap, null, space-between);
+
+  padding: 10px 15px;
+}
