@@ -46,4 +46,14 @@
       background-color: darken($warning, 10%);
     }
   }
+
+  &.text {
+    background-color: transparent;
+    color: $primary;
+    text-decoration: underline;
+
+    &:hover {
+      color: $site-blue;
+    }
+  }
 }
