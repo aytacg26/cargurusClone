@@ -4,7 +4,7 @@ import classes from './DetailGroup.module.scss';
 const DetailGroup = ({ label, data }) => {
   let dataContent;
 
-  if (typeof data === 'string') {
+  if (typeof data === 'string' || typeof data === 'number') {
     dataContent = <p>{data}</p>;
   } else if (typeof data === 'object' && Array.isArray(data)) {
     dataContent = data.map((datum, index) => (
