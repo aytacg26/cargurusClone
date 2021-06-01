@@ -58,7 +58,10 @@ const DetailsTable = ({ details }) => {
         <div
           className={`${classes.Details} ${showDetails ? classes.Show : ''}`}
         >
-          <DetailGroup label="Dealer's Price" data={details.price} />
+          <DetailGroup
+            label="Dealer's Price"
+            data={`${details.currency}${details.price}`}
+          />
           {details.location && (
             <DetailGroup label='Location' data={details.location} />
           )}
