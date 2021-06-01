@@ -13,7 +13,8 @@ const Modal = lazy(() => import('../../../../ui/Modal/Modal'));
 
 const carDetails = {
   id: '001-897-00123',
-  price: '£25,000',
+  price: 25000,
+  currency: '£',
   location: 'Küçük Kaymaklı, Lefkoşa',
   kilometers: '63,287 km',
   transmission: 'Automatic',
@@ -24,12 +25,13 @@ const carDetails = {
   horsepower: '175 Hp',
   driveTrain: 'Rear-Wheel Drive',
   fuelType: 'Gasoline',
+  fuelEconomy: '30 MPG (combined)',
   VIN: 'WBAJA9C55KB398601',
   owners: 1,
   titleCheck: true,
   accidents: 0,
   rentalUse: true,
-  autoCheckDate: '21/02/2021',
+  autoCheckDate: new Date(2021, 1, 21),
   majorOptions: [
     {
       id: 'mo-000122-asas',
@@ -181,18 +183,39 @@ const carDetails = {
   quidem molestias fugit eligendi nihil unde recusandae ipsa laudantium
   minima aspernatur dolores laborum! Repudiandae pariatur vitae adipisci
   maiores doloribus dolores.`,
-  listDate: '15/01/2021',
+  listDate: new Date(2019, 0, 15),
   numberOfSaves: 5,
+
   priceStatistics: [
     {
       id: 'price-00001',
-      date: '01/01/2019',
-      price: '£19500',
+      date: new Date(2019, 1, 23),
+      price: 25000,
     },
     {
       id: 'price-00002',
-      date: '01/01/2020',
-      price: '£16500',
+      date: new Date(2019, 5, 16),
+      price: 19500,
+    },
+    {
+      id: 'price-00003',
+      date: new Date(2019, 5, 16),
+      price: 21000,
+    },
+    {
+      id: 'price-00004',
+      date: new Date(2019, 5, 16),
+      price: 16800,
+    },
+    {
+      id: 'price-00005',
+      date: new Date(2021, 5, 16),
+      price: 18500,
+    },
+    {
+      id: 'price-00006',
+      date: new Date(2021, 6, 16),
+      price: 17500,
     },
   ],
 };
@@ -210,12 +233,12 @@ const ProductSection = () => {
     () => ({
       milage: carDetails.kilometers,
       owner: '',
-      gearbox: '6 speed Automatic',
-      driveTrain: 'Front-Wheel Drive',
-      fuelType: 'Gasoline',
-      engine: 'I4',
-      fuelEconomy: '30 MPG (combined)',
-      interiorColor: 'Black',
+      gearbox: carDetails.transmission,
+      driveTrain: carDetails.driveTrain,
+      fuelType: carDetails.fuelType,
+      engine: carDetails.engine,
+      fuelEconomy: carDetails.gasMileage[2],
+      interiorColor: carDetails.interiorColor,
     }),
     []
   );
@@ -237,6 +260,7 @@ const ProductSection = () => {
           numberOfSaves={carDetails.numberOfSaves}
           listDate={carDetails.listDate}
           priceStatistics={carDetails.priceStatistics}
+          currency={carDetails.currency}
         />
         <VehicleHistory
           owners={carDetails.owners}
