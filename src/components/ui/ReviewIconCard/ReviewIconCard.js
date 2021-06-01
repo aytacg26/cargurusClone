@@ -3,7 +3,6 @@ import CircleIconContainer from '../CircleIconContainer/CircleIconContainer';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import PropTypes from 'prop-types';
 import { FaInfo } from 'react-icons/fa';
-
 import classes from './ReviewIconCard.module.scss';
 
 const ReviewIconCard = ({
@@ -19,7 +18,7 @@ const ReviewIconCard = ({
     <div className={classes.TextSection}>
       <h4>{header}</h4>
       {text && <p>{text}</p>}
-      {additionalInfo && <p>{additionalInfo}</p>}
+      {additionalInfo && <div>{additionalInfo}</div>}
     </div>
   );
 
