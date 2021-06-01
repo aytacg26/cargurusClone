@@ -1,6 +1,7 @@
 import React, { useState, useMemo, Fragment, lazy, Suspense } from 'react';
 import Loader from '../../../../ui/Loader/Loader';
 import Financing from '../../../Financing/Financing';
+import DealerReviews from './DealerReviews/DealerReviews';
 import DetailIconsList from './DetailIconsList/DetailIconsList';
 import DetailsTable from './DetailsTable/DetailsTable';
 import Negotiation from './Negotiation/Negotiation';
@@ -218,6 +219,78 @@ const carDetails = {
       price: 17500,
     },
   ],
+
+  //reviews won't take place here. these are reviews on dealer, for this reason, in MongoDB database, we will keep
+  //this data under dealer document. (No need a seperate collection for such data, a dealer will not have thousands of reviews.)
+  //Currently, for test purpose / for dummy data, we will use it under car details.
+  reviews: [
+    {
+      id: 'review-00001',
+      date: new Date(2020, 5, 11),
+      user: {
+        userId: 'user-001-009-134',
+        fullName: 'Aytaç Güley',
+        profileImage: '',
+      },
+      stars: 5,
+      text: 'Accommodating, friendly.',
+    },
+    {
+      id: 'review-00002',
+      date: new Date(2020, 3, 19),
+      user: {
+        userId: 'user-002-008-123',
+        fullName: 'John Doe',
+        profileImage: '',
+      },
+      stars: 4,
+      text: 'Yes, they were very responsive via email and by phone in follow-up on the car of interest and to my request to schedule an appointment.',
+    },
+    {
+      id: 'review-00003',
+      date: new Date(2020, 2, 10),
+      user: {
+        userId: 'user-004-018-423',
+        fullName: 'Elon Musk',
+        profileImage: '',
+      },
+      stars: 4,
+      text: 'Our experience with this dealership was a pleasant one. Our salesperson Shady was very pleasant and helpful from start to finish. He answered every question we had professionally. I would recommend that anyone looking for a Honda would go to Victory Honda of San Bruno.',
+    },
+    {
+      id: 'review-00004',
+      date: new Date(2019, 5, 18),
+      user: {
+        userId: 'user-099-014-413',
+        fullName: 'James Bond',
+        profileImage: '',
+      },
+      stars: 5,
+      text: "Wonderful from the moment I got out of my car to signing the papers. James was honest, patient, and considerate of my time and didn't play games.",
+    },
+    {
+      id: 'review-00005',
+      date: new Date(2019, 4, 10),
+      user: {
+        userId: 'user-042-074-119',
+        fullName: 'Mark Zuckerberg',
+        profileImage: '',
+      },
+      stars: 3,
+      text: 'I bought my family car here. They are timely, efficient, and considerate. They gave me a good deal, detailed the car and filled the tank without even being asked.',
+    },
+    {
+      id: 'review-00006',
+      date: new Date(2019, 3, 2),
+      user: {
+        userId: 'user-088-054-210',
+        fullName: 'Bruce Willis',
+        profileImage: '',
+      },
+      stars: 4,
+      text: 'They had already sold the car. Very helpful if you want a Honda.',
+    },
+  ],
 };
 
 //car details will come from database and we will get this data directly to this component from Redux
@@ -272,7 +345,7 @@ const ProductSection = () => {
         <NotifyWindow productId={carDetails.id} />
 
         <div id='reviews' className={classes.Reviews}>
-          Reviews
+          <DealerReviews reviews={carDetails.reviews} />
         </div>
       </div>
       <Suspense fallback={<Loader />}>
