@@ -1,0 +1,41 @@
+@import '../../../../../../../scss/manifest';
+
+.PriceStatistics {
+  @include minmax-height-width(max-content, 100%);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  justify-items: center;
+  margin: 10px 0;
+}
+
+.PriceChart {
+  @include minmax-height-width(max-content, 0px);
+
+  &.Show {
+    animation: showChart 0.45s ease-in-out 0s 1 forwards;
+  }
+
+  &.Hide {
+    animation: hideChart 0.45s ease-in-out 0s 1 forwards;
+  }
+}
+
+@keyframes showChart {
+  0% {
+    @include minmax-height-width(max-content, 0px);
+  }
+
+  100% {
+    @include minmax-height-width(max-content, 800px);
+  }
+}
+
+@keyframes hideChart {
+  0% {
+    @include minmax-height-width(max-content, 800px);
+  }
+  100% {
+    @include minmax-height-width(max-content, 0px);
+  }
+}
