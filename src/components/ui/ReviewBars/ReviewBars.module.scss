@@ -1,0 +1,12 @@
+@import '../../../scss/manifest';
+
+.ReviewsHeader {
+  @include font(null, null, $dark-grey, left);
+  width: 100%;
+  margin: 5px 0;
+}
+
+.ReviewBars {
+  @include flex(column, nowrap, center);
+  width: 100%;
+}
