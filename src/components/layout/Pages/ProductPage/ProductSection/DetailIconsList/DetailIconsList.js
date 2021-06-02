@@ -26,12 +26,24 @@ const DetailIconsList = ({ header, carDetails }) => {
 
   for (let detail in carDetails) {
     count++;
-    carDetailsWithImages.push({
-      id: `detail-${detail}-${count}`,
-      detail: carDetails[detail],
-      image: images[detail],
-      title: detail,
-    });
+    if (detail === 'owner') {
+      carDetailsWithImages.push({
+        id: `detail-${detail}-${count}`,
+        detail:
+          carDetails[detail] === 1
+            ? `${carDetails[detail]} owner`
+            : `${carDetails[detail]} owners`,
+        image: images[detail],
+        title: detail,
+      });
+    } else {
+      carDetailsWithImages.push({
+        id: `detail-${detail}-${count}`,
+        detail: carDetails[detail],
+        image: images[detail],
+        title: detail,
+      });
+    }
   }
 
   return (

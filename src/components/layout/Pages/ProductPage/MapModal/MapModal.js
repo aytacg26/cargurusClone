@@ -15,7 +15,7 @@ const MapModal = ({
   Longitude,
   dealerName,
   location,
-  country,
+  city,
   address,
 }) => {
   const [mapData, setMapData] = useState([]);
@@ -113,8 +113,8 @@ const MapModal = ({
         {dealerName && (
           <div className={classes.ModalHeaders}>
             <h1>{dealerName}</h1>
-            {location && country && <h3>{`${location} - ${country}`}</h3>}
-            <p>514 Crows Landing Road Modesto, CA 95351</p>
+            {location && city && <h3>{`${location} - ${city}`}</h3>}
+            <p>{address}</p>
           </div>
         )}
         <div className={classes.MapArea} id='mapArea' ref={mapAreaRef}>

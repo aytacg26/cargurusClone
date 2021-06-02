@@ -10,6 +10,7 @@ const BusinessCard = ({
   dealerId,
   dealerName,
   location,
+  city,
   address,
   phone,
   logoImg,
@@ -27,12 +28,12 @@ const BusinessCard = ({
     <Fragment>
       <div className={classes.BusinessCard}>
         <div className={classes.DealerBranding}>
-          <Link to='/dealers/dealer-id' className={classes.LogoContainer}>
-            <img src={sampleCorrectSize} alt='' titile='' />
+          <Link to={`/dealers/${dealerId}`} className={classes.LogoContainer}>
+            <img src={sampleCorrectSize} alt={dealerName} title={dealerName} />
           </Link>
           <div className={classes.DealerLocation}>
-            <h2>STAR AUTO SALES</h2>
-            <h3>Nicosia, Cyprus</h3>
+            <h2>{dealerName}</h2>
+            <h3>{`${location}, ${city}`}</h3>
           </div>
         </div>
         <div className={classes.DetailsSection}>
@@ -40,13 +41,13 @@ const BusinessCard = ({
             <span className={classes.IconSection}>
               <FaHome size='20px' />
             </span>
-            <span>514 Crows Landing Road Modesto, CA 95351</span>
+            <span>{address}</span>
           </div>
           <div className={classes.DealerDetailsGroup}>
             <span className={classes.IconSection}>
               <FaPhoneAlt size='20px' />
             </span>
-            <span>(0533) 811 01 91</span>
+            <span>{phone}</span>
           </div>
           <div className={classes.DealerDetailsGroup}>
             <span className={classes.IconSection}>
@@ -60,7 +61,7 @@ const BusinessCard = ({
             <span className={classes.IconSection}>
               <FaCarAlt size='20px' />
             </span>
-            <Button to='/dealers/dealer-id' btnType='primary'>
+            <Button to={`/dealers/${dealerId}`} btnType='primary'>
               See Inventory
             </Button>
           </div>
@@ -73,7 +74,7 @@ const BusinessCard = ({
         Longitude={Longitude}
         dealerName={dealerName}
         location={location}
-        country={country}
+        city={city}
         address={address}
       />
     </Fragment>

@@ -5,7 +5,7 @@ import DetailGroup from './DetailGroup/DetailGroup';
 import classes from './DetailsTable.module.scss';
 import MajorOptions from './MajorOptions/MajorOptions';
 
-const DetailsTable = ({ details }) => {
+const DetailsTable = ({ details, location }) => {
   const [showDetails, setShowDetails] = useState(false);
   const [removeDetails, setRemoveDetails] = useState(true);
   const [border, setBorder] = useState(0);
@@ -62,9 +62,7 @@ const DetailsTable = ({ details }) => {
             label="Dealer's Price"
             data={`${details.currency}${details.price}`}
           />
-          {details.location && (
-            <DetailGroup label='Location' data={details.location} />
-          )}
+          {location && <DetailGroup label='Location' data={location} />}
           {details.kilometers && (
             <DetailGroup label='Kilometers' data={details.kilometers} />
           )}

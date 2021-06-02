@@ -13,6 +13,7 @@ const DealerInteraction = ({
   numberOfReviews,
   dealStatus,
   priceDifference,
+  dealer,
 }) => {
   const good = dealStatus?.toLowerCase() === 'good';
   const great = dealStatus?.toLowerCase() === 'great';
@@ -76,14 +77,31 @@ const DealerInteraction = ({
       <Card>
         <MessageForm
           formHeader='Contact Dealer'
-          dealerPhone='(0533) 811 01 91'
+          dealerPhone={dealer.contact.phone}
         />
       </Card>
       <Card>
-        <BusinessCard dealerName='Star Auto Sales' />
+        <BusinessCard
+          dealerId={dealer.dealerId}
+          dealerName={dealer.name}
+          location={dealer.contact.location}
+          city={dealer.contact.city}
+          country={dealer.contact.country}
+          phone={dealer.contact.phone}
+          address={dealer.contact.address}
+          Latitude={dealer.coordinates.Latitude}
+          Longitude={dealer.coordinates.Longitude}
+        />
       </Card>
     </div>
   );
 };
+
+/**
+ *  coordinates: {
+    Latitude: '35.2215',
+    Longitude: '33.3767',
+  }
+ */
 
 export default DealerInteraction;
