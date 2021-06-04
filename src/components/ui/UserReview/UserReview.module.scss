@@ -1,7 +1,14 @@
 @import '../../../scss/manifest';
 
-.ReviewData {
-  @include flex(row, nowrap, null, space-between);
+.ReviewActions {
+  @include flex(row, nowrap, center);
+}
 
-  padding: 10px 15px;
+.ReviewUD {
+  @include flex(row, nowrap, center);
+
+  & svg {
+    cursor: pointer;
+    margin: 0 5px;
+  }
 }

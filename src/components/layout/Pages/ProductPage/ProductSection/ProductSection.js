@@ -14,7 +14,7 @@ const Modal = lazy(() => import('../../../../ui/Modal/Modal'));
 
 //car details will come from database and we will get this data directly to this component from Redux
 //for test purpose, static data used.
-const ProductSection = ({ carDetails, dealerReviews, location }) => {
+const ProductSection = ({ carDetails, dealerReviews, location, onDelete }) => {
   const [hideFinancingModal, setHideFinancingModal] = useState(true);
 
   const handleFinancingModal = () => {
@@ -86,7 +86,11 @@ const ProductSection = ({ carDetails, dealerReviews, location }) => {
         <NotifyWindow productId={carDetails.id} />
 
         <div id='reviews' className={classes.Reviews}>
-          <DealerReviews reviews={dealerReviews} />
+          <DealerReviews
+            reviews={dealerReviews}
+            header='Dealer Reviews'
+            onDelete={onDelete}
+          />
         </div>
       </div>
       <Suspense fallback={<Loader />}>

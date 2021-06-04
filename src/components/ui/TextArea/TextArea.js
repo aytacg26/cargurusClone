@@ -109,13 +109,15 @@ const TextArea = ({
         ref={textAreaRef}
         style={{ marginBottom: !showCounter ? '15px' : '' }}
       ></textarea>
-      <span
-        className={`${classes.Label} ${value ? classes.filled : ''} ${
-          notValid ? classes.NotValid : ''
-        }`}
-      >
-        {label}
-      </span>
+      {label && (
+        <span
+          className={`${classes.Label} ${value ? classes.filled : ''} ${
+            notValid ? classes.NotValid : ''
+          }`}
+        >
+          {label}
+        </span>
+      )}
       {warningMessage && !useTextError && (
         <div className={warningClass}>
           <span className={classes.Triangle}></span>

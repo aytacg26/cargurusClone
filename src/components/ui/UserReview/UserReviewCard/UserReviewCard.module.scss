@@ -1,0 +1,45 @@
+@import '../../../../scss/manifest';
+
+.ReviewData {
+  @include flex(row, nowrap, null, space-between);
+  padding: 12px 15px;
+}
+
+.ReviewText,
+.Date,
+.UserName {
+  @include font(12.5px, 400, $dark-grey, left);
+}
+
+.UserData {
+  @include flex(row, nowrap);
+  max-width: max-content;
+  max-height: max-content;
+  padding: 0 8px;
+}
+
+.NameArea {
+  @include flex(column, nowrap, flex-start);
+  padding: 0 8px 0 10px;
+  margin-top: 5px;
+}
+
+.Date {
+  margin-top: 5px;
+}
+
+.UserName {
+  @include ellipsis(95px);
+  margin: 0 0 6px 4px;
+}
+
+.ReviewText {
+  padding: 8px 25px 20px 25px;
+  line-height: 18px;
+  width: 550px;
+  max-width: 90vw;
+}
+
+.EditSection {
+  @include flex(column, nowrap, flex-end);
+}

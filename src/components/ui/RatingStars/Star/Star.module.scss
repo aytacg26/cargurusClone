@@ -2,13 +2,13 @@
 
 .StarContainer {
   @include flex-all-center();
-  @include minmax-height-width(25px, 25px);
+  @include minmax-height-width(20px, 20px);
   position: relative;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .StarIcon {
-  width: 30px;
+  width: 25px;
   display: inline-block;
   color: $medium-grey;
 
@@ -25,10 +25,10 @@
   }
 
   &.Half::after {
-    @include position-absolute(-7.5px, null, null, 0);
+    @include position-absolute(-6.5px, null, null, -0.5px);
     content: '\002605';
     color: $star-color;
-    width: 50%;
+    width: 55%;
     font-size: inherit;
     overflow: hidden;
   }

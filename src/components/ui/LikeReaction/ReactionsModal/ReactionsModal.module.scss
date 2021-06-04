@@ -1,0 +1,13 @@
+@import '../../../../scss/manifest';
+
+.Totals {
+  @include flex(column, nowrap, flex-end, center);
+  @include font(12px, 500, $medium-grey);
+  margin: 15px 5px 5px 5px;
+}
+
+.Group {
+  @include flex(row, nowrap, flex-start, space-between);
+  width: 80px;
+  margin: 3px 0;
+}

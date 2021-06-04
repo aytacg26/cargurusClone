@@ -1,0 +1,6 @@
+@import '../../../../scss/manifest';
+
+.Stars {
+  @include flex(row, nowrap);
+  margin-top: -4px;
+}

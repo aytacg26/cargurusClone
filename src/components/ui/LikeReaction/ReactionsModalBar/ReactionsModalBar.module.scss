@@ -1,0 +1,32 @@
+@import '../../../../scss/manifest';
+
+.ModalBar {
+  @include flex(row, nowrap, center, space-between);
+  @include border($light-grey, solid, bottom, 1px);
+  width: 550px;
+  max-width: 90vw;
+  height: 65px;
+
+  &:last-child {
+    border: 0 none;
+  }
+}
+
+.ProfileData {
+  @include flex(row, nowrap, center);
+  max-width: 180px;
+
+  .UserName {
+    @include font(12.5px, 400, $medium-grey);
+    margin: 0 10px;
+  }
+
+  .Date {
+    @include font(11px, 400, $light-grey);
+    margin: 0 10px;
+  }
+}
+
+.NameDate {
+  @include flex(column, nowrap, flex-start);
+}

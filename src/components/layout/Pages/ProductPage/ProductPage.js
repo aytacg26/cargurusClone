@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PageContainer from '../PageContainer/PageContainer';
 import classes from './ProductPage.module.scss';
 import ShareData from './ShareData/ShareData';
@@ -234,8 +234,8 @@ const dealer = {
   registeredAt: new Date(2016, 2, 14),
   currentStockAmount: 38,
   coordinates: {
-    Latitude: '35.2215',
-    Longitude: '33.3767',
+    Latitude: 35.2215,
+    Longitude: 33.3767,
   },
   reviews: [
     {
@@ -244,10 +244,40 @@ const dealer = {
       user: {
         userId: 'user-001-009-134',
         fullName: 'Aytaç Güley',
+        gender: 'male',
         profileImage: '',
       },
       stars: 5,
       text: 'Accommodating, friendly.',
+      reactions: {
+        likes: [
+          {
+            id: 'ld-00001-01241',
+            date: new Date(2020, 6, 12),
+            type: 'like',
+            typeNo: 1,
+            user: {
+              userId: 'user-002-008-123',
+              userName: 'John Doe',
+              profileImage: '',
+            },
+          },
+        ],
+        dislikes: [
+          {
+            id: 'ld-00002-01342',
+            date: new Date(2020, 6, 12),
+            type: 'dislike',
+            typeNo: 0,
+            user: {
+              userId: 'user-099-014-413',
+              userName: 'James Bond',
+              profileImage:
+                'https://i.ibb.co/R25Fqjh/James-Bond-Daniel-Craig-Profile.jpg',
+            },
+          },
+        ],
+      },
     },
     {
       id: 'review-00002',
@@ -255,10 +285,15 @@ const dealer = {
       user: {
         userId: 'user-002-008-123',
         fullName: 'John Doe',
+        gender: '',
         profileImage: '',
       },
       stars: 4,
       text: 'Yes, they were very responsive via email and by phone in follow-up on the car of interest and to my request to schedule an appointment.',
+      reactions: {
+        likes: [],
+        dislikes: [],
+      },
     },
     {
       id: 'review-00003',
@@ -266,10 +301,53 @@ const dealer = {
       user: {
         userId: 'user-004-018-423',
         fullName: 'Elon Musk',
-        profileImage: '',
+        gender: 'male',
+        profileImage:
+          'https://i.ibb.co/QCwtNkf/Elon-Musk-Royal-Society-crop1.jpg',
       },
       stars: 4,
       text: 'Our experience with this dealership was a pleasant one. Our salesperson Shady was very pleasant and helpful from start to finish. He answered every question we had professionally. I would recommend that anyone looking for a Honda would go to Victory Honda of San Bruno.',
+      reactions: {
+        likes: [
+          {
+            id: 'ld-00001-01241',
+            date: new Date(2020, 2, 11),
+            type: 'like',
+            typeNo: 1,
+            user: {
+              userId: 'user-002-008-123',
+              userName: 'John Doe',
+              profileImage: '',
+            },
+          },
+          {
+            id: 'ld-00002-01342',
+            date: new Date(2020, 2, 12),
+            type: 'like',
+            typeNo: 1,
+            user: {
+              userId: 'user-099-014-413',
+              userName: 'James Bond',
+              profileImage:
+                'https://i.ibb.co/R25Fqjh/James-Bond-Daniel-Craig-Profile.jpg',
+            },
+          },
+        ],
+        dislikes: [
+          {
+            id: 'ld-00003-04312',
+            date: new Date(2020, 2, 11),
+            type: 'dislike',
+            typeNo: 0,
+            user: {
+              userId: 'user-042-074-119',
+              userName: 'Mark Zuckerberg',
+              profileImage:
+                'https://i.ibb.co/Qd8HkT5/mark-zuckerberg-profile-650x434.jpg',
+            },
+          },
+        ],
+      },
     },
     {
       id: 'review-00004',
@@ -277,10 +355,53 @@ const dealer = {
       user: {
         userId: 'user-099-014-413',
         fullName: 'James Bond',
-        profileImage: '',
+        gender: 'male',
+        profileImage:
+          'https://i.ibb.co/R25Fqjh/James-Bond-Daniel-Craig-Profile.jpg',
       },
       stars: 5,
       text: "Wonderful from the moment I got out of my car to signing the papers. James was honest, patient, and considerate of my time and didn't play games.",
+      reactions: {
+        likes: [
+          {
+            id: 'ld-00003-04312',
+            date: new Date(2019, 5, 21),
+            type: 'like',
+            typeNo: 1,
+            user: {
+              userId: 'user-042-074-119',
+              userName: 'Mark Zuckerberg',
+              profileImage:
+                'https://i.ibb.co/Qd8HkT5/mark-zuckerberg-profile-650x434.jpg',
+            },
+          },
+        ],
+        dislikes: [
+          {
+            id: 'ld-00001-01241',
+            date: new Date(2020, 2, 23),
+            type: 'dislike',
+            typeNo: 0,
+            user: {
+              userId: 'user-002-008-123',
+              userName: 'John Doe',
+              profileImage: '',
+            },
+          },
+          {
+            id: 'ld-00001-01930',
+            date: new Date(2020, 2, 23),
+            type: 'dislike',
+            typeNo: 0,
+            user: {
+              userId: 'user-004-018-423',
+              userName: 'Elon Musk',
+              profileImage:
+                'https://i.ibb.co/QCwtNkf/Elon-Musk-Royal-Society-crop1.jpg',
+            },
+          },
+        ],
+      },
     },
     {
       id: 'review-00005',
@@ -288,10 +409,16 @@ const dealer = {
       user: {
         userId: 'user-042-074-119',
         fullName: 'Mark Zuckerberg',
-        profileImage: '',
+        gender: 'male',
+        profileImage:
+          'https://i.ibb.co/Qd8HkT5/mark-zuckerberg-profile-650x434.jpg',
       },
       stars: 3,
       text: 'I bought my family car here. They are timely, efficient, and considerate. They gave me a good deal, detailed the car and filled the tank without even being asked.',
+      reactions: {
+        likes: [],
+        dislikes: [],
+      },
     },
     {
       id: 'review-00006',
@@ -299,45 +426,65 @@ const dealer = {
       user: {
         userId: 'user-088-054-210',
         fullName: 'Bruce Willis',
-        profileImage: '',
+        gender: 'male',
+        profileImage: 'https://i.ibb.co/Ss9w004/Bruce-willis-2012-5-23.jpg',
       },
       stars: 4,
       text: 'They had already sold the car. Very helpful if you want a Honda.',
+      reactions: {
+        likes: [],
+        dislikes: [],
+      },
     },
   ],
 };
 
 const ProductPage = () => {
-  const totalStars = dealer.reviews.reduce((total, review) => {
+  const [dealerData, setDealerData] = useState(dealer);
+
+  const totalStars = dealerData.reviews.reduce((total, review) => {
     return total + review.stars;
   }, 0);
 
-  const rate = (totalStars / dealer.reviews.length).toFixed(2);
+  const rate =
+    dealerData.reviews.length > 0
+      ? (totalStars / dealerData.reviews.length).toFixed(2)
+      : 0;
   const priceDifference =
     carDetails.priceStatistics[0].price -
     carDetails.priceStatistics[carDetails.priceStatistics.length - 1].price;
+
+  const handleDelete = (id) => {
+    setDealerData((prevData) => {
+      return {
+        ...prevData,
+        reviews: prevData.reviews.filter((review) => review.id !== id),
+      };
+    });
+  };
 
   return (
     <PageContainer>
       <div className={classes.ProductDetailsContainer}>
         <HeaderSection
           productHeader={carDetails.title}
-          dealer={dealer.name}
-          location={dealer.contact.location}
+          dealer={dealerData.name}
+          location={dealerData.contact.location}
         />
         <div className={classes.DetailsSections}>
           <ShareData />
           <ProductSection
             carDetails={carDetails}
-            dealerReviews={dealer.reviews}
-            location={dealer.contact.location}
+            dealerReviews={dealerData.reviews}
+            location={dealerData.contact.location}
+            onDelete={handleDelete}
           />
           <DealerInteraction
             rate={rate}
-            numberOfReviews={dealer.reviews.length}
+            numberOfReviews={dealerData.reviews.length}
             dealStatus={carDetails.dealStatus}
             priceDifference={priceDifference}
-            dealer={dealer}
+            dealer={dealerData}
           />
         </div>
       </div>

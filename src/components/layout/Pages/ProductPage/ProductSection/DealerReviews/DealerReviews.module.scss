@@ -1,5 +1,17 @@
 @import '../../../../../../scss/manifest';
 
+.Reviews {
+  @include flex(column, nowrap);
+  margin: 10px 0;
+  padding: 5px 20px;
+
+  & h3 {
+    color: $dark-grey;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+}
+
 .Actions {
   @include flex(row, nowrap, center, space-between);
   width: 100%;

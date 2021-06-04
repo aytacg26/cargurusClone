@@ -18,7 +18,4 @@ $star-color: #ffb100;
 $snomo: #527d89;
 $not-valid-border: lighten($danger, 25%);
 $not-valid-bg: lighten($danger, 35%);
-$back-drop-color: transparentize(
-  $color: $black,
-  $amount: 0.4,
-);
+$back-drop-color: rgba(0, 0, 0, 0.3);

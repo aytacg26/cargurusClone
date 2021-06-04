@@ -181,13 +181,13 @@ export const randomNum = (minNum, maxNum) => {
   return randNum;
 };
 
-export const loadImage = async (url, elem, setter) => {
+export const loadImage = async (url, elem, setter, defaultImage) => {
   return new Promise((resolve, reject) => {
     elem.onload = () => {
       resolve(elem);
     };
     elem.onerror = () => {
-      elem.src = noImage;
+      elem.src = defaultImage ? defaultImage : noImage;
     };
 
     elem.src = url;

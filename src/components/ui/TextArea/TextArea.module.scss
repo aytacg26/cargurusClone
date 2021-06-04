@@ -61,7 +61,7 @@
   &.filled {
     @include border($site-light-green, solid, null, 1px);
     @include font(10.5px, null, $medium-grey, null);
-    top: -79px;
+    top: -95px;
     left: 10px;
     background-color: $default-color;
     border-radius: 3px;

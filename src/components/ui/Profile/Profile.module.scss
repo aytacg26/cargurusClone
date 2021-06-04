@@ -1,0 +1,13 @@
+@import '../../../scss/manifest';
+
+.Profile {
+  @include minmax-height-width(150px, 150px, 'max');
+
+  img {
+    @include width-height(70px, 70px);
+    @include border($light-grey, solid, null, 1px);
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
