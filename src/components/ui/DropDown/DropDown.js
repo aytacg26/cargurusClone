@@ -37,11 +37,6 @@ const DropDown = ({
     : classes.icon;
   const dropDownRef = useRef();
 
-  console.log('dropdown running...', name);
-  console.log(
-    '----------------------------------------------------------------------------------------'
-  );
-
   useEffect(() => {
     if (dropDown) {
       const handleClick = (event) => {
