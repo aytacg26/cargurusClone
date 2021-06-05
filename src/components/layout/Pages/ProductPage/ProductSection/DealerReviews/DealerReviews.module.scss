@@ -21,3 +21,9 @@
     width: 150px;
   }
 }
+
+.DropFilter {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 15px;
+}
