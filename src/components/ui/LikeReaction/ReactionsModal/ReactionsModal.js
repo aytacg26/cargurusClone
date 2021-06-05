@@ -12,7 +12,10 @@ const ReactionsModal = ({ reactions, review, onClick, show }) => {
   return (
     <Modal onClick={onClick} hide={!show}>
       <div className={classes.Bars}>
-        <UserReviewCard review={review} />
+        <UserReviewCard
+          review={review}
+          textStyle={{ width: 550, maxWidth: '90vw' }}
+        />
         {reactions.map((reaction) => (
           <ReactionsModalBar key={reaction.id} reaction={reaction} />
         ))}
