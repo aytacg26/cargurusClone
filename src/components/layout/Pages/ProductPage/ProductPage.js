@@ -212,7 +212,7 @@ const carDetails = {
     {
       id: 'price-00006',
       date: new Date(2021, 6, 16),
-      price: 17500,
+      price: 27500,
     },
   ],
   images: [],
@@ -434,6 +434,47 @@ const dealer = {
       reactions: {
         likes: [],
         dislikes: [],
+      },
+    },
+    {
+      id: 'review-00007',
+      date: new Date(2021, 2, 11),
+      user: {
+        userId: 'user-001-109-135',
+        fullName: 'Asrın Sevicer',
+        gender: 'male',
+        profileImage: '',
+      },
+      stars: 1,
+      text: 'Hacker Aytaç, bütün galericilerin götüne, duttğu arabalar girsin, dingil de arkasından kat kat girsin...',
+      reactions: {
+        likes: [
+          {
+            id: 'ld-00001-01341',
+            date: new Date(2020, 6, 12),
+            type: 'like',
+            typeNo: 1,
+            user: {
+              userId: 'user-002-008-123',
+              userName: 'John Doe',
+              profileImage: '',
+            },
+          },
+        ],
+        dislikes: [
+          {
+            id: 'ld-00002-01842',
+            date: new Date(2020, 6, 12),
+            type: 'dislike',
+            typeNo: 0,
+            user: {
+              userId: 'user-099-014-413',
+              userName: 'James Bond',
+              profileImage:
+                'https://i.ibb.co/R25Fqjh/James-Bond-Daniel-Craig-Profile.jpg',
+            },
+          },
+        ],
       },
     },
   ],
