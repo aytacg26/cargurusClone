@@ -18,7 +18,7 @@ const LikeReaction = ({ review }) => {
   const [showAllReacts, setShowAllReacts] = useState(false);
   const allReactions = [...reactions.likes, ...reactions.dislikes].sort(
     (a, b) => {
-      return a.date - b.date;
+      return b.date - a.date;
     }
   );
 
