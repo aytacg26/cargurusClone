@@ -1,4 +1,5 @@
 import React, { useState, useMemo, Fragment, lazy, Suspense } from 'react';
+import CardWindow from '../../../../ui/CardWindow/CardWindow';
 import Loader from '../../../../ui/Loader/Loader';
 import Financing from '../../../Financing/Financing';
 import DealerReviews from './DealerReviews/DealerReviews';
@@ -92,6 +93,26 @@ const ProductSection = ({ carDetails, dealerReviews, location, onDelete }) => {
             onDelete={onDelete}
           />
         </div>
+        <CardWindow header='Why Use CarWorld?'>
+          <div className={classes.WhyUse}>
+            <p>
+              We'll help you find great deals among the millions of vehicles
+              available nationwide on CarWorld, and we'll provide you with
+              dealer reviews and vehicle history for each one. After all, over
+              30 million shoppers use CarWorld to find great deals on used cars
+              and new cars in their area. And when it's time to get rid of your
+              old ride, sell your car simply and securely on CarWorld.
+            </p>
+            <p>
+              Once you're ready to narrow down your search results, go ahead and
+              filter by price, mileage, transmission, trim, days on lot,
+              drivetrain, color, engine, options, and deal ratings. And if you
+              only want to see cars with a single owner, recent price drops,
+              photos, or available financing, our filters can help with that
+              too.
+            </p>
+          </div>
+        </CardWindow>
       </div>
       <Suspense fallback={<Loader />}>
         <Modal onClick={handleFinancingModal} hide={hideFinancingModal}>

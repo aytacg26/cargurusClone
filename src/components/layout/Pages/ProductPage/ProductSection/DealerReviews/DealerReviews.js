@@ -59,7 +59,7 @@ const sortBy = [
 ];
 
 const DealerReviews = ({ reviews, header, onDelete }) => {
-  const [sortedReviews, setSortedReviews] = useState(null);
+  const [sortedReviews, setSortedReviews] = useState([]);
   const [showReviews, setShowReviews] = useState(false);
   const [search, setSearch] = useState('');
   const [selectedStar, setSelectedStar] = useState(0);
@@ -90,7 +90,9 @@ const DealerReviews = ({ reviews, header, onDelete }) => {
   }, [reviews, selectedSort]);
 
   if (!reviews || reviews.length === 0) {
-    return <h3>No Reviews For This Dealer Yet.</h3>;
+    return (
+      <h3 className={classes.NoReviews}>No Reviews For This Dealer Yet.</h3>
+    );
   }
 
   const handleReviewShow = () => {
@@ -122,6 +124,19 @@ const DealerReviews = ({ reviews, header, onDelete }) => {
     ? sortedReviews.filter((review) => review.stars === selectedStar)
     : sortedReviews;
 
+  const reviewsUnderConditions = filteredByStar
+    .filter(
+      (review) =>
+        review.text.includes(search) || review.user.fullName.includes(search)
+    )
+    .map((review) => (
+      <UserReview
+        key={review.id}
+        review={review}
+        onDelete={() => onDelete(review.id)}
+      />
+    ));
+
   return (
     <Fragment>
       <div className={classes.Reviews}>
@@ -147,7 +162,6 @@ const DealerReviews = ({ reviews, header, onDelete }) => {
               titleKey='name'
               valueKey='value'
               onSelect={handleSelect}
-              onClick={() => console.log('Clicked...')}
               drop={false}
               name='filter'
               onClear={clearFilter}
@@ -158,7 +172,6 @@ const DealerReviews = ({ reviews, header, onDelete }) => {
               titleKey='name'
               valueKey='value'
               onSelect={handleSort}
-              onClick={() => console.log('Clicked...')}
               drop={false}
               name='filter'
               onClear={clearSort}
@@ -172,19 +185,13 @@ const DealerReviews = ({ reviews, header, onDelete }) => {
             onChange={handleSearch}
           />
 
-          {filteredByStar
-            .filter(
-              (review) =>
-                review.text.includes(search) ||
-                review.user.fullName.includes(search)
-            )
-            .map((review) => (
-              <UserReview
-                key={review.id}
-                review={review}
-                onDelete={() => onDelete(review.id)}
-              />
-            ))}
+          {reviewsUnderConditions.length !== 0 ? (
+            reviewsUnderConditions
+          ) : (
+            <h3 className={classes.NoReviews}>
+              No Reviews under given conditions
+            </h3>
+          )}
         </Fragment>
       )}
     </Fragment>

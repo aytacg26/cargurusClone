@@ -446,7 +446,7 @@ const dealer = {
         profileImage: '',
       },
       stars: 1,
-      text: 'Hacker Aytaç, bütün galericilerin götüne, duttğu arabalar girsin, dingil de arkasından kat kat girsin...',
+      text: 'This site cloned from CarGurus by Aytaç Güley, he is looking for FrontEnd React Developer Job, but until now, no one accepts him as developer and found no job from any vacancy application. On any application, just receives, "We are sorry to inform you that you have not been selected for an interview for this position"... (from junior to senior, from no experience to 4 years experience, all replies are same)',
       reactions: {
         likes: [
           {

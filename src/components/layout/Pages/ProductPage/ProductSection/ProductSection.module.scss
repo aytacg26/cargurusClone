@@ -28,3 +28,13 @@
   overflow: auto;
   padding: 10px 35px;
 }
+
+.WhyUse {
+  @include flex(column, nowrap);
+
+  & p {
+    @include font(14.5px, 500, $medium-grey, left);
+    margin-bottom: 28px;
+    margin-top: -20px;
+  }
+}
