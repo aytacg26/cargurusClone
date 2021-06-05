@@ -34,11 +34,19 @@ const NegotiationCards = ({ listDate, numberOfSaves, priceDrop, currency }) => {
             />
           )
         }
-        circleColor={priceDrop ? 'green' : '#0277bd'}
+        circleColor={
+          priceDrop > 0
+            ? 'green'
+            : priceDrop < 0
+            ? 'rgb(248, 19, 19)'
+            : '#0277bd'
+        }
         header='Price History'
         text={
           priceDrop > 0
             ? `Price dropped by ${currency}${priceDrop}`
+            : priceDrop < 0
+            ? `Price increased by ${currency}${Math.abs(priceDrop)}`
             : 'No price changes'
         }
       />
