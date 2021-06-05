@@ -7,7 +7,7 @@ import ReviewStars from '../../RatingStars/ReviewStars/ReviewStars';
 import TextArea from '../../TextArea/TextArea';
 import classes from './UserReviewCard.module.scss';
 
-const UserReviewCard = ({ review, isEditing, textSubmitted }) => {
+const UserReviewCard = ({ review, isEditing, textSubmitted, textStyle }) => {
   const initText = review.text;
   const [text, setText] = useState(initText);
   const [error, setError] = useState(false);
@@ -48,7 +48,11 @@ const UserReviewCard = ({ review, isEditing, textSubmitted }) => {
         </div>
         <span className={classes.Date}>{formatDate(review.date)}</span>
       </div>
-      {!isEditing && <div className={classes.ReviewText}>{text}</div>}
+      {!isEditing && (
+        <div className={classes.ReviewText} style={textStyle}>
+          {text}
+        </div>
+      )}
       {isEditing && (
         <form className={classes.EditSection} onSubmit={handleSubmit}>
           <TextArea
