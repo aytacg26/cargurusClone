@@ -37,6 +37,70 @@ export const days = (date1, date2) => {
   return null;
 };
 
+export const starObjArray = (rate) => {
+  const numberOfFull = rate <= 5 && rate >= 0 ? Math.trunc(rate) : 5;
+  const remaining = parseFloat((rate - numberOfFull).toFixed(2));
+
+  const content = [];
+
+  for (let i = 0; i < numberOfFull; i++) {
+    content.push({
+      id: uuid(),
+      starType: 'full',
+    });
+  }
+
+  if (numberOfFull < 5 && remaining > 0 && remaining < 1) {
+    content.push({
+      id: uuid(),
+      starType: 'half',
+    });
+  }
+
+  if (content.length < 5) {
+    const remaining = 5 - content.length;
+    for (let j = 0; j < remaining; j++) {
+      content.push({
+        id: uuid(),
+        starType: 'empty',
+      });
+    }
+  }
+
+  return content;
+};
+
+export const hasDealStatus = (dealStatus) => {
+  const good = dealStatus?.toLowerCase() === 'good';
+  const great = dealStatus?.toLowerCase() === 'great';
+  const fair = dealStatus?.toLowerCase() === 'fair';
+  const high = dealStatus?.toLowerCase() === 'high';
+  const overprice = dealStatus?.toLowerCase() === 'overprice';
+  const noanalysis = dealStatus?.toLowerCase() === 'noanalysis';
+  const uncertain = dealStatus?.toLowerCase() === 'uncertain';
+
+  return good || great || fair || high || overprice || noanalysis || uncertain;
+};
+
+export const getCurrencyText = (currency) => {
+  switch (currency.toLowerCase()) {
+    case '$':
+      return 'US Dollar';
+
+    case '€':
+      return 'Euro';
+
+    case '£':
+      return 'UK Pound';
+
+    case '₺':
+      return 'Turkish Lira';
+
+    default:
+      return 'UK Pound';
+  }
+};
+
 /**
  * This function checks if the given argument is a number
  * @param {Number} num - number
@@ -676,69 +740,5 @@ export const getMedia = () => {
     ) {
       return { ...media, matches: true };
     }
-  }
-};
-
-export const starObjArray = (rate) => {
-  const numberOfFull = rate <= 5 && rate >= 0 ? Math.trunc(rate) : 5;
-  const remaining = parseFloat((rate - numberOfFull).toFixed(2));
-
-  const content = [];
-
-  for (let i = 0; i < numberOfFull; i++) {
-    content.push({
-      id: uuid(),
-      starType: 'full',
-    });
-  }
-
-  if (numberOfFull < 5 && remaining > 0 && remaining < 1) {
-    content.push({
-      id: uuid(),
-      starType: 'half',
-    });
-  }
-
-  if (content.length < 5) {
-    const remaining = 5 - content.length;
-    for (let j = 0; j < remaining; j++) {
-      content.push({
-        id: uuid(),
-        starType: 'empty',
-      });
-    }
-  }
-
-  return content;
-};
-
-export const hasDealStatus = (dealStatus) => {
-  const good = dealStatus?.toLowerCase() === 'good';
-  const great = dealStatus?.toLowerCase() === 'great';
-  const fair = dealStatus?.toLowerCase() === 'fair';
-  const high = dealStatus?.toLowerCase() === 'high';
-  const overprice = dealStatus?.toLowerCase() === 'overprice';
-  const noanalysis = dealStatus?.toLowerCase() === 'noanalysis';
-  const uncertain = dealStatus?.toLowerCase() === 'uncertain';
-
-  return good || great || fair || high || overprice || noanalysis || uncertain;
-};
-
-export const getCurrencyText = (currency) => {
-  switch (currency.toLowerCase()) {
-    case '$':
-      return 'US Dollar';
-
-    case '€':
-      return 'Euro';
-
-    case '£':
-      return 'UK Pound';
-
-    case '₺':
-      return 'Turkish Lira';
-
-    default:
-      return 'UK Pound';
   }
 };

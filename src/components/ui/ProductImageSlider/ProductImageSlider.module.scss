@@ -1,0 +1,53 @@
+@import '../../../scss/manifest';
+
+.ImageContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 480px;
+  height: 480px;
+  background-color: $lighter-grey;
+  overflow: hidden;
+}
+
+.MainImageSection {
+  @include flex(row, nowrap, center);
+  max-height: 480px;
+  height: 480px;
+  min-width: 620px;
+  width: 100%;
+  position: relative;
+
+  img {
+    min-width: 100%;
+    height: 480px;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.Thumbnails {
+  @include flex(row, nowrap);
+  max-height: 120px;
+  width: 100%;
+  overflow: hidden;
+  border: 2px solid $dark-grey;
+
+  img {
+    @include border(transparent, solid, null, 1px);
+    width: 109.5px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  img.selected {
+    @include border($site-light-green, solid, null, 1px);
+  }
+}
+
+.Arrows {
+  @include flex(row, nowrap, center, space-between);
+  z-index: 100;
+  width: 100%;
+  height: max-content;
+  position: absolute;
+}

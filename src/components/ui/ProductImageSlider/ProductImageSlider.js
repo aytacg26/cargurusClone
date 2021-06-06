@@ -1,4 +1,7 @@
 import React from 'react';
+import { Fragment } from 'react';
+import DirectionButton from '../DirectionButtons/DirectionButton';
+import classes from './ProductImageSlider.module.scss';
 
 const images = [
   {
@@ -129,8 +132,44 @@ const images = [
   },
 ];
 
-const ProductImageSlider = () => {
-  return <div>This will be our product image slider...</div>;
+const ProductImageSlider = (props) => {
+  return (
+    <Fragment>
+      <div className={classes.ImageContainer}>
+        <div className={classes.MainImageSection}>
+          {images.map((image) => (
+            <img
+              src={image.image}
+              alt={image.title}
+              title={image.title}
+              key={image.id}
+            />
+          ))}
+          <div className={classes.Arrows}>
+            <DirectionButton direction='left' />
+            <DirectionButton direction='right' />
+          </div>
+        </div>
+      </div>
+      <div className={classes.Thumbnails}>
+        {images.map((image) => (
+          <img
+            src={image.image}
+            alt={image.title}
+            title={image.title}
+            key={image.id}
+          />
+        ))}
+      </div>
+    </Fragment>
+  );
 };
 
 export default ProductImageSlider;
+
+/**
+ *
+ *
+ *
+ *
+ */

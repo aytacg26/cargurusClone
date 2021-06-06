@@ -4,12 +4,8 @@
   @include flex(column, nowrap);
   flex: 5;
   padding: 0 10px;
-}
-
-.ImageBox {
-  width: 100%;
-  height: 550px;
-  background-color: $black;
+  width: 700px;
+  max-width: 90vw;
 }
 
 .DetailsText {

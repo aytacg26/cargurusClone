@@ -2,6 +2,7 @@ import React, { useState, useMemo, Fragment, lazy, Suspense } from 'react';
 import { addComma } from '../../../../../utils/utilsFuncs';
 import CardWindow from '../../../../ui/CardWindow/CardWindow';
 import Loader from '../../../../ui/Loader/Loader';
+import ProductImageSlider from '../../../../ui/ProductImageSlider/ProductImageSlider';
 import Financing from '../../../Financing/Financing';
 import DealerReviews from './DealerReviews/DealerReviews';
 import DetailIconsList from './DetailIconsList/DetailIconsList';
@@ -76,7 +77,8 @@ const ProductSection = ({ carDetails, dealer, onDelete, priceDifference }) => {
         currency={carDetails.currency}
       />
       <div className={classes.ProductSection}>
-        <div className={classes.ImageBox}>ImageBox</div>
+        <ProductImageSlider />
+
         <DetailIconsList carDetails={details} header='Vehicle Details' />
         <Financing
           header='Finance in Advance'
