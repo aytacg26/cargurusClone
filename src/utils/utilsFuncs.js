@@ -711,3 +711,15 @@ export const starObjArray = (rate) => {
 
   return content;
 };
+
+export const hasDealStatus = (dealStatus) => {
+  const good = dealStatus?.toLowerCase() === 'good';
+  const great = dealStatus?.toLowerCase() === 'great';
+  const fair = dealStatus?.toLowerCase() === 'fair';
+  const high = dealStatus?.toLowerCase() === 'high';
+  const overprice = dealStatus?.toLowerCase() === 'overprice';
+  const noanalysis = dealStatus?.toLowerCase() === 'noanalysis';
+  const uncertain = dealStatus?.toLowerCase() === 'uncertain';
+
+  return good || great || fair || high || overprice || noanalysis || uncertain;
+};
