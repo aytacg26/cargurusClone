@@ -2,9 +2,9 @@ import React from 'react';
 // import { ImArrowRight } from 'react-icons/im';
 import classes from './DealBadge.module.scss';
 import PropTypes from 'prop-types';
-import { addComma } from '../../../utils/utilsFuncs';
+import { addComma, getCurrencyText } from '../../../utils/utilsFuncs';
 
-const DealBadge = ({ dealStatus, priceDifference, size }) => {
+const DealBadge = ({ dealStatus, priceDifference, size, currency }) => {
   const Good = dealStatus?.toLowerCase() === 'good';
   const Great = dealStatus?.toLowerCase() === 'great';
   const Fair = dealStatus?.toLowerCase() === 'fair';
@@ -47,7 +47,9 @@ const DealBadge = ({ dealStatus, priceDifference, size }) => {
   return (
     <div
       className={classes.BadgeContainer}
-      title={`£${priceDifference} UK Pound ${priceStatus} Market Price`}
+      title={`${currency}${addComma(priceDifference)} ${getCurrencyText(
+        currency
+      )} ${priceStatus} Market Price`}
       style={{ transform: `scale(${size || 1})` }}
     >
       <div className={IconSectionClass} style={{ backgroundColor: dealColor }}>
@@ -58,7 +60,9 @@ const DealBadge = ({ dealStatus, priceDifference, size }) => {
       <div className={classes.DealTextSection}>
         <h3 style={{ color: dealColor }}>{dealText}</h3>
         {priceDifference && !NoAnalysis && !Uncertain && (
-          <span>{`£${addComma(priceDifference)} ${priceStatus}`}</span>
+          <span>{`${currency}${addComma(
+            priceDifference
+          )} ${priceStatus}`}</span>
         )}
       </div>
     </div>

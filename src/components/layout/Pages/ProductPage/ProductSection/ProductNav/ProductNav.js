@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Fragment } from 'react';
+import { getCurrencyText } from '../../../../../../utils/utilsFuncs';
 import Button from '../../../../../ui/Button/Button';
 import Card from '../../../../../ui/Card/Card';
 import DealBadge from '../../../../../ui/DealBadge/DealBadge';
@@ -16,11 +17,10 @@ const ProductNav = ({
   dealer,
   deal,
   priceDifference,
+  currency,
 }) => {
   const [show, setShow] = useState(null);
   const [hideModal, setHideModal] = useState(true);
-
-  console.log(dealer);
 
   useEffect(() => {
     const checkScroll = (e) => {
@@ -65,11 +65,14 @@ const ProductNav = ({
         </div>
         <div className={classes.Buttons}>
           <div className={classes.PriceData}>
-            <span className={classes.Price}>{price}</span>
+            <span className={classes.Price}>{`${price} ${getCurrencyText(
+              currency
+            )}`}</span>
             <DealBadge
               dealStatus={deal}
               priceDifference={priceDifference}
               size={0.8}
+              currency={currency}
             />
           </div>
           <div className={classes.ButtonsSection}>

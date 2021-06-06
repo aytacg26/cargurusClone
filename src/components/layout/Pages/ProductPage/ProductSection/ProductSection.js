@@ -59,8 +59,6 @@ const ProductSection = ({ carDetails, dealer, onDelete, priceDifference }) => {
     ]
   );
 
-  console.log(carDetails);
-
   return (
     <Fragment>
       <ProductNav
@@ -68,10 +66,14 @@ const ProductSection = ({ carDetails, dealer, onDelete, priceDifference }) => {
         image={carDetails.images[0].image}
         productName={carDetails.title}
         milage={carDetails.kilometers}
-        price={`${carDetails.currency}${addComma(carDetails.price)}`}
+        price={`${carDetails.currency}${addComma(
+          carDetails.priceStatistics[carDetails.priceStatistics.length - 1]
+            .price
+        )}`}
         deal={carDetails.dealStatus}
         dealer={dealer}
         priceDifference={priceDifference}
+        currency={carDetails.currency}
       />
       <div className={classes.ProductSection}>
         <div className={classes.ImageBox}>ImageBox</div>

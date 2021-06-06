@@ -11,8 +11,7 @@ import HeaderSection from './HeaderSection/HeaderSection';
 const carDetails = {
   id: '001-897-00123',
   title: 'Toyota Corolla Hybrid LE FWD',
-  price: 16100,
-  currency: '£',
+  currency: '€',
   kilometers: '63,287 km',
   transmission: 'Automatic',
   exteriorColor: 'Classic Silver Metallic',
@@ -187,7 +186,7 @@ const carDetails = {
     {
       id: 'price-00001',
       date: new Date(2019, 1, 23),
-      price: 18900,
+      price: 58900,
     },
     {
       id: 'price-00002',
@@ -212,7 +211,7 @@ const carDetails = {
     {
       id: 'price-00006',
       date: new Date(2021, 6, 16),
-      price: 16100,
+      price: 16700,
     },
   ],
   images: [
@@ -655,6 +654,7 @@ const ProductPage = () => {
             dealStatus={carDetails.dealStatus}
             priceDifference={priceDifference}
             dealer={dealerData}
+            currency={carDetails.currency}
           />
         </div>
       </div>

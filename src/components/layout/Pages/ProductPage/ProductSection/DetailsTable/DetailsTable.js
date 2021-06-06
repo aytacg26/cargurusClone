@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { addComma, getCurrencyText } from '../../../../../../utils/utilsFuncs';
 import ShowHideIcon from '../../../../../ui/ShowHideIcon/ShowHideIcon';
 import Description from './Description/Description';
 import DetailGroup from './DetailGroup/DetailGroup';
@@ -60,7 +61,9 @@ const DetailsTable = ({ details, location }) => {
         >
           <DetailGroup
             label="Dealer's Price"
-            data={`${details.currency}${details.price}`}
+            data={`${details.currency}${addComma(
+              details.priceStatistics[details.priceStatistics.length - 1].price
+            )} ${getCurrencyText(details.currency)}`}
           />
           {location && <DetailGroup label='Location' data={location} />}
           {details.kilometers && (

@@ -15,6 +15,7 @@ const DealerInteraction = ({
   dealStatus,
   priceDifference,
   dealer,
+  currency,
 }) => {
   const showDealBadge = hasDealStatus(dealStatus);
   const showDealCard = showDealBadge || rate || numberOfReviews;
@@ -28,6 +29,7 @@ const DealerInteraction = ({
               <DealBadge
                 dealStatus={dealStatus?.toLowerCase()}
                 priceDifference={priceDifference}
+                currency={currency}
               />
             )}
             <div className={classes.DealerRating}>

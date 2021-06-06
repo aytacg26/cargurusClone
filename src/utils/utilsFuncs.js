@@ -723,3 +723,22 @@ export const hasDealStatus = (dealStatus) => {
 
   return good || great || fair || high || overprice || noanalysis || uncertain;
 };
+
+export const getCurrencyText = (currency) => {
+  switch (currency.toLowerCase()) {
+    case '$':
+      return 'US Dollar';
+
+    case '€':
+      return 'Euro';
+
+    case '£':
+      return 'UK Pound';
+
+    case '₺':
+      return 'Turkish Lira';
+
+    default:
+      return 'UK Pound';
+  }
+};
