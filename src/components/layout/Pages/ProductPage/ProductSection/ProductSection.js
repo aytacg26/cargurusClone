@@ -1,4 +1,5 @@
 import React, { useState, useMemo, Fragment, lazy, Suspense } from 'react';
+import { addComma } from '../../../../../utils/utilsFuncs';
 import CardWindow from '../../../../ui/CardWindow/CardWindow';
 import Loader from '../../../../ui/Loader/Loader';
 import Financing from '../../../Financing/Financing';
@@ -15,9 +16,9 @@ const Modal = lazy(() => import('../../../../ui/Modal/Modal'));
 
 //car details will come from database and we will get this data directly to this component from Redux
 //for test purpose, static data used.
-const ProductSection = ({ carDetails, dealerReviews, location, onDelete }) => {
+const ProductSection = ({ carDetails, dealer, onDelete, priceDifference }) => {
   const [hideFinancingModal, setHideFinancingModal] = useState(true);
-
+  const dealerReviews = dealer.reviews;
   const handleFinancingModal = () => {
     setHideFinancingModal((prevState) => !prevState);
   };
@@ -58,9 +59,20 @@ const ProductSection = ({ carDetails, dealerReviews, location, onDelete }) => {
     ]
   );
 
+  console.log(carDetails);
+
   return (
     <Fragment>
-      <ProductNav onShowFinancing={handleFinancingModal} />
+      <ProductNav
+        onShowFinancing={handleFinancingModal}
+        image={carDetails.images[0].image}
+        productName={carDetails.title}
+        milage={carDetails.kilometers}
+        price={`${carDetails.currency}${addComma(carDetails.price)}`}
+        deal={carDetails.dealStatus}
+        dealer={dealer}
+        priceDifference={priceDifference}
+      />
       <div className={classes.ProductSection}>
         <div className={classes.ImageBox}>ImageBox</div>
         <DetailIconsList carDetails={details} header='Vehicle Details' />
@@ -70,7 +82,10 @@ const ProductSection = ({ carDetails, dealerReviews, location, onDelete }) => {
           btnTitle='See my options'
           btnType='success'
         />
-        <DetailsTable details={carDetails} location={location} />
+        <DetailsTable
+          details={carDetails}
+          location={`${dealer.contact.location}, ${dealer.contact.city}`}
+        />
         <Negotiation
           numberOfSaves={carDetails.numberOfSaves}
           listDate={carDetails.listDate}

@@ -47,11 +47,11 @@ const PriceStatistics = ({ priceStatistics, currency }) => {
         />
       </div>
       <Button
-        btnType='success'
+        btnType={show ? 'primary' : 'success'}
         style={{ height: '35px', fontSize: '12.5px', margin: '10px 0' }}
         onClick={handleChartShow}
       >
-        Show Price History
+        {show ? 'Hide Price History' : 'Show Price History'}
       </Button>
       <div
         className={`${classes.PriceChart} ${

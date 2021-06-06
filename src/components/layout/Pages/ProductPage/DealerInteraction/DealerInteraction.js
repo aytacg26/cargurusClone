@@ -7,6 +7,7 @@ import { BiChat } from 'react-icons/bi';
 import RatingStarPresentation from '../../../../ui/RatingStars/RatingStarPresentation/RatingStarPresentation';
 import MessageForm from '../MessageForm/MessageForm';
 import BusinessCard from '../BusinessCard/BusinessCard';
+import { hasDealStatus } from '../../../../../utils/utilsFuncs';
 
 const DealerInteraction = ({
   rate,
@@ -15,16 +16,7 @@ const DealerInteraction = ({
   priceDifference,
   dealer,
 }) => {
-  const good = dealStatus?.toLowerCase() === 'good';
-  const great = dealStatus?.toLowerCase() === 'great';
-  const fair = dealStatus?.toLowerCase() === 'fair';
-  const high = dealStatus?.toLowerCase() === 'high';
-  const overprice = dealStatus?.toLowerCase() === 'overprice';
-  const noanalysis = dealStatus?.toLowerCase() === 'noanalysis';
-  const uncertain = dealStatus?.toLowerCase() === 'uncertain';
-  const showDealBadge =
-    good || great || fair || high || overprice || noanalysis || uncertain;
-
+  const showDealBadge = hasDealStatus(dealStatus);
   const showDealCard = showDealBadge || rate || numberOfReviews;
 
   return (
@@ -34,13 +26,7 @@ const DealerInteraction = ({
           <div className={classes.DealSection}>
             {showDealBadge && (
               <DealBadge
-                Great={great}
-                Good={good}
-                Fair={fair}
-                HighPrice={high}
-                OverPrice={overprice}
-                NoAnalysis={noanalysis}
-                Uncertain={uncertain}
+                dealStatus={dealStatus?.toLowerCase()}
                 priceDifference={priceDifference}
               />
             )}

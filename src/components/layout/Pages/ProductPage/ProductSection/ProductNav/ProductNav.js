@@ -7,9 +7,20 @@ import Modal from '../../../../../ui/Modal/Modal';
 import MessageForm from '../../MessageForm/MessageForm';
 import classes from './ProductNav.module.scss';
 
-const ProductNav = ({ onShowFinancing }) => {
+const ProductNav = ({
+  onShowFinancing,
+  image,
+  productName,
+  milage,
+  price,
+  dealer,
+  deal,
+  priceDifference,
+}) => {
   const [show, setShow] = useState(null);
   const [hideModal, setHideModal] = useState(true);
+
+  console.log(dealer);
 
   useEffect(() => {
     const checkScroll = (e) => {
@@ -43,21 +54,23 @@ const ProductNav = ({ onShowFinancing }) => {
         <div></div>
         <div className={classes.ProductInfo}>
           <div className={classes.ImageSection}>
-            <img
-              src='https://i.ibb.co/58BzbQx/1991-chevrolet-corvette-pic-1355465292139602171-1024x768.jpg'
-              alt='Product Name'
-              title='Product Name'
-            />
+            <img src={image} alt={productName} title={productName} />
           </div>
           <div className={classes.InfoSection}>
-            <h4>Chevrolet Corvette Coupe RWD</h4>
-            <span>Mileage: 83,089 · Sacramento, CA (4 mi away)</span>
+            <h4>{productName}</h4>
+            <span>
+              Mileage: {milage} · {dealer.contact.location}
+            </span>
           </div>
         </div>
         <div className={classes.Buttons}>
           <div className={classes.PriceData}>
-            <span className={classes.Price}>£12.825</span>
-            <DealBadge Fair priceDifference={1200} size={0.8} />
+            <span className={classes.Price}>{price}</span>
+            <DealBadge
+              dealStatus={deal}
+              priceDifference={priceDifference}
+              size={0.8}
+            />
           </div>
           <div className={classes.ButtonsSection}>
             <Button btnType='success' onClick={handleInfoRequest}>
@@ -77,8 +90,8 @@ const ProductNav = ({ onShowFinancing }) => {
       >
         <Card>
           <MessageForm
-            formHeader='Request Info About <ProductName>'
-            dealerPhone='(0533) 811 01 91'
+            formHeader={`Request Info About ${productName}`}
+            dealerPhone={dealer.contact.phone}
             autoCloseFunction={handleInfoRequest}
           />
         </Card>

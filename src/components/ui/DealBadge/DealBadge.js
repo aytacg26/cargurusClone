@@ -2,18 +2,17 @@ import React from 'react';
 // import { ImArrowRight } from 'react-icons/im';
 import classes from './DealBadge.module.scss';
 import PropTypes from 'prop-types';
+import { addComma } from '../../../utils/utilsFuncs';
 
-const DealBadge = ({
-  Great,
-  Good,
-  Fair,
-  HighPrice,
-  OverPrice,
-  NoAnalysis,
-  Uncertain,
-  priceDifference,
-  size,
-}) => {
+const DealBadge = ({ dealStatus, priceDifference, size }) => {
+  const Good = dealStatus?.toLowerCase() === 'good';
+  const Great = dealStatus?.toLowerCase() === 'great';
+  const Fair = dealStatus?.toLowerCase() === 'fair';
+  const HighPrice = dealStatus?.toLowerCase() === 'high';
+  const OverPrice = dealStatus?.toLowerCase() === 'overprice';
+  const NoAnalysis = dealStatus?.toLowerCase() === 'noanalysis';
+  const Uncertain = dealStatus?.toLowerCase() === 'uncertain';
+
   const dealColor =
     (Great && '#006B00') ||
     (Good && '#009B00') ||
@@ -59,7 +58,7 @@ const DealBadge = ({
       <div className={classes.DealTextSection}>
         <h3 style={{ color: dealColor }}>{dealText}</h3>
         {priceDifference && !NoAnalysis && !Uncertain && (
-          <span>{`£${priceDifference} ${priceStatus}`}</span>
+          <span>{`£${addComma(priceDifference)} ${priceStatus}`}</span>
         )}
       </div>
     </div>
@@ -67,13 +66,7 @@ const DealBadge = ({
 };
 
 DealBadge.propTypes = {
-  Great: PropTypes.bool,
-  Good: PropTypes.bool,
-  Fair: PropTypes.bool,
-  HighPrice: PropTypes.bool,
-  OverPrice: PropTypes.bool,
-  NoAnalysis: PropTypes.bool,
-  Uncertain: PropTypes.bool,
+  dealStatus: PropTypes.string,
 };
 
 export default DealBadge;
