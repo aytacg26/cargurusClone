@@ -1,6 +1,32 @@
 import noImage from '../assets/images/noImageAvailable.png';
 import { v4 as uuid } from 'uuid';
 
+export const chunkArray = (arr, len) => {
+  const chunks = [];
+  let chunk = [];
+  const chunkNum = Math.floor(arr.length / len);
+  const remaining = arr.length % len;
+
+  arr.forEach((el) => {
+    chunk.push(el);
+
+    if (chunk.length === len) {
+      chunks.push(chunk);
+      chunk = [];
+    }
+
+    if (
+      chunks.length === chunkNum &&
+      chunk.length === remaining &&
+      remaining !== 0
+    ) {
+      chunks.push(chunk);
+    }
+  });
+
+  return chunks;
+};
+
 export const formatDate = (
   date,
   locale = 'en-US',
@@ -20,6 +46,35 @@ export const formatDate = (
   }
 
   return null;
+};
+
+export const formatPhone = (phoneNumber, codeLength) => {
+  const numArr = phoneNumber.split('');
+  let formattedCode = `(${[...numArr].slice(0, codeLength).join('')})`;
+  let numberArr = [...numArr].slice(codeLength);
+
+  if (numberArr.length % 2 === 0) {
+    const chunks = chunkArray(numberArr, 2);
+    let formattedNumber = '';
+
+    for (let i = 0; i < chunks.length; i++) {
+      formattedNumber += `${chunks[i].join('')} `;
+    }
+
+    return `${formattedCode} ${formattedNumber}`;
+  } else {
+    const initPart = [...numberArr].slice(0, 3).join('');
+    let remainingChunkArr = chunkArray([...numberArr].slice(3), 2);
+    let formatted = '';
+
+    for (let j = 0; j < remainingChunkArr.length; j++) {
+      formatted += `${remainingChunkArr[j].join('')} `;
+    }
+
+    const formattedPhone = `${initPart} ${formatted.trim()}`;
+
+    return `${formattedCode} ${formattedPhone}`;
+  }
 };
 
 export const days = (date1, date2) => {
@@ -257,32 +312,6 @@ export const loadImage = async (url, elem, setter, defaultImage) => {
     elem.src = url;
     setter && setter(true);
   });
-};
-
-export const chunkArray = (arr, len) => {
-  const chunks = [];
-  let chunk = [];
-  const chunkNum = Math.floor(arr.length / len);
-  const remaining = arr.length % len;
-
-  arr.forEach((el) => {
-    chunk.push(el);
-
-    if (chunk.length === len) {
-      chunks.push(chunk);
-      chunk = [];
-    }
-
-    if (
-      chunks.length === chunkNum &&
-      chunk.length === remaining &&
-      remaining !== 0
-    ) {
-      chunks.push(chunk);
-    }
-  });
-
-  return chunks;
 };
 
 export const numberList = (min, max, step, isObject = true) => {
