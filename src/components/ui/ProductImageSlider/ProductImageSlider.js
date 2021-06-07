@@ -5,9 +5,82 @@ import SliderDot from '../SliderDot/SliderDot';
 import classes from './ProductImageSlider.module.scss';
 import noImage from '../../../assets/images/noImageAvailable.png';
 import Modal from '../Modal/Modal';
+import { BiZoomIn } from 'react-icons/bi';
+import { IoMdCloseCircle } from 'react-icons/io';
+
+const ImageList = ({ images, counter }) => {
+  return images.map((image, index) => (
+    <img
+      src={image.image}
+      alt={image.title}
+      title={image.title}
+      key={image.id}
+      style={{ left: `${(index + 1) * 100 - counter * 100}%` }}
+    />
+  ));
+};
+
+const Arrows = ({ images, counter, onClick }) => {
+  return (
+    <div className={classes.Arrows}>
+      <DirectionButton
+        direction='left'
+        id='left'
+        onClick={onClick}
+        disabled={counter === images.length}
+      />
+      <DirectionButton
+        direction='right'
+        id='right'
+        onClick={onClick}
+        disabled={counter === 1}
+      />
+    </div>
+  );
+};
+
+const SliderDots = ({ showDots, images, counter, onClick }) => {
+  return (
+    <Fragment>
+      {showDots && (
+        <div className={classes.Dots}>
+          {images.map((img, index) => (
+            <SliderDot
+              isActive={index + 1 === counter}
+              key={`dot-${img.id}`}
+              onClick={() => onClick(img.id)}
+            />
+          ))}
+        </div>
+      )}
+    </Fragment>
+  );
+};
+
+const ImageSlide = ({
+  images,
+  counter,
+  onArrowClick,
+  showDots,
+  onDotClick,
+}) => {
+  return (
+    <Fragment>
+      <ImageList images={images} counter={counter} />
+      <Arrows images={images} counter={counter} onClick={onArrowClick} />
+      <SliderDots
+        images={images}
+        counter={counter}
+        onClick={onDotClick}
+        showDots={showDots}
+      />
+    </Fragment>
+  );
+};
 
 const ProductImageSlider = ({ images, showDots, showThumbnails }) => {
   const [counter, setCounter] = useState(1);
+  const [showModal, setShowModal] = useState(false);
 
   if (!images || images?.length === 0) {
     return (
@@ -37,44 +110,25 @@ const ProductImageSlider = ({ images, showDots, showThumbnails }) => {
     setCounter(clickedImg + 1);
   };
 
+  const handleModal = () => {
+    setShowModal((prevState) => !prevState);
+  };
+
   return (
     <Fragment>
       <div className={classes.ImageContainer}>
         <div className={classes.MainImageSection}>
-          {images.map((image, index) => (
-            <img
-              src={image.image}
-              alt={image.title}
-              title={image.title}
-              key={image.id}
-              style={{ left: `${(index + 1) * 100 - counter * 100}%` }}
-            />
-          ))}
-          <div className={classes.Arrows}>
-            <DirectionButton
-              direction='left'
-              id='left'
-              onClick={handleImageSlide}
-              disabled={counter === images.length}
-            />
-            <DirectionButton
-              direction='right'
-              id='right'
-              onClick={handleImageSlide}
-              disabled={counter === 1}
-            />
+          <div className={classes.ImageRightIcon}>
+            <BiZoomIn color='#0277bd' size='35px' onClick={handleModal} />
           </div>
-          {showDots && (
-            <div className={classes.Dots}>
-              {images.map((img, index) => (
-                <SliderDot
-                  isActive={index + 1 === counter}
-                  key={`dot-${img.id}`}
-                  onClick={() => handleThumbClick(img.id)}
-                />
-              ))}
-            </div>
-          )}
+
+          <ImageSlide
+            images={images}
+            counter={counter}
+            showDots={showDots}
+            onArrowClick={handleImageSlide}
+            onDotClick={handleThumbClick}
+          />
         </div>
       </div>
       {showThumbnails && (
@@ -92,19 +146,31 @@ const ProductImageSlider = ({ images, showDots, showThumbnails }) => {
           ))}
         </div>
       )}
-      {/* <Modal>
+      <Modal
+        onClick={handleModal}
+        hide={!showModal}
+        modalStyle={{
+          backgroundColor: 'rgba(255, 255, 255, 0.45)',
+          border: '1px solid #fff',
+        }}
+      >
         <div className={classes.ZoomImages}>
-          {images.map((image, index) => (
-            <img
-              src={image.image}
-              alt={image.title}
-              title={image.title}
-              key={`zoom-${image.id}`}
-              style={{ left: `${(index + 1) * 150 - counter * 150}%` }}
+          <div className={classes.ImageRightIcon}>
+            <IoMdCloseCircle
+              color='#0277bd'
+              size='35px'
+              onClick={handleModal}
             />
-          ))}
+          </div>
+          <ImageSlide
+            images={images}
+            counter={counter}
+            showDots={showDots}
+            onArrowClick={handleImageSlide}
+            onDotClick={handleThumbClick}
+          />
         </div>
-      </Modal> */}
+      </Modal>
     </Fragment>
   );
 };

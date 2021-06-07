@@ -27,6 +27,17 @@
   }
 }
 
+.ImageRightIcon {
+  position: absolute;
+  z-index: 300;
+  top: 10px;
+  right: 15px;
+
+  svg {
+    cursor: pointer;
+  }
+}
+
 .Dots {
   @include flex();
   position: absolute;
@@ -69,15 +80,15 @@
 }
 
 .ZoomImages {
-  @include flex(row, nowrap, center, space-between);
+  @include flex(row, nowrap, center);
   width: 90vw;
-  height: 85vh;
-  padding: 25px;
+  height: 90vh;
   overflow: hidden;
   position: relative;
 
   img {
-    min-width: 100%;
+    width: 85vw;
+    height: 95vh;
     object-fit: contain;
     object-position: center;
     position: absolute;

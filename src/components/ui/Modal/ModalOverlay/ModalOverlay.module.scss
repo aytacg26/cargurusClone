@@ -8,6 +8,8 @@
   padding: 25px;
   z-index: 999;
   background-color: $default-color;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   transform: translate(-50%, -50%);
   border-radius: 10px;
   box-shadow: 5px 5px 6px $shadow-color;
