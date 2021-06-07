@@ -77,7 +77,11 @@ const ProductSection = ({ carDetails, dealer, onDelete, priceDifference }) => {
         currency={carDetails.currency}
       />
       <div className={classes.ProductSection}>
-        <ProductImageSlider />
+        <ProductImageSlider
+          images={carDetails.images}
+          showThumbnails
+          showDots
+        />
 
         <DetailIconsList carDetails={details} header='Vehicle Details' />
         <Financing
