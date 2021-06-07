@@ -6,6 +6,7 @@
   background-color: transparent;
   border-radius: 50%;
   margin: 5px 6px;
+  cursor: pointer;
 
   &.Active {
     border-color: $site-blue;
