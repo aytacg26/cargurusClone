@@ -7,7 +7,7 @@ import { BiChat } from 'react-icons/bi';
 import RatingStarPresentation from '../../../../ui/RatingStars/RatingStarPresentation/RatingStarPresentation';
 import MessageForm from '../MessageForm/MessageForm';
 import BusinessCard from '../BusinessCard/BusinessCard';
-import { hasDealStatus } from '../../../../../utils/utilsFuncs';
+import { formatPhone, hasDealStatus } from '../../../../../utils/utilsFuncs';
 
 const DealerInteraction = ({
   rate,
@@ -65,7 +65,7 @@ const DealerInteraction = ({
       <Card>
         <MessageForm
           formHeader='Contact Dealer'
-          dealerPhone={dealer.contact.phone}
+          dealerPhone={formatPhone(dealer.contact.phone, 4)}
         />
       </Card>
       <Card>
@@ -75,7 +75,7 @@ const DealerInteraction = ({
           location={dealer.contact.location}
           city={dealer.contact.city}
           country={dealer.contact.country}
-          phone={dealer.contact.phone}
+          phone={formatPhone(dealer.contact.phone, 4)}
           address={dealer.contact.address}
           Latitude={dealer.coordinates.Latitude}
           Longitude={dealer.coordinates.Longitude}
