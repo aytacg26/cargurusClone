@@ -1,166 +1,110 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Fragment } from 'react';
 import DirectionButton from '../DirectionButtons/DirectionButton';
+import SliderDot from '../SliderDot/SliderDot';
 import classes from './ProductImageSlider.module.scss';
+import noImage from '../../../assets/images/noImageAvailable.png';
+import Modal from '../Modal/Modal';
 
-const images = [
-  {
-    id: 'product-0001-image-00001',
-    title: 'Toyota Corolla Hybrid Front View',
-    image:
-      'https://i.ibb.co/ws4DttK/2020-toyota-corolla-hybrid-pic-633700878898162623-1024x768.jpg',
-    uploadedAt: new Date(2019, 0, 5),
-  },
-  {
-    id: 'product-0001-image-00002',
-    title: 'Toyota Corolla Hybrid Left-Side View',
-    image:
-      'https://i.ibb.co/ZTy5GLY/2020-toyota-corolla-hybrid-pic-812103716441719274-1024x768.jpg',
-    uploadedAt: new Date(2019, 0, 5),
-  },
-  {
-    id: 'product-0001-image-00003',
-    title: 'Toyota Corolla Hybrid Right-Side View',
-    image:
-      'https://i.ibb.co/0qghpj0/2020-toyota-corolla-hybrid-pic-2159702537516573652-1024x768.jpg',
-    uploadedAt: new Date(2019, 0, 5),
-  },
-  {
-    id: 'product-0001-image-00004',
-    title: 'Toyota Corolla Hybrid Right-Front View',
-    image:
-      'https://i.ibb.co/1Rywrhq/2020-toyota-corolla-hybrid-pic-2335342103311468926-1024x768.jpg',
-    uploadedAt: new Date(2019, 0, 5),
-  },
-  {
-    id: 'product-0001-image-00005',
-    title: 'Toyota Corolla Hybrid Interior From View',
-    image:
-      'https://i.ibb.co/1L78Cbt/2020-toyota-corolla-hybrid-pic-3037144560513971682-1024x768.jpg',
-    uploadedAt: new Date(2019, 0, 5),
-  },
-  {
-    id: 'product-0001-image-00006',
-    title: 'Toyota Corolla Hybrid Interior From View',
-    image:
-      'https://i.ibb.co/XLTJdvr/2020-toyota-corolla-hybrid-pic-3379924917052164203-1024x768.jpg',
-    uploadedAt: new Date(2019, 0, 5),
-  },
-  {
-    id: 'product-0001-image-00007',
-    title: 'Toyota Corolla Hybrid Interior From View',
-    image:
-      'https://i.ibb.co/WWSLSxx/2020-toyota-corolla-hybrid-pic-3389730172740946323-1024x768.jpg',
-    uploadedAt: new Date(2019, 0, 5),
-  },
-  {
-    id: 'product-0001-image-00008',
-    title: 'Toyota Corolla Hybrid Interior Rear View',
-    image:
-      'https://i.ibb.co/2gd8gSC/2020-toyota-corolla-hybrid-pic-3466645674824044783-1024x768.jpg',
-    uploadedAt: new Date(2019, 0, 6),
-  },
-  {
-    id: 'product-0001-image-00009',
-    title: 'Toyota Corolla Hybrid Rear Left View',
-    image:
-      'https://i.ibb.co/YpSzvGV/2020-toyota-corolla-hybrid-pic-3631227820413213050-1024x768.jpg',
-    uploadedAt: new Date(2019, 0, 6),
-  },
-  {
-    id: 'product-0001-image-00010',
-    title: 'Toyota Corolla Hybrid Rear Right View',
-    image:
-      'https://i.ibb.co/VtPQH5d/2020-toyota-corolla-hybrid-pic-4564865743917737521-1024x768.jpg',
-    uploadedAt: new Date(2019, 0, 6),
-  },
-  {
-    id: 'product-0001-image-00011',
-    title: 'Toyota Corolla Hybrid Rear View',
-    image:
-      'https://i.ibb.co/6BhZ4dK/2020-toyota-corolla-hybrid-pic-5137659795071524789-1024x768.jpg',
-    uploadedAt: new Date(2019, 0, 6),
-  },
-  {
-    id: 'product-0001-image-00012',
-    title: 'Toyota Corolla Hybrid Interior View',
-    image:
-      'https://i.ibb.co/ZX2hGCq/2020-toyota-corolla-hybrid-pic-5179240576504413669-1024x768.jpg',
-    uploadedAt: new Date(2019, 0, 6),
-  },
-  {
-    id: 'product-0001-image-00013',
-    title: 'Toyota Corolla Hybrid Interior View',
-    image:
-      'https://i.ibb.co/CMmWCdz/2020-toyota-corolla-hybrid-pic-5751050186694841731-1024x768.jpg',
-    uploadedAt: new Date(2019, 0, 6),
-  },
-  {
-    id: 'product-0001-image-00014',
-    title: 'Toyota Corolla Hybrid trunk View',
-    image:
-      'https://i.ibb.co/GxL0zH2/2020-toyota-corolla-hybrid-pic-6180758910939413874-1024x768.jpg',
-    uploadedAt: new Date(2019, 0, 6),
-  },
-  {
-    id: 'product-0001-image-00015',
-    title: 'Toyota Corolla Hybrid Front Left View',
-    image:
-      'https://i.ibb.co/RTWM57M/2020-toyota-corolla-hybrid-pic-6981589165756025645-1024x768.jpg',
-    uploadedAt: new Date(2019, 0, 6),
-  },
-  {
-    id: 'product-0001-image-00016',
-    title: 'Toyota Corolla Hybrid Front Interior View',
-    image:
-      'https://i.ibb.co/JjzDYyc/2020-toyota-corolla-hybrid-pic-7395130722253800848-1024x768.jpg',
-    uploadedAt: new Date(2019, 0, 6),
-  },
-  {
-    id: 'product-0001-image-00017',
-    title: 'Toyota Corolla Hybrid Rear Seats View',
-    image:
-      'https://i.ibb.co/bKGqttN/2020-toyota-corolla-hybrid-pic-7407104543256135790-1024x768.jpg',
-    uploadedAt: new Date(2019, 0, 6),
-  },
-  {
-    id: 'product-0001-image-00018',
-    title: 'Toyota Corolla Hybrid Front Seats View',
-    image:
-      'https://i.ibb.co/xMBVVDs/2020-toyota-corolla-hybrid-pic-8223146352278701485-1024x768.jpg',
-    uploadedAt: new Date(2019, 0, 6),
-  },
-];
+const ProductImageSlider = ({ images, showDots, showThumbnails }) => {
+  const [counter, setCounter] = useState(1);
 
-const ProductImageSlider = (props) => {
+  if (!images || images?.length === 0) {
+    return (
+      <div className={classes.ImageContainer}>
+        <div className={classes.MainImageSection}>
+          <img
+            src={noImage}
+            title='No Image'
+            alt='Empty'
+            style={{ height: '100%' }}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  const handleImageSlide = (e) => {
+    if (e.target.id === 'left' && counter <= images.length) {
+      setCounter((prevState) => prevState + 1);
+    } else if (e.target.id === 'right' && counter > 0) {
+      setCounter((prevState) => prevState - 1);
+    }
+  };
+
+  const handleThumbClick = (id) => {
+    const clickedImg = images.indexOf(images.filter((img) => img.id === id)[0]);
+    setCounter(clickedImg + 1);
+  };
+
   return (
     <Fragment>
       <div className={classes.ImageContainer}>
         <div className={classes.MainImageSection}>
-          {images.map((image) => (
+          {images.map((image, index) => (
             <img
               src={image.image}
               alt={image.title}
               title={image.title}
               key={image.id}
+              style={{ left: `${(index + 1) * 100 - counter * 100}%` }}
             />
           ))}
           <div className={classes.Arrows}>
-            <DirectionButton direction='left' />
-            <DirectionButton direction='right' />
+            <DirectionButton
+              direction='left'
+              id='left'
+              onClick={handleImageSlide}
+              disabled={counter === images.length}
+            />
+            <DirectionButton
+              direction='right'
+              id='right'
+              onClick={handleImageSlide}
+              disabled={counter === 1}
+            />
           </div>
+          {showDots && (
+            <div className={classes.Dots}>
+              {images.map((img, index) => (
+                <SliderDot
+                  isActive={index + 1 === counter}
+                  key={`dot-${img.id}`}
+                  onClick={() => handleThumbClick(img.id)}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
-      <div className={classes.Thumbnails}>
-        {images.map((image) => (
-          <img
-            src={image.image}
-            alt={image.title}
-            title={image.title}
-            key={image.id}
-          />
-        ))}
-      </div>
+      {showThumbnails && (
+        <div className={classes.Thumbnails}>
+          {images.map((image, index) => (
+            <img
+              src={image.image}
+              alt={image.title}
+              title={image.title}
+              key={`${image.id}-thumb`}
+              style={{ left: `${(index + 1) * 145 - counter * 145}px` }}
+              className={index + 1 === counter ? classes.selected : ''}
+              onClick={() => handleThumbClick(image.id)}
+            />
+          ))}
+        </div>
+      )}
+      {/* <Modal>
+        <div className={classes.ZoomImages}>
+          {images.map((image, index) => (
+            <img
+              src={image.image}
+              alt={image.title}
+              title={image.title}
+              key={`zoom-${image.id}`}
+              style={{ left: `${(index + 1) * 150 - counter * 150}%` }}
+            />
+          ))}
+        </div>
+      </Modal> */}
     </Fragment>
   );
 };
