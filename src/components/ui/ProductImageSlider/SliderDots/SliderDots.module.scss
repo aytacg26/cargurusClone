@@ -1,0 +1,9 @@
+@import '../../../../scss/manifest';
+
+.Dots {
+  @include flex();
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translate(-50%);
+}

@@ -1,0 +1,9 @@
+@import '../../../../scss/manifest';
+
+.Arrows {
+  @include flex(row, nowrap, center, space-between);
+  z-index: 100;
+  width: 100%;
+  height: max-content;
+  position: absolute;
+}

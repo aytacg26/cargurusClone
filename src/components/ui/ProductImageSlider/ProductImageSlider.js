@@ -1,82 +1,12 @@
 import React, { useState } from 'react';
 import { Fragment } from 'react';
-import DirectionButton from '../DirectionButtons/DirectionButton';
-import SliderDot from '../SliderDot/SliderDot';
 import classes from './ProductImageSlider.module.scss';
 import noImage from '../../../assets/images/noImageAvailable.png';
 import Modal from '../Modal/Modal';
 import { BiZoomIn } from 'react-icons/bi';
 import { IoMdCloseCircle } from 'react-icons/io';
-
-const ImageList = ({ images, counter }) => {
-  return images.map((image, index) => (
-    <img
-      src={image.image}
-      alt={image.title}
-      title={image.title}
-      key={image.id}
-      style={{ left: `${(index + 1) * 100 - counter * 100}%` }}
-    />
-  ));
-};
-
-const Arrows = ({ images, counter, onClick }) => {
-  return (
-    <div className={classes.Arrows}>
-      <DirectionButton
-        direction='left'
-        id='left'
-        onClick={onClick}
-        disabled={counter === images.length}
-      />
-      <DirectionButton
-        direction='right'
-        id='right'
-        onClick={onClick}
-        disabled={counter === 1}
-      />
-    </div>
-  );
-};
-
-const SliderDots = ({ showDots, images, counter, onClick }) => {
-  return (
-    <Fragment>
-      {showDots && (
-        <div className={classes.Dots}>
-          {images.map((img, index) => (
-            <SliderDot
-              isActive={index + 1 === counter}
-              key={`dot-${img.id}`}
-              onClick={() => onClick(img.id)}
-            />
-          ))}
-        </div>
-      )}
-    </Fragment>
-  );
-};
-
-const ImageSlide = ({
-  images,
-  counter,
-  onArrowClick,
-  showDots,
-  onDotClick,
-}) => {
-  return (
-    <Fragment>
-      <ImageList images={images} counter={counter} />
-      <Arrows images={images} counter={counter} onClick={onArrowClick} />
-      <SliderDots
-        images={images}
-        counter={counter}
-        onClick={onDotClick}
-        showDots={showDots}
-      />
-    </Fragment>
-  );
-};
+import ImageSlide from './ImageSlide/ImageSlide';
+import ImageList from './ImageList/ImageList';
 
 const ProductImageSlider = ({ images, showDots, showThumbnails }) => {
   const [counter, setCounter] = useState(1);
@@ -133,17 +63,14 @@ const ProductImageSlider = ({ images, showDots, showThumbnails }) => {
       </div>
       {showThumbnails && (
         <div className={classes.Thumbnails}>
-          {images.map((image, index) => (
-            <img
-              src={image.image}
-              alt={image.title}
-              title={image.title}
-              key={`${image.id}-thumb`}
-              style={{ left: `${(index + 1) * 145 - counter * 145}px` }}
-              className={index + 1 === counter ? classes.selected : ''}
-              onClick={() => handleThumbClick(image.id)}
-            />
-          ))}
+          <ImageList
+            counter={counter}
+            images={images}
+            size={145}
+            unit='px'
+            onClick={handleThumbClick}
+            hasSelectionBorder
+          />
         </div>
       )}
       <Modal
