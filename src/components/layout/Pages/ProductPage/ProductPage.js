@@ -605,8 +605,62 @@ const dealer = {
         ],
       },
     },
+    {
+      id: 'review-00008',
+      date: new Date(2021, 3, 15),
+      user: {
+        userId: 'user-001-919-171',
+        fullName: 'Alicia Vikander',
+        gender: 'female',
+        profileImage: 'https://i.ibb.co/V9T3b1h/3-DAYOUTREEF-jumbo.jpg',
+      },
+      stars: 5,
+      text: 'I bought my BMW i8 here, Great car, great service,  great price',
+      reactions: {
+        likes: [
+          {
+            id: 'ld-00001-01346',
+            date: new Date(2021, 3, 17),
+            type: 'like',
+            typeNo: 1,
+            user: {
+              userId: 'user-002-008-123',
+              userName: 'John Doe',
+              profileImage: '',
+            },
+          },
+          {
+            id: 'ld-00002-01832',
+            date: new Date(2021, 3, 18),
+            type: 'like',
+            typeNo: 1,
+            user: {
+              userId: 'user-099-014-413',
+              userName: 'James Bond',
+              profileImage:
+                'https://i.ibb.co/R25Fqjh/James-Bond-Daniel-Craig-Profile.jpg',
+            },
+          },
+          {
+            id: 'ld-00001-01930',
+            date: new Date(2021, 3, 23),
+            type: 'like',
+            typeNo: 1,
+            user: {
+              userId: 'user-004-018-423',
+              userName: 'Elon Musk',
+              profileImage:
+                'https://i.ibb.co/QCwtNkf/Elon-Musk-Royal-Society-crop1.jpg',
+            },
+          },
+        ],
+        dislikes: [],
+      },
+    },
   ],
 };
+
+//<a href="https://ibb.co/PjgtJLb"><img src="https://i.ibb.co/V9T3b1h/3-DAYOUTREEF-jumbo.jpg" alt="3-DAYOUTREEF-jumbo" border="0"></a>
 
 const ProductPage = () => {
   const [dealerData, setDealerData] = useState(dealer);
