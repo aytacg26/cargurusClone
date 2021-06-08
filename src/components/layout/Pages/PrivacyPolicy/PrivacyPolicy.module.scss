@@ -1,0 +1,41 @@
+@import '../../../../scss/manifest';
+
+.PrivacyPolicy {
+  @include flex();
+}
+
+.PrivacyContent {
+  flex: 3;
+  text-align: left;
+  padding: 5px 15px;
+
+  h2 {
+    padding: 15px 0;
+  }
+
+  p {
+    @include font(14.2px, 400, $dark-grey, justify);
+    line-height: 20px;
+  }
+
+  h5 {
+    margin: 15px 0;
+  }
+}
+
+.Contents {
+  padding: 10px 0;
+
+  h4 {
+    margin-bottom: 10px;
+  }
+
+  ol {
+    padding: 0 28px;
+
+    li {
+      @include font(13.5px, 400);
+      padding: 5px 0;
+    }
+  }
+}
