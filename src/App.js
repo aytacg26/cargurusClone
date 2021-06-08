@@ -9,6 +9,7 @@ import Footer from './components/layout/Footer/Footer';
 import Loader from './components/ui/Loader/Loader';
 import TermsOfUse from './components/layout/Pages/TermsOfUse/TermsOfUse';
 import PrivacyPolicy from './components/layout/Pages/PrivacyPolicy/PrivacyPolicy';
+import Products from './components/layout/Pages/Products/Products';
 
 const UsedCars = lazy(() =>
   import('./components/layout/Pages/UsedCars/UsedCars')
@@ -39,6 +40,10 @@ const App = () => {
                 path='/products/:productId'
                 exact
                 render={() => <ProductPage />}
+              />
+              <Route
+                path='/cars/:bodystyle/:section'
+                render={() => <Products />}
               />
             </Switch>
             <Footer />
