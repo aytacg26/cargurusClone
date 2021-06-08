@@ -15,7 +15,9 @@ const carDetails = {
   kilometers: '63,287 km',
   transmission: 'Automatic',
   exteriorColor: 'Classic Silver Metallic',
+  exterionColorCode: 'silver',
   interiorColor: 'All Black',
+  interiorColorCode: 'black',
   gasMileage: ['53 MPG City', '52 MPG Highway', '52 MPG Combined'],
   engine: 'I4 Hybrid',
   horsepower: '115 Hp',
@@ -28,6 +30,8 @@ const carDetails = {
   accidents: 0,
   rentalUse: false,
   autoCheckDate: new Date(2021, 1, 21),
+  bodyStyle: 'sedan',
+  isNew: false,
   majorOptions: [
     {
       id: 'mo-000122-asas',
@@ -659,8 +663,6 @@ const dealer = {
     },
   ],
 };
-
-//<a href="https://ibb.co/PjgtJLb"><img src="https://i.ibb.co/V9T3b1h/3-DAYOUTREEF-jumbo.jpg" alt="3-DAYOUTREEF-jumbo" border="0"></a>
 
 const ProductPage = () => {
   const [dealerData, setDealerData] = useState(dealer);
