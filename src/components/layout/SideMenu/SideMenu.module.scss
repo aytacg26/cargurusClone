@@ -1,0 +1,13 @@
+@import '../../../scss/manifest';
+
+.SideMenu {
+  @include flex(column, nowrap);
+  flex: 1;
+  max-width: 200px;
+  max-height: max-content;
+  padding: 0 25px 0 10px;
+
+  a {
+    @include border($lighter-grey, solid, bottom, 1px);
+  }
+}
