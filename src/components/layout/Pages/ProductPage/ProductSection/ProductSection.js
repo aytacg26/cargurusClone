@@ -107,7 +107,7 @@ const ProductSection = ({ carDetails, dealer, onDelete, priceDifference }) => {
           rentalUse={carDetails.rentalUse}
           autoCheckDate={carDetails.autoCheckDate}
         />
-        <NotifyWindow productId={carDetails.id} />
+        <NotifyWindow productId={carDetails.id} height={260} />
 
         <div id='reviews' className={classes.Reviews}>
           <DealerReviews
