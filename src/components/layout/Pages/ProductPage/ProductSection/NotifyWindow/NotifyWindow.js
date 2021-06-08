@@ -13,7 +13,7 @@ const FormSuccess = lazy(() =>
 
 const Envelope = lazy(() => import('../../../../../ui/Envelope/Envelope'));
 
-const NotifyWindow = ({ productId }) => {
+const NotifyWindow = ({ productId, height }) => {
   const {
     data: email,
     setData: setEmail,
@@ -42,7 +42,7 @@ const NotifyWindow = ({ productId }) => {
 
     if (isValid) {
       const notifyData = {
-        productId,
+        productId: productId ? productId : '',
         email,
         date: new Date(),
       };
@@ -82,7 +82,7 @@ const NotifyWindow = ({ productId }) => {
   );
 
   return (
-    <div className={classes.NotifyWindow}>
+    <div className={classes.NotifyWindow} style={{ height }}>
       {!success && !error && <h5>Notify me when the price drops.</h5>}
       {!success && !error && form}
       {(success || error) && (
