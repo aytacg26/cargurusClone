@@ -62,10 +62,9 @@
 
 .ImageSection img {
   @include transition(all, 1.2s);
+  @include image-fit();
   max-width: 100%;
   height: 300px;
-  object-fit: cover;
-  object-position: center;
   border-radius: 10px 10px 0 0;
 }
 
@@ -118,10 +117,9 @@
   }
 
   .ImageSection img {
+    @include image-fit();
     width: 100%;
     height: 245px;
-    object-fit: cover;
-    object-position: center;
   }
 }
 
@@ -143,10 +141,9 @@
   }
 
   .ImageSection img {
+    @include image-fit();
     width: 100%;
     height: 245px;
-    object-fit: cover;
-    object-position: center;
   }
 }
 
