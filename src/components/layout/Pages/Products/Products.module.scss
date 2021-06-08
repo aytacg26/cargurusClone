@@ -1,0 +1,38 @@
+@import '../../../../scss/manifest';
+
+.HeaderSection {
+  @include font(0.9em, 600, $dark-grey, left);
+  max-width: 100%;
+  padding: 10px 25px;
+  width: max-content;
+}
+
+.FilteredProducts {
+  min-width: 320px;
+  margin: 0 10px 0 0;
+}
+
+.Products {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  gap: 5px;
+  margin: 5px auto;
+
+  max-height: max-content;
+}
+
+.ProductsList {
+  max-width: max-content;
+}
+
+.FilterSection {
+  padding: 10px 0;
+  margin: 24px 5px 8px 0;
+  width: 100%;
+  max-width: 320px;
+}
+
+.Wrapper {
+  @include flex(row, nowrap, null, center);
+  flex: 3;
+}
