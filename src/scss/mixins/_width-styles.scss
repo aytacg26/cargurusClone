@@ -31,3 +31,10 @@
     #{$type}-width: $width;
   }
 }
+
+@mixin image-fit($fitType: cover, $position: center) {
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+}
