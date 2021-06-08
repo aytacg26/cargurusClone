@@ -157,7 +157,7 @@ const bodyList = [
  *  create more performance issue.
  */
 
-const DetailedSearchForm = () => {
+const DetailedSearchForm = ({ section }) => {
   const [selectBrand, setSelectBrand] = useState(false);
   const [selectStartYear, setSelectStartYear] = useState(false);
   const [selectEndYear, setSelectEndYear] = useState(false);
@@ -449,11 +449,11 @@ const DetailedSearchForm = () => {
                 image={body.image}
                 key={body.id}
                 noBorder
-                to={`/${body.title
+                to={`/cars/${body.title
                   .split('/')
                   .join('')
                   .split(' ')[0]
-                  .toLowerCase()}`}
+                  .toLowerCase()}/${section}`}
               />
             ))}
           </div>

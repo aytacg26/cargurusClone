@@ -4,7 +4,9 @@ import ListSection from '../../ListSection/ListSection';
 import RecentActivities from '../../RecentActivities/RecentActivities';
 import DetailedSearchForm from '../../SearchWindow/DetailedSearchForm/DetailedSearchForm';
 import PageContainer from '../PageContainer/PageContainer';
+import { USED_CARS } from '../SectionConstants/SectionConstants';
 import classes from './UsedCars.module.scss';
+
 const popularUsedCars = [
   {
     id: 'popular-used-0001',
@@ -120,7 +122,7 @@ const UsedCars = () => {
   return (
     <PageContainer>
       <div className={classes.FilterArea}>
-        <DetailedSearchForm />
+        <DetailedSearchForm section={USED_CARS} />
       </div>
       <RecentActivities />
       <ListSection
