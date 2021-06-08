@@ -11,6 +11,11 @@
   &:hover {
     color: $site-blue;
   }
+
+  &.active {
+    background-color: $site-blue;
+    color: $default-color;
+  }
 }
 
 .linkImage {

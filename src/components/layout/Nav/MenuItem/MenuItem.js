@@ -12,6 +12,7 @@ const MenuItem = ({
   date,
   isChecked,
   style,
+  active,
 }) => {
   let content = null;
   const [formattedDate, setFormattedDate] = useState('');
@@ -25,7 +26,11 @@ const MenuItem = ({
 
   if (link) {
     content = (
-      <Link to={link} className={classes.Link} onClick={onClick}>
+      <Link
+        to={link}
+        className={`${classes.Link} ${active ? classes.active : ''}`}
+        onClick={onClick}
+      >
         <div className={classes.IconTextSection}>
           {image && (
             <span className={classes.linkImage}>
